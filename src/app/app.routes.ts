@@ -1,10 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import {APP_ROUTING} from './app.routes';
-
-import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import {RouterModule, Routes} from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { GestionDatosComponent } from './components/gestion-datos/gestion-datos.component';
@@ -17,28 +11,19 @@ import { RegionesComponent } from './components/gestion-datos/regiones/regiones.
 import { PaisesComponent } from './components/gestion-datos/paises/paises.component';
 import { ClientesComponent } from './components/gestion-datos/clientes/clientes.component';
 
+const APP_ROUTES: Routes = [
+    {path: 'home', component: HomeComponent},
+    {path: 'proyectos', component: ProyectosComponent},
+    {path: 'gestionDatos', component: GestionDatosComponent},
+    {path: 'controlAcceso', component: ControlAccesoComponent},
+    {path: 'loguin', component: LoguinComponent},
+    {path: 'registar', component: RegistarComponent},
+    {path: 'listar', component: ListarComponent},
+    {path: 'mercados', component: MercadosComponent},
+    {path: 'regiones', component: RegionesComponent},
+    {path: 'paises', component: PaisesComponent},
+    {path: 'clientes', component: ClientesComponent},
+    {path: '**', pathMatch: 'full', redirectTo: 'home' }
+];
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    HomeComponent,
-    ProyectosComponent,
-    GestionDatosComponent,
-    ControlAccesoComponent,
-    LoguinComponent,
-    RegistarComponent,
-    ListarComponent,
-    MercadosComponent,
-    RegionesComponent,
-    PaisesComponent,
-    ClientesComponent,
-     ],
-  imports: [
-    BrowserModule,
-    APP_ROUTING
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
+export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES, {useHash: true});
