@@ -25,6 +25,8 @@ import { NavRegionesComponent } from './components/gestion-datos/regiones/nav-re
 import { CrearPaisComponent } from './components/gestion-datos/paises/crear-pais/crear-pais.component';
 import { ListarPaisComponent } from './components/gestion-datos/paises/listar-pais/listar-pais.component';
 import { NavPaisComponent } from './components/gestion-datos/paises/nav-pais/nav-pais.component';
+import { VisualizarUsuarioComponent } from './components/control-acceso/listar/visualizar-usuario/visualizar-usuario.component';
+import { ModificarUsuarioComponent } from './components/control-acceso/listar/modificar-usuario/modificar-usuario.component';
 
 
 @NgModule({
@@ -51,6 +53,8 @@ import { NavPaisComponent } from './components/gestion-datos/paises/nav-pais/nav
     CrearPaisComponent,
     ListarPaisComponent,
     NavPaisComponent,
+    VisualizarUsuarioComponent,
+    ModificarUsuarioComponent,
      ],
   imports: [
     BrowserModule,

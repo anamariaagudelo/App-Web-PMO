@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css">
 <div class="container ">
     <br>
     <h3 style="text-align: center ">Listado de Usuarios</h3>
@@ -15,124 +16,115 @@
         <tbody>
             <tr>
                 <td>ana_maria.agudelo@implementalsystems.com</td>
-                <td><button type="button " class="btn btn-default btn-sm ">
-                          <span class="glyphicon glyphicon-eye-open "></span> Visualizar
-                        </button>
+                <td> <button [routerLink]="['/visualizarUsuario']" class="btn btn-outline-primary ">
+                        <span class="glyphicon glyphicon-eye-open"></span> Visualizar
+                      </button>
                 </td>
-                <td><button type="button " class="btn btn-default btn-sm ">
-                          <span class="glyphicon glyphicon-eye-open "></span> Modificar
-                        </button>
-                </td>
-                <td><button type="button " class="btn btn-default btn-sm ">
-                          <span class="glyphicon glyphicon-eye-open "></span> Inhabilitar
-                        </button>
-                </td>
-            </tr>
-            <tr>
-                <td>ana_maria.agudelo@implementalsystems.com</td>
-                <td><button type="button " class="btn btn-default btn-sm ">
-                          <span class="glyphicon glyphicon-eye-open "></span> Visualizar
-                        </button>
-                </td>
-                <td><button type="button " class="btn btn-default btn-sm ">
-                          <span class="glyphicon glyphicon-eye-open "></span> Modificar
-                        </button>
-                </td>
-                <td><button type="button " class="btn btn-default btn-sm ">
-                          <span class="glyphicon glyphicon-eye-open "></span> Inhabilitar
-                        </button>
-                </td>
-            </tr>
-            <tr>
-                <td>ana_maria.agudelo@implementalsystems.com</td>
-                <td><button type="button " class="btn btn-default btn-sm ">
-                              <span class="glyphicon glyphicon-eye-open "></span> Visualizar
-                            </button>
-                </td>
-                <td><button type="button " class="btn btn-default btn-sm ">
-                              <span class="glyphicon glyphicon-eye-open "></span> Modificar
-                            </button>
-                </td>
-                <td><button type="button " class="btn btn-default btn-sm ">
-                              <span class="glyphicon glyphicon-eye-open "></span> Inhabilitar
-                            </button>
-                </td>
-            </tr>
-            <tr>
-                <td>ana_maria.agudelo@implementalsystems.com</td>
-                <td><button type="button " class="btn btn-default btn-sm ">
-                                  <span class="glyphicon glyphicon-eye-open "></span> Visualizar
-                                </button>
-                </td>
-                <td><button type="button " class="btn btn-default btn-sm ">
-                                  <span class="glyphicon glyphicon-eye-open "></span> Modificar
-                                </button>
-                </td>
-                <td><button type="button " class="btn btn-default btn-sm ">
-                                  <span class="glyphicon glyphicon-eye-open "></span> Inhabilitar
-                                </button>
-                </td>
-            </tr>
-            <tr>
-                <td>ana_maria.agudelo@implementalsystems.com</td>
-                <td><button type="button " class="btn btn-default btn-sm ">
-                                      <span class="glyphicon glyphicon-eye-open "></span> Visualizar
-                                    </button>
-                </td>
-                <td><button type="button " class="btn btn-default btn-sm ">
-                                      <span class="glyphicon glyphicon-eye-open "></span> Modificar
-                                    </button>
-                </td>
-                <td><button type="button " class="btn btn-default btn-sm ">
-                                      <span class="glyphicon glyphicon-eye-open "></span> Inhabilitar
-                                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>ana_maria.agudelo@implementalsystems.com</td>
-                <td><button type="button " class="btn btn-default btn-sm ">
-                                          <span class="glyphicon glyphicon-eye-open "></span> Visualizar
-                                        </button>
-                </td>
-                <td><button type="button " class="btn btn-default btn-sm ">
-                                          <span class="glyphicon glyphicon-eye-open "></span> Modificar
-                                        </button>
-                </td>
-                <td><button type="button " class="btn btn-default btn-sm ">
-                                          <span class="glyphicon glyphicon-eye-open "></span> Inhabilitar
-                                        </button>
-                </td>
-            </tr>
-            <tr>
-                <td>ana_maria.agudelo@implementalsystems.com</td>
-                <td><button type="button " class="btn btn-default btn-sm ">
-                                              <span class="glyphicon glyphicon-eye-open "></span> Visualizar
-                                            </button>
-                </td>
-                <td><button type="button " class="btn btn-default btn-sm ">
-                                              <span class="glyphicon glyphicon-eye-open "></span> Modificar
-                                            </button>
-                </td>
-                <td><button type="button " class="btn btn-default btn-sm ">
-                                              <span class="glyphicon glyphicon-eye-open "></span> Inhabilitar
-                                            </button>
-                </td>
-            </tr>
-            <tr>
-                <td>ana_maria.agudelo@implementalsystems.com</td>
-                <td><button type="button " class="btn btn-default btn-sm ">
-                                                  <span class="glyphicon glyphicon-eye-open "></span> Visualizar
-                                                </button>
-                </td>
-                <td><button type="button " class="btn btn-default btn-sm ">
-                                                  <span class="glyphicon glyphicon-eye-open "></span> Modificar
-                                                </button>
-                </td>
-                <td><button type="button " class="btn btn-default btn-sm ">
-                                                  <span class="glyphicon glyphicon-eye-open "></span> Inhabilitar
-                                                </button>
-                </td>
-            </tr>
+                <td><button [routerLink]="['/modificarUsuario']" class="btn btn-outline-primary ">
+                    <span class="glyphicon glyphicon-pencil"></span> Modificar
+                  </button>
 
+                </td>
+                <td><button [routerLink]="['/#']" class="btn btn-outline-primary ">
+                    <span class="glyphicon glyphicon-remove"></span> Inhabilitar
+                  </button>
+                </td>
+            </tr>
+            <tr>
+                <td>ana_maria.agudelo@implementalsystems.com</td>
+                <td> <button [routerLink]="['/visualizarUsuario']" class="btn btn-outline-primary ">
+                            <span class="glyphicon glyphicon-eye-open"></span> Visualizar
+                          </button>
+                </td>
+                <td><button [routerLink]="['/modificarUsuario']" class="btn btn-outline-primary ">
+                        <span class="glyphicon glyphicon-pencil"></span> Modificar
+                      </button>
+
+                </td>
+                <td><button [routerLink]="['/#']" class="btn btn-outline-primary ">
+                        <span class="glyphicon glyphicon-remove"></span> Inhabilitar
+                      </button>
+                </td>
+            </tr>
+            <tr>
+                <td>ana_maria.agudelo@implementalsystems.com</td>
+                <td> <button [routerLink]="['/visualizarUsuario']" class="btn btn-outline-primary ">
+                                <span class="glyphicon glyphicon-eye-open"></span> Visualizar
+                              </button>
+                </td>
+                <td><button [routerLink]="['/modificarUsuario']" class="btn btn-outline-primary ">
+                            <span class="glyphicon glyphicon-pencil"></span> Modificar
+                          </button>
+
+                </td>
+                <td><button [routerLink]="['/#']" class="btn btn-outline-primary ">
+                            <span class="glyphicon glyphicon-remove"></span> Inhabilitar
+                          </button>
+                </td>
+            </tr>
+            <tr>
+                <td>ana_maria.agudelo@implementalsystems.com</td>
+                <td> <button [routerLink]="['/visualizarUsuario']" class="btn btn-outline-primary ">
+                                    <span class="glyphicon glyphicon-eye-open"></span> Visualizar
+                                  </button>
+                </td>
+                <td><button [routerLink]="['/modificarUsuario']" class="btn btn-outline-primary ">
+                                <span class="glyphicon glyphicon-pencil"></span> Modificar
+                              </button>
+
+                </td>
+                <td><button [routerLink]="['/#']" class="btn btn-outline-primary ">
+                                <span class="glyphicon glyphicon-remove"></span> Inhabilitar
+                              </button>
+                </td>
+            </tr>
+            <tr>
+                <td>ana_maria.agudelo@implementalsystems.com</td>
+                <td> <button [routerLink]="['/visualizarUsuario']" class="btn btn-outline-primary ">
+                                        <span class="glyphicon glyphicon-eye-open"></span> Visualizar
+                                      </button>
+                </td>
+                <td><button [routerLink]="['/modificarUsuario']" class="btn btn-outline-primary ">
+                                    <span class="glyphicon glyphicon-pencil"></span> Modificar
+                                  </button>
+
+                </td>
+                <td><button [routerLink]="['/#']" class="btn btn-outline-primary ">
+                                    <span class="glyphicon glyphicon-remove"></span> Inhabilitar
+                                  </button>
+                </td>
+            </tr>
+            <tr>
+                <td>ana_maria.agudelo@implementalsystems.com</td>
+                <td> <button [routerLink]="['/visualizarUsuario']" class="btn btn-outline-primary ">
+                                            <span class="glyphicon glyphicon-eye-open"></span> Visualizar
+                                          </button>
+                </td>
+                <td><button [routerLink]="['/modificarUsuario']" class="btn btn-outline-primary ">
+                                        <span class="glyphicon glyphicon-pencil"></span> Modificar
+                                      </button>
+
+                </td>
+                <td><button [routerLink]="['/#']" class="btn btn-outline-primary ">
+                                        <span class="glyphicon glyphicon-remove"></span> Inhabilitar
+                                      </button>
+                </td>
+            </tr>
+            <tr>
+                <td>ana_maria.agudelo@implementalsystems.com</td>
+                <td> <button [routerLink]="['/visualizarUsuario']" class="btn btn-outline-primary ">
+                                                <span class="glyphicon glyphicon-eye-open"></span> Visualizar
+                                              </button>
+                </td>
+                <td><button [routerLink]="['/modificarUsuario']" class="btn btn-outline-primary ">
+                                            <span class="glyphicon glyphicon-pencil"></span> Modificar
+                                          </button>
+
+                </td>
+                <td><button [routerLink]="['/#']" class="btn btn-outline-primary ">
+                                            <span class="glyphicon glyphicon-remove"></span> Inhabilitar
+                                          </button>
+                </td>
+            </tr>
         </tbody>
     </table>

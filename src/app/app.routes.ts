@@ -16,6 +16,8 @@ import { CrearRegionComponent } from './components/gestion-datos/regiones/crear-
 import { ListarRegionComponent } from './components/gestion-datos/regiones/listar-region/listar-region.component';
 import { CrearPaisComponent } from './components/gestion-datos/paises/crear-pais/crear-pais.component';
 import { ListarPaisComponent } from './components/gestion-datos/paises/listar-pais/listar-pais.component';
+import { VisualizarUsuarioComponent } from './components/control-acceso/listar/visualizar-usuario/visualizar-usuario.component';
+import { ModificarUsuarioComponent } from './components/control-acceso/listar/modificar-usuario/modificar-usuario.component';
 
 const APP_ROUTES: Routes = [
     {path: 'home', component: HomeComponent},
@@ -35,6 +37,8 @@ const APP_ROUTES: Routes = [
     {path: 'listarRegion', component: ListarRegionComponent},
     {path: 'crearPais', component: CrearPaisComponent},
     {path: 'listarPais', component: ListarPaisComponent},
+    {path: 'visualizarUsuario', component: VisualizarUsuarioComponent},
+    {path: 'modificarUsuario', component:  ModificarUsuarioComponent},
     {path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 
