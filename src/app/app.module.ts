@@ -27,6 +27,15 @@ import { ListarPaisComponent } from './components/gestion-datos/paises/listar-pa
 import { NavPaisComponent } from './components/gestion-datos/paises/nav-pais/nav-pais.component';
 import { VisualizarUsuarioComponent } from './components/control-acceso/listar/visualizar-usuario/visualizar-usuario.component';
 import { ModificarUsuarioComponent } from './components/control-acceso/listar/modificar-usuario/modificar-usuario.component';
+// tslint:disable-next-line:max-line-length
+import { VisualizarMercadoComponent } from './components/gestion-datos/mercados/listar-mercado/visualizar-mercado/visualizar-mercado.component';
+// tslint:disable-next-line:max-line-length
+import { ModificarMercadoComponent } from './components/gestion-datos/mercados/listar-mercado/modificar-mercado/modificar-mercado.component';
+import { VisualizarRegionComponent } from './components/gestion-datos/regiones/listar-region/visualizar-region/visualizar-region.component';
+import { ModificarRegionComponent } from './components/gestion-datos/regiones/listar-region/modificar-region/modificar-region.component';
+import { VisualizarPaisComponent } from './components/gestion-datos/paises/listar-pais/visualizar-pais/visualizar-pais.component';
+import { ModificarPaisComponent } from './components/gestion-datos/paises/listar-pais/modificar-pais/modificar-pais.component';
+
 
 
 @NgModule({
@@ -55,6 +64,13 @@ import { ModificarUsuarioComponent } from './components/control-acceso/listar/mo
     NavPaisComponent,
     VisualizarUsuarioComponent,
     ModificarUsuarioComponent,
+    VisualizarMercadoComponent,
+    ModificarMercadoComponent,
+    VisualizarRegionComponent,
+    ModificarRegionComponent,
+    VisualizarPaisComponent,
+    ModificarPaisComponent,
+
      ],
   imports: [
     BrowserModule,
