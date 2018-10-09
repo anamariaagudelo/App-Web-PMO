@@ -11,8 +11,13 @@
             <li class="nav-item" routerLinkActive="Active">
                 <a class="nav-link active" [routerLink]="['home']"><small><b>INICIO</b></small></a>
             </li>
-            <li class="nav-item" routerLinkActive="Active">
-                <a class="nav-link" [routerLink]="['proyectos']"><small><b>PROYECTOS</b></small></a>
+            <li class="nav-item dropdown" routerLinkActive="Active">
+                <a class="nav-link dropdown-toggle" [routerLink]="['proyectos']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><small><b>PROYECTOS</b></small></a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#registar">NUEVO PROYECTO</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#listar">LISTA PROYECTOS</a>
+                </div>
             </li>
             <li class="nav-item dropdown" routerLinkActive="Active">
                 <a class="nav-link dropdown-toggle" [routerLink]="['gestionDatos']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><small><b>GESTION DATOS</b></small>
