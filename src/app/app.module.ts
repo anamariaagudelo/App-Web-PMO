@@ -35,6 +35,13 @@ import { VisualizarRegionComponent } from './components/gestion-datos/regiones/l
 import { ModificarRegionComponent } from './components/gestion-datos/regiones/listar-region/modificar-region/modificar-region.component';
 import { VisualizarPaisComponent } from './components/gestion-datos/paises/listar-pais/visualizar-pais/visualizar-pais.component';
 import { ModificarPaisComponent } from './components/gestion-datos/paises/listar-pais/modificar-pais/modificar-pais.component';
+import { NuevoProyectoComponent } from './components/proyectos/nuevo-proyecto/nuevo-proyecto.component';
+import { ListarProyectoComponent } from './components/proyectos/listar-proyecto/listar-proyecto.component';
+import { NavUsuariosComponent } from './components/control-acceso/nav-usuarios/nav-usuarios.component';
+import { NavProyectosComponent } from './components/proyectos/nav-proyectos/nav-proyectos.component';
+import { CrearClienteComponent } from './components/gestion-datos/clientes/crear-cliente/crear-cliente.component';
+import { ListarClienteComponent } from './components/gestion-datos/clientes/listar-cliente/listar-cliente.component';
+import { NavClientesComponent } from './components/gestion-datos/clientes/nav-clientes/nav-clientes.component';
 
 
 
@@ -70,6 +77,13 @@ import { ModificarPaisComponent } from './components/gestion-datos/paises/listar
     ModificarRegionComponent,
     VisualizarPaisComponent,
     ModificarPaisComponent,
+    NuevoProyectoComponent,
+    ListarProyectoComponent,
+    NavUsuariosComponent,
+    NavProyectosComponent,
+    CrearClienteComponent,
+    ListarClienteComponent,
+    NavClientesComponent,
 
      ],
   imports: [

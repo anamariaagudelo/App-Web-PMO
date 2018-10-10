@@ -26,6 +26,10 @@ import { VisualizarRegionComponent } from './components/gestion-datos/regiones/l
 import { ModificarRegionComponent } from './components/gestion-datos/regiones/listar-region/modificar-region/modificar-region.component';
 import { VisualizarPaisComponent } from './components/gestion-datos/paises/listar-pais/visualizar-pais/visualizar-pais.component';
 import { ModificarPaisComponent } from './components/gestion-datos/paises/listar-pais/modificar-pais/modificar-pais.component';
+import { NuevoProyectoComponent } from './components/proyectos/nuevo-proyecto/nuevo-proyecto.component';
+import { ListarProyectoComponent } from './components/proyectos/listar-proyecto/listar-proyecto.component';
+import { CrearClienteComponent } from './components/gestion-datos/clientes/crear-cliente/crear-cliente.component';
+import { ListarClienteComponent } from './components/gestion-datos/clientes/listar-cliente/listar-cliente.component';
 
 const APP_ROUTES: Routes = [
     {path: 'home', component: HomeComponent},
@@ -53,6 +57,9 @@ const APP_ROUTES: Routes = [
     {path: 'modificarRegion', component:  ModificarRegionComponent},
     {path: 'visualizarPais', component:  VisualizarPaisComponent},
     {path: 'modificarPais', component:  ModificarPaisComponent},
+    {path: 'nuevoProyecto', component:  NuevoProyectoComponent},
+    {path: 'crearCliente', component:  CrearClienteComponent},
+    {path: 'listarCliente', component:  ListarClienteComponent},
     {path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 
