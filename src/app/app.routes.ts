@@ -58,6 +58,7 @@ const APP_ROUTES: Routes = [
     {path: 'visualizarPais', component:  VisualizarPaisComponent},
     {path: 'modificarPais', component:  ModificarPaisComponent},
     {path: 'nuevoProyecto', component:  NuevoProyectoComponent},
+    {path: 'listarProyecto', component:  ListarProyectoComponent},
     {path: 'crearCliente', component:  CrearClienteComponent},
     {path: 'listarCliente', component:  ListarClienteComponent},
     {path: '**', pathMatch: 'full', redirectTo: 'home' }
