@@ -30,6 +30,12 @@ import { NuevoProyectoComponent } from './components/proyectos/nuevo-proyecto/nu
 import { ListarProyectoComponent } from './components/proyectos/listar-proyecto/listar-proyecto.component';
 import { CrearClienteComponent } from './components/gestion-datos/clientes/crear-cliente/crear-cliente.component';
 import { ListarClienteComponent } from './components/gestion-datos/clientes/listar-cliente/listar-cliente.component';
+// tslint:disable-next-line:max-line-length
+import { VisualizarClienteComponent } from './components/gestion-datos/clientes/listar-cliente/visualizar-cliente/visualizar-cliente.component';
+// tslint:disable-next-line:max-line-length
+import { ModificarClienteComponent } from './components/gestion-datos/clientes/listar-cliente/modificar-cliente/modificar-cliente.component';
+
+
 
 const APP_ROUTES: Routes = [
     {path: 'home', component: HomeComponent},
@@ -40,9 +46,9 @@ const APP_ROUTES: Routes = [
     {path: 'registar', component: RegistarComponent},
     {path: 'listar', component: ListarComponent},
     {path: 'mercados', component: MercadosComponent},
+    {path: 'clientes', component: ClientesComponent},
     {path: 'regiones', component: RegionesComponent},
     {path: 'paises', component: PaisesComponent},
-    {path: 'clientes', component: ClientesComponent},
     {path: 'crearMercado', component: CrearMercadoComponent},
     {path: 'listarMercado', component: ListarMercadoComponent},
     {path: 'crearRegion', component: CrearRegionComponent},
@@ -59,8 +65,10 @@ const APP_ROUTES: Routes = [
     {path: 'modificarPais', component:  ModificarPaisComponent},
     {path: 'nuevoProyecto', component:  NuevoProyectoComponent},
     {path: 'listarProyecto', component:  ListarProyectoComponent},
-    {path: 'crearCliente', component:  CrearClienteComponent},
-    {path: 'listarCliente', component:  ListarClienteComponent},
+    {path: 'crearCliente', component:  CrearClienteComponent },
+    {path: 'listarCliente', component:  ListarClienteComponent },
+    {path: 'visualizarCliente', component:  VisualizarClienteComponent},
+    {path: 'modificarCliente', component:  ModificarClienteComponent},
     {path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 

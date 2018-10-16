@@ -15,7 +15,6 @@ import { ListarComponent } from './components/control-acceso/listar/listar.compo
 import { MercadosComponent } from './components/gestion-datos/mercados/mercados.component';
 import { RegionesComponent } from './components/gestion-datos/regiones/regiones.component';
 import { PaisesComponent } from './components/gestion-datos/paises/paises.component';
-import { ClientesComponent } from './components/gestion-datos/clientes/clientes.component';
 import { NavMercadosComponent } from './components/gestion-datos/mercados/nav-mercados/nav-mercados.component';
 import { CrearMercadoComponent } from './components/gestion-datos/mercados/crear-mercado/crear-mercado.component';
 import { ListarMercadoComponent } from './components/gestion-datos/mercados/listar-mercado/listar-mercado.component';
@@ -39,9 +38,16 @@ import { NuevoProyectoComponent } from './components/proyectos/nuevo-proyecto/nu
 import { ListarProyectoComponent } from './components/proyectos/listar-proyecto/listar-proyecto.component';
 import { NavUsuariosComponent } from './components/control-acceso/nav-usuarios/nav-usuarios.component';
 import { NavProyectosComponent } from './components/proyectos/nav-proyectos/nav-proyectos.component';
+import { ClientesComponent } from './components/gestion-datos/clientes/clientes.component';
 import { CrearClienteComponent } from './components/gestion-datos/clientes/crear-cliente/crear-cliente.component';
 import { ListarClienteComponent } from './components/gestion-datos/clientes/listar-cliente/listar-cliente.component';
 import { NavClientesComponent } from './components/gestion-datos/clientes/nav-clientes/nav-clientes.component';
+// tslint:disable-next-line:max-line-length
+import { VisualizarClienteComponent } from './components/gestion-datos/clientes/listar-cliente/visualizar-cliente/visualizar-cliente.component';
+// tslint:disable-next-line:max-line-length
+import { ModificarClienteComponent } from './components/gestion-datos/clientes/listar-cliente/modificar-cliente/modificar-cliente.component';
+
+
 
 
 
@@ -59,7 +65,6 @@ import { NavClientesComponent } from './components/gestion-datos/clientes/nav-cl
     MercadosComponent,
     RegionesComponent,
     PaisesComponent,
-    ClientesComponent,
     NavMercadosComponent,
     CrearMercadoComponent,
     ListarMercadoComponent,
@@ -81,10 +86,12 @@ import { NavClientesComponent } from './components/gestion-datos/clientes/nav-cl
     ListarProyectoComponent,
     NavUsuariosComponent,
     NavProyectosComponent,
+    ClientesComponent,
     CrearClienteComponent,
     ListarClienteComponent,
     NavClientesComponent,
-
+    VisualizarClienteComponent,
+    ModificarClienteComponent,
      ],
   imports: [
     BrowserModule,
