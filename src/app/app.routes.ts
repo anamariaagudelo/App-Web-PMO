@@ -34,6 +34,10 @@ import { ListarClienteComponent } from './components/gestion-datos/clientes/list
 import { VisualizarClienteComponent } from './components/gestion-datos/clientes/listar-cliente/visualizar-cliente/visualizar-cliente.component';
 // tslint:disable-next-line:max-line-length
 import { ModificarClienteComponent } from './components/gestion-datos/clientes/listar-cliente/modificar-cliente/modificar-cliente.component';
+import { VisualizarProyectoComponent } from './components/proyectos/listar-proyecto/visualizar-proyecto/visualizar-proyecto.component';
+import { ModificarProyectoComponent } from './components/proyectos/listar-proyecto/modificar-proyecto/modificar-proyecto.component';
+
+
 
 
 
@@ -69,6 +73,8 @@ const APP_ROUTES: Routes = [
     {path: 'listarCliente', component:  ListarClienteComponent },
     {path: 'visualizarCliente', component:  VisualizarClienteComponent},
     {path: 'modificarCliente', component:  ModificarClienteComponent},
+    {path: 'visualizarProyecto', component:  VisualizarProyectoComponent },
+    {path: 'modificarProyecto', component:  ModificarProyectoComponent },
     {path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 

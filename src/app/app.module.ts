@@ -46,6 +46,8 @@ import { NavClientesComponent } from './components/gestion-datos/clientes/nav-cl
 import { VisualizarClienteComponent } from './components/gestion-datos/clientes/listar-cliente/visualizar-cliente/visualizar-cliente.component';
 // tslint:disable-next-line:max-line-length
 import { ModificarClienteComponent } from './components/gestion-datos/clientes/listar-cliente/modificar-cliente/modificar-cliente.component';
+import { VisualizarProyectoComponent } from './components/proyectos/listar-proyecto/visualizar-proyecto/visualizar-proyecto.component';
+import { ModificarProyectoComponent } from './components/proyectos/listar-proyecto/modificar-proyecto/modificar-proyecto.component';
 
 
 
@@ -92,6 +94,8 @@ import { ModificarClienteComponent } from './components/gestion-datos/clientes/l
     NavClientesComponent,
     VisualizarClienteComponent,
     ModificarClienteComponent,
+    VisualizarProyectoComponent,
+    ModificarProyectoComponent,
      ],
   imports: [
     BrowserModule,
