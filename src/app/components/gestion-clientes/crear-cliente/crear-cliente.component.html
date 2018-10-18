@@ -7,3 +7,65 @@
     <router-outlet></router-outlet>
 
 </div>
+<br>
+<br>
+<div class="card bg-light mb-3" style="max-width: 80rem;">
+    <div class="container">
+        <form class="px-4 py-3">
+            <form role="form" id="register-form" autocomplete="off">
+                <div class="form-header">
+                    <h3 style="text-align: center" class="form-title"><i class="fa fa-user"></i> Formulario Nuevo Cliente</h3>
+                    <hr>
+                    <br>
+                </div>
+
+                <div class="form-body">
+                    <div class="form-group">
+                        <label for="exampleDropdownFormEmail1">Código Cliente</label>
+                        <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="Código">
+                        <span class="help-block" id="error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleDropdownFormEmail1">Nombre Cliente</label>
+                        <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="Nombre">
+                        <span class="help-block" id="error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleDropdownFormEmail1">Descripción</label>
+                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                    </div>
+
+                    <label for="exampleDropdownFormEmail1">Región</label>
+                    <select class="custom-select" id="inputGroupSelect01">         
+                            <option selected>Seleccione una Región</option>
+                            <option value="1">Europa</option>
+                            <option value="2">Latinoamerica</option>
+                            <option value="2">Africa</option>
+                          </select>
+
+                    <label for="exampleDropdownFormEmail1">País</label>
+                    <select class="custom-select" id="inputGroupSelect01">         
+                            <option selected>Seleccione un País</option>
+                            <option value="1">Colombia</option>
+                            <option value="2">España</option>
+                            <option value="2">Ecuador</option>
+                            <option value="3">Chile</option>
+                          </select>
+
+                    <label for="exampleDropdownFormEmail1">Mercado</label>
+                    <select class="custom-select" id="inputGroupSelect01">         
+                            <option selected>Seleccione un mercado</option>
+                            <option value="1">Telcom</option>
+                            <option value="2">Electricas</option>
+                            <option value="2">Productos Internos</option>
+                          </select>
+                </div>
+                <br>
+                <div class="form-footer">
+                    <button type="submit" class=" btn btn-primary btn-block "><span class="glyphicon glyphicon-log-in "></span> Registrar</button>
+                    <hr>
+                </div>
+            </form>
+        </form>
+    </div>
+</div>

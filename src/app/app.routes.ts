@@ -14,6 +14,8 @@ import { ModificarProyectoComponent } from './components/proyectos/listar-proyec
 import { GestionClientesComponent } from './components/gestion-clientes/gestion-clientes.component';
 import { CrearClienteComponent } from './components/gestion-clientes/crear-cliente/crear-cliente.component';
 import { ListarClienteComponent } from './components/gestion-clientes/listar-cliente/listar-cliente.component';
+import { VisualizarClienteComponent } from './components/gestion-clientes/listar-cliente/visualizar-cliente/visualizar-cliente.component';
+import { ModificarClienteComponent } from './components/gestion-clientes/listar-cliente/modificar-cliente/modificar-cliente.component';
 
 
 
@@ -34,6 +36,8 @@ const APP_ROUTES: Routes = [
     {path: 'gestionClientes', component:  GestionClientesComponent },
     {path: 'crearCliente', component:  CrearClienteComponent  },
     {path: 'listarCliente', component:  ListarClienteComponent },
+    {path: 'visualizarCliente', component:  VisualizarClienteComponent  },
+    {path: 'modificarCliente', component:  ModificarClienteComponent },
     {path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 

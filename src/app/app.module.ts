@@ -23,6 +23,8 @@ import { GestionClientesComponent } from './components/gestion-clientes/gestion-
 import { CrearClienteComponent } from './components/gestion-clientes/crear-cliente/crear-cliente.component';
 import { ListarClienteComponent } from './components/gestion-clientes/listar-cliente/listar-cliente.component';
 import { NavClientesComponent } from './components/gestion-clientes/nav-clientes/nav-clientes.component';
+import { VisualizarClienteComponent } from './components/gestion-clientes/listar-cliente/visualizar-cliente/visualizar-cliente.component';
+import { ModificarClienteComponent } from './components/gestion-clientes/listar-cliente/modificar-cliente/modificar-cliente.component';
 
 
 
@@ -50,6 +52,8 @@ import { NavClientesComponent } from './components/gestion-clientes/nav-clientes
     CrearClienteComponent,
     ListarClienteComponent,
     NavClientesComponent,
+    VisualizarClienteComponent,
+    ModificarClienteComponent,
      ],
   imports: [
     BrowserModule,
