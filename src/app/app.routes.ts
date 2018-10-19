@@ -16,7 +16,9 @@ import { CrearClienteComponent } from './components/gestion-clientes/crear-clien
 import { ListarClienteComponent } from './components/gestion-clientes/listar-cliente/listar-cliente.component';
 import { VisualizarClienteComponent } from './components/gestion-clientes/listar-cliente/visualizar-cliente/visualizar-cliente.component';
 import { ModificarClienteComponent } from './components/gestion-clientes/listar-cliente/modificar-cliente/modificar-cliente.component';
-
+import { InfoProyectosComponent } from './components/proyectos/listar-proyecto/visualizar-proyecto/info-proyectos/info-proyectos.component';
+import { InfoClienteComponent } from './components/proyectos/listar-proyecto/visualizar-proyecto/info-cliente/info-cliente.component';
+import { InfoAdjuntosComponent } from './components/proyectos/listar-proyecto/visualizar-proyecto/info-adjuntos/info-adjuntos.component';
 
 
 
@@ -38,6 +40,9 @@ const APP_ROUTES: Routes = [
     {path: 'listarCliente', component:  ListarClienteComponent },
     {path: 'visualizarCliente', component:  VisualizarClienteComponent  },
     {path: 'modificarCliente', component:  ModificarClienteComponent },
+    {path: 'infoProyectos', component:  InfoProyectosComponent},
+    {path: 'infoCliente', component:  InfoClienteComponent  },
+    {path: 'infoAdjuntos', component:   InfoAdjuntosComponent },
     {path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 

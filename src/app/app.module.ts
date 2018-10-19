@@ -30,6 +30,7 @@ import { InfoClienteComponent } from './components/proyectos/listar-proyecto/vis
 import { InfoAdjuntosComponent } from './components/proyectos/listar-proyecto/visualizar-proyecto/info-adjuntos/info-adjuntos.component';
 // tslint:disable-next-line:max-line-length
 import { NavVisualizarProyectoComponent } from './components/proyectos/listar-proyecto/visualizar-proyecto/nav-visualizar-proyecto/nav-visualizar-proyecto.component';
+import { environment } from '../environments/environment';
 
 
 
@@ -66,6 +67,8 @@ import { NavVisualizarProyectoComponent } from './components/proyectos/listar-pr
   imports: [
     BrowserModule,
     APP_ROUTING
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
