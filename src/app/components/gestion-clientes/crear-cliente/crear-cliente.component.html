@@ -8,7 +8,13 @@
 
 </div>
 <br>
+<ul>
+    <li *ngFor="let item of items | async">
+        {{ item.codigo }}
+    </li>
+</ul>
 <br>
+
 <div class="card bg-light mb-3" style="max-width: 80rem;">
     <div class="container">
         <form class="px-4 py-3">
@@ -62,7 +68,7 @@
                 </div>
                 <br>
                 <div class="form-footer">
-                    <button type="submit" class=" btn btn-primary btn-block "><span class="glyphicon glyphicon-log-in "></span> Registrar</button>
+                    <button type="submit" class=" btn btn-primary btn-block " (click)="test()"> Registrar</button>
                     <hr>
                 </div>
             </form>
