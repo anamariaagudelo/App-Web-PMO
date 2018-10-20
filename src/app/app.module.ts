@@ -3,8 +3,10 @@ import { NgModule } from '@angular/core';
 
 // Firebase
 import { environment } from '../environments/environment';
-// import { AngularFireModule } from 'angularfire2';
-// import {  AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 // Routing
 import {APP_ROUTING} from './app.routes';
@@ -72,8 +74,10 @@ import { NavVisualizarProyectoComponent } from './components/proyectos/listar-pr
   imports: [
     BrowserModule,
     APP_ROUTING,
-    //AngularFireModule.initializeApp(environment.firebase),
-    //AngularFirestoreModule
+    AngularFireModule.initializeApp(environment.firebase), // imports firebase/app needed for everything
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    AngularFireStorageModule // imports firebase/storage only needed for storage features
   ],
   providers: [],
   bootstrap: [AppComponent]
