@@ -1,6 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+// Firebase
+import { environment } from '../environments/environment';
+// import { AngularFireModule } from 'angularfire2';
+// import {  AngularFirestoreModule } from 'angularfire2/firestore';
+
+// Routing
 import {APP_ROUTING} from './app.routes';
 
 import { AppComponent } from './app.component';
@@ -30,7 +36,6 @@ import { InfoClienteComponent } from './components/proyectos/listar-proyecto/vis
 import { InfoAdjuntosComponent } from './components/proyectos/listar-proyecto/visualizar-proyecto/info-adjuntos/info-adjuntos.component';
 // tslint:disable-next-line:max-line-length
 import { NavVisualizarProyectoComponent } from './components/proyectos/listar-proyecto/visualizar-proyecto/nav-visualizar-proyecto/nav-visualizar-proyecto.component';
-import { environment } from '../environments/environment';
 
 
 
@@ -66,9 +71,9 @@ import { environment } from '../environments/environment';
      ],
   imports: [
     BrowserModule,
-    APP_ROUTING
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    APP_ROUTING,
+    //AngularFireModule.initializeApp(environment.firebase),
+    //AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
