@@ -16,7 +16,7 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { ControlAccesoComponent } from './components/control-acceso/control-acceso.component';
-import { LoguinComponent } from './components/loguin/loguin.component';
+import { LoginComponent } from './components/login/login.component';
 import { RegistarComponent } from './components/control-acceso/registar/registar.component';
 import { ListarComponent } from './components/control-acceso/listar/listar.component';
 import { VisualizarUsuarioComponent } from './components/control-acceso/listar/visualizar-usuario/visualizar-usuario.component';
@@ -38,7 +38,8 @@ import { InfoClienteComponent } from './components/proyectos/listar-proyecto/vis
 import { InfoAdjuntosComponent } from './components/proyectos/listar-proyecto/visualizar-proyecto/info-adjuntos/info-adjuntos.component';
 // tslint:disable-next-line:max-line-length
 import { NavVisualizarProyectoComponent } from './components/proyectos/listar-proyecto/visualizar-proyecto/nav-visualizar-proyecto/nav-visualizar-proyecto.component';
-
+import { AdminComponent } from './components/admin/admin.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 
@@ -49,7 +50,7 @@ import { NavVisualizarProyectoComponent } from './components/proyectos/listar-pr
     HomeComponent,
     ProyectosComponent,
     ControlAccesoComponent,
-    LoguinComponent,
+    LoginComponent,
     RegistarComponent,
     ListarComponent,
     VisualizarUsuarioComponent,
@@ -70,6 +71,8 @@ import { NavVisualizarProyectoComponent } from './components/proyectos/listar-pr
     InfoClienteComponent,
     InfoAdjuntosComponent,
     NavVisualizarProyectoComponent,
+    AdminComponent,
+    NotFoundComponent,
      ],
   imports: [
     BrowserModule,

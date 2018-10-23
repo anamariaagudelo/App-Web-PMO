@@ -2,7 +2,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { ControlAccesoComponent } from './components/control-acceso/control-acceso.component';
-import { LoguinComponent } from './components/loguin/loguin.component';
+import { LoginComponent } from './components/login/login.component';
 import { RegistarComponent } from './components/control-acceso/registar/registar.component';
 import { ListarComponent } from './components/control-acceso/listar/listar.component';
 import { VisualizarUsuarioComponent } from './components/control-acceso/listar/visualizar-usuario/visualizar-usuario.component';
@@ -26,7 +26,7 @@ const APP_ROUTES: Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'proyectos', component: ProyectosComponent},
     {path: 'controlAcceso', component: ControlAccesoComponent},
-    {path: 'loguin', component: LoguinComponent},
+    {path: 'login', component: LoginComponent},
     {path: 'registar', component: RegistarComponent},
     {path: 'listar', component: ListarComponent},
     {path: 'visualizarUsuario', component: VisualizarUsuarioComponent},
