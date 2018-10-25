@@ -19,7 +19,8 @@ import { ModificarClienteComponent } from './components/gestion-clientes/listar-
 import { InfoProyectosComponent } from './components/proyectos/listar-proyecto/visualizar-proyecto/info-proyectos/info-proyectos.component';
 import { InfoClienteComponent } from './components/proyectos/listar-proyecto/visualizar-proyecto/info-cliente/info-cliente.component';
 import { InfoAdjuntosComponent } from './components/proyectos/listar-proyecto/visualizar-proyecto/info-adjuntos/info-adjuntos.component';
-
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 
 const APP_ROUTES: Routes = [
@@ -43,7 +44,8 @@ const APP_ROUTES: Routes = [
     {path: 'infoProyectos', component:  InfoProyectosComponent},
     {path: 'infoCliente', component:  InfoClienteComponent  },
     {path: 'infoAdjuntos', component:   InfoAdjuntosComponent },
-    {path: '**', pathMatch: 'full', redirectTo: 'home' }
+    {path: 'admin', component:   AdminComponent },
+    {path: '**', component: NotFoundComponent }
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES, {useHash: true});

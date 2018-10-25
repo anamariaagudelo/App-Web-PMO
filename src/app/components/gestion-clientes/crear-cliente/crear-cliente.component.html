@@ -27,46 +27,44 @@
 
                 <div class="form-body">
                     <div class="form-group">
-                        <label for="exampleDropdownFormEmail1">Código Cliente</label>
-                        <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="Código">
-                        <span class="help-block" id="error"></span>
+                        <label for="codigoCliente">Código Cliente</label>
+                        <input type="email" class="form-control" id="codigoCliente" name="codigoCliente" placeholder="Código">
                     </div>
                     <div class="form-group">
-                        <label for="exampleDropdownFormEmail1">Nombre Cliente</label>
-                        <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="Nombre">
-                        <span class="help-block" id="error"></span>
+                        <label for="NombreCliente">Nombre Cliente</label>
+                        <input type="email" class="form-control" id="NombreCliente" name="NombreCliente" placeholder="Nombre">
                     </div>
                     <div class="form-group">
-                        <label for="exampleDropdownFormEmail1">Descripción</label>
-                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                        <label for="descripcion">Descripción</label>
+                        <textarea class="form-control" aria-label="With textarea" id="descripcion" name="descripcion">Describe brevemente la actividad del Cliente</textarea>
                     </div>
 
-                    <label for="exampleDropdownFormEmail1">Región</label>
-                    <select class="custom-select" id="inputGroupSelect01">         
+                    <label for="region">Región</label>
+                    <select class="custom-select" id="grupoRegion" name="grupoRegion">         
                             <option selected>Seleccione una Región</option>
                             <option value="1">Europa</option>
                             <option value="2">Latinoamerica</option>
-                            <option value="2">Africa</option>
+                            <option value="3">Africa</option>
                           </select>
 
-                    <label for="exampleDropdownFormEmail1">País</label>
-                    <select class="custom-select" id="inputGroupSelect01">         
+                    <label for="pais">País</label>
+                    <select class="custom-select" id="grupoPais" name="grupoPais">         
                             <option selected>Seleccione un País</option>
                             <option value="1">Colombia</option>
                             <option value="2">España</option>
-                            <option value="2">Ecuador</option>
-                            <option value="3">Chile</option>
+                            <option value="3">Ecuador</option>
+                            <option value="4">Chile</option>
                           </select>
 
-                    <label for="exampleDropdownFormEmail1">Mercado</label>
-                    <select class="custom-select" id="inputGroupSelect01">         
+                    <label for="mercado">Mercado</label>
+                    <select class="custom-select" id="grupoMercado" name="grupoMercado">         
                             <option selected>Seleccione un mercado</option>
                             <option value="1">Telcom</option>
                             <option value="2">Electricas</option>
-                            <option value="2">Productos Internos</option>
+                            <option value="3">Productos Internos</option>
                           </select>
                 </div>
-                <br>
+                <hr>
                 <div class="form-footer">
                     <button type="submit" class=" myButton btn-block " (click)="test()"> Registrar</button>
                     <hr>

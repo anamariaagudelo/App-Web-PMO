@@ -1,5 +1,4 @@
-<!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        https://bootswatch.com/
+<!--< https://bootswatch.com/
     -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <img src="/assets/img/LogoIS.ico" class="rounded-circle" width="30" height="30" alt="">
@@ -12,15 +11,15 @@
             <li class="nav-item" routerLinkActive="Active">
                 <a class="nav-link active" [routerLink]="['home']"><small><b>INICIO</b></small></a>
             </li>
-            <li class="nav-item dropdown" routerLinkActive="Active">
+            <li class="nav-item dropdown" routerLinkActive="Active" *ngIf="isLogin">
                 <a class="nav-link dropdown-toggle" [routerLink]="['proyectos']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><small><b>PROYECTOS</b></small></a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#nuevoProyecto">NUEVO PROYECTO</a>
+                    <a class="dropdown-item" href="#nuevoProyecto" *ngIf="!isLogin">NUEVO PROYECTO</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#listarProyecto">LISTA PROYECTOS</a>
                 </div>
             </li>
-            <li class="nav-item dropdown" routerLinkActive="Active">
+            <li class="nav-item dropdown" routerLinkActive="Active" *ngIf="!isLogin">
                 <a class="nav-link dropdown-toggle" [routerLink]="['gestionClientes']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><small><b>GESTIÓN CLIENTES</b></small>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -29,7 +28,7 @@
                     <a class="dropdown-item" href="#listarCliente">LISTA CLIENTES</a>
                 </div>
             </li>
-            <li class="nav-item dropdown" routerLinkActive="Active">
+            <li class="nav-item dropdown" routerLinkActive="Active" *ngIf="!isLogin">
                 <a class="nav-link dropdown-toggle" [routerLink]="['controlAcceso']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><small><b>CONTROL ACCESO</b></small>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -39,20 +38,27 @@
                 </div>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+        <form class="form-inline my-2 my-lg-0" *ngIf="isLogin">
             <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
             <button [routerLink]="['/#']" class="myButton">
             <span class="glyphicon glyphicon-search"></span> Buscar
             </button>
-
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item" routerLinkActive="Active" *ngIf="!isLogin">
-                    <a class="nav-link" [routerLink]="['login']"><small><b>LOGIN</b></small></a>
-                </li>
-                <li class="nav-item" routerLinkActive="Active" *ngIf="!isLogin">
-                    <a class="nav-link" hfer="#" (click)="onLogout()"><small><b>SALIR</b></small></a>
-                </li>
-            </ul>
         </form>
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item" routerLinkActive="Active" *ngIf="!isLogin">
+                <a class="nav-link" [routerLink]="['login']"><small><b>LOGIN</b></small></a>
+            </li>
+            <li class="navitem" *ngIf="isLogin">
+                <img src="#">
+            </li>
+            <li class="navitem" *ngIf="isLogin">
+                <span class="navlink">NOMBRE DE USUARIO</span>
+            </li>
+            <li class="nav-item" *ngIf="isLogin">
+                <a class="nav-link" href="#" (click)="onLogout()"><small><b>SALIR</b></small></a>
+            </li>
+        </ul>
+
     </div>
 </nav>
