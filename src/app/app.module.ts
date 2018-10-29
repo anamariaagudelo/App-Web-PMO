@@ -8,6 +8,16 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
+// Srevices
+import { AuthService } from './services/auth.service';
+import { ClienteService } from './services/Cliente.service';
+
+// Interfaces
+import { ClienteInterface } from './Models/cliente';
+
+// Guards
+import { AuthGuard } from './guards/auth.guard';
+
 // Routing
 import {APP_ROUTING} from './app.routes';
 
@@ -40,7 +50,9 @@ import { InfoAdjuntosComponent } from './components/proyectos/listar-proyecto/vi
 import { NavVisualizarProyectoComponent } from './components/proyectos/listar-proyecto/visualizar-proyecto/nav-visualizar-proyecto/nav-visualizar-proyecto.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { AuthService } from './services/auth.service';
+import {FormsModule} from '@angular/forms';
+
+
 
 
 
@@ -82,9 +94,10 @@ import { AuthService } from './services/auth.service';
     AngularFireModule.initializeApp(environment.firebase), // imports firebase/app needed for everything
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-    AngularFireStorageModule // imports firebase/storage only needed for storage features
+    AngularFireStorageModule, // imports firebase/storage only needed for storage features
+    FormsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard, ClienteService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

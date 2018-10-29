@@ -108,3 +108,12 @@ body {
     height: 80%;
     background-color: #862b37;
 }
+
+.rojo {
+    color: red;
+}
+
+.Fields {
+    background-color: #ffffff;
+    border: 2px solid #862b37;
+}

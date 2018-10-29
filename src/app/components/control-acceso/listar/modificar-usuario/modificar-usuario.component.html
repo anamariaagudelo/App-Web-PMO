@@ -1,50 +1,77 @@
 <br>
 <br>
-<div class="card bg-light mb-3 " style="max-width: 30rem;">
-    <div class="container">
-        <button type="button" class="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+<div class="card bg-light mb-3 " style="max-width: 50rem;">
+    <div class=" container ">
+        <button type="button " class="close " aria-label="Close ">
+            <span aria-hidden="true ">&times;</span>
           </button>
-        <form class="px-4 py-3">
-            <form role="form" id="register-form" autocomplete="off">
-                <div class="form-header">
-                    <h3 style="text-align: center" class="form-title"><i class="fa fa-user"></i> Modificar Información Usuario</h3>
+        <form class="px-4 py-3 ">
+            <form role="form " id="register-form " autocomplete="off ">
+                <div class="form-header ">
+                    <h3 style="text-align: center " class="form-title "><i class="fa fa-user "></i> Modificar Información Usuario</h3>
                     <hr>
                     <br>
                 </div>
 
-                <div class="form-group">
-                    <label for="validationDefault01">Nombres</label>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Ana María" aria-label="Recipient's Nombres" aria-describedby="button-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-primary" type="button" id="button-addon2"> <span class="glyphicon glyphicon-edit"></span></button>
+                <form>
+                    <div class="form-group row">
+                        <label for="login" class="col-3 col-form-label">Login<Span class = "rojo">*</Span></label>
+                        <div>
+                            <input type="text" size="50" class="form-control input-lg Fields" placeholder="ana_maria.agudelo@implementalsystems.com" id="login" name="login">
                         </div>
                     </div>
 
-
-
-                    <label for="validationDefault01">Apellidos</label>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Agudelo Cadavid" aria-label="Recipient's Apellidos" aria-describedby="button-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-primary" type="button" id="button-addon2"> <span class="glyphicon glyphicon-edit"></span></button>
+                    <div class="form-group row">
+                        <label for="nombres" class="col-3 col-form-label">Nombres<Span class = "rojo">*</Span></label>
+                        <div>
+                            <div class="input-group ">
+                                <input type="text" size="50" class="form-control" placeholder="Ana María" id="nombres" name="nombres">
+                            </div>
                         </div>
                     </div>
-                    <label for="validationDefault01">Usuario</label>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="ana_maria.agudelo@implementalsystems.com" aria-label="Recipient's Usuario" aria-describedby="button-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-primary" type="button" id="button-addon2"> <span class="glyphicon glyphicon-edit"></span></button>
+                    <div class="form-group row">
+                        <label for="apellidos" class="col-3 col-form-label">Apellidos<Span class = "rojo">*</Span></label>
+                        <div>
+                            <div class="input-group ">
+                                <input type="text" size="50" class="form-control" placeholder="Agudelo Cadavid" id="apellidos" name="apellidos">
+                            </div>
                         </div>
                     </div>
-                    <br>
-                    <hr>
-                    <div class="form-footer">
-                        <button type="submit" class="myButton btn-block "><span class="glyphicon glyphicon-log-in "></span>Guardar Cambios</button>
+                    <div class="form-group row">
+                        <label for="email" class="col-3 col-form-label">Email<Span class = "rojo">*</Span></label>
+                        <div>
+                            <input type="text" size="50" class="form-control" placeholder="ana_maria.agudelo@implementalsystems.com" id="email" name="email">
+                        </div>
                     </div>
-                </div>
+
+                    <div class="row">
+                        <label for="perfil" class="col-3 col-form-label">Perfil<Span class = "rojo">*</Span></label>
+                        <div class="col-auto  ">
+                            <select class="custom-select" id="perfil" name="perfil" style="width:350px" size="1">
+                                              <option selected>Administrador</option>
+                                              <option value="Administrador">Administrador</option>
+                                              <option value="Consultor">Consultor</option>
+                                            </select>
+                        </div>
+                        <div class="col-auto my-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="autoSizingCheck2">
+                                <label class="form-check-label" for="autoSizingCheck2">
+                                        Activo
+                                      </label>
+                            </div>
+                        </div>
+                        <br>
+                        <label for="email" class="col-6 col-form-label"><Span class = "rojo">*</Span>Campos Obligatorios</label>
+                    </div>
+                </form>
             </form>
         </form>
+
+        <hr>
+        <div class="form-footer">
+            <button type="submit" class="myButton btn-block "><span class="glyphicon glyphicon-log-in "></span><b>Guardar Cambios</b></button>
+        </div>
+        <hr>
     </div>
 </div>

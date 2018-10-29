@@ -21,11 +21,12 @@ import { InfoClienteComponent } from './components/proyectos/listar-proyecto/vis
 import { InfoAdjuntosComponent } from './components/proyectos/listar-proyecto/visualizar-proyecto/info-adjuntos/info-adjuntos.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 const APP_ROUTES: Routes = [
     {path: 'home', component: HomeComponent},
-    {path: 'proyectos', component: ProyectosComponent},
+    {path: 'proyectos', component: ProyectosComponent, canActivate: [AuthGuard]},
     {path: 'controlAcceso', component: ControlAccesoComponent},
     {path: 'login', component: LoginComponent},
     {path: 'registar', component: RegistarComponent},
@@ -33,18 +34,18 @@ const APP_ROUTES: Routes = [
     {path: 'visualizarUsuario', component: VisualizarUsuarioComponent},
     {path: 'modificarUsuario', component:  ModificarUsuarioComponent},
     {path: 'nuevoProyecto', component:  NuevoProyectoComponent},
-    {path: 'listarProyecto', component:  ListarProyectoComponent},
-    {path: 'visualizarProyecto', component:  VisualizarProyectoComponent },
-    {path: 'modificarProyecto', component:  ModificarProyectoComponent },
+    {path: 'listarProyecto', component:  ListarProyectoComponent, canActivate: [AuthGuard]},
+    {path: 'visualizarProyecto', component:  VisualizarProyectoComponent, canActivate: [AuthGuard] },
+    {path: 'modificarProyecto', component:  ModificarProyectoComponent, canActivate: [AuthGuard] },
     {path: 'gestionClientes', component:  GestionClientesComponent },
     {path: 'crearCliente', component:  CrearClienteComponent  },
     {path: 'listarCliente', component:  ListarClienteComponent },
     {path: 'visualizarCliente', component:  VisualizarClienteComponent  },
     {path: 'modificarCliente', component:  ModificarClienteComponent },
-    {path: 'infoProyectos', component:  InfoProyectosComponent},
-    {path: 'infoCliente', component:  InfoClienteComponent  },
-    {path: 'infoAdjuntos', component:   InfoAdjuntosComponent },
-    {path: 'admin', component:   AdminComponent },
+    {path: 'infoProyectos', component:  InfoProyectosComponent, canActivate: [AuthGuard]},
+    {path: 'infoCliente', component:  InfoClienteComponent, canActivate: [AuthGuard]  },
+    {path: 'infoAdjuntos', component:   InfoAdjuntosComponent, canActivate: [AuthGuard] },
+    {path: 'admin', component:   AdminComponent, canActivate: [AuthGuard] },
     {path: '**', component: NotFoundComponent }
 ];
 

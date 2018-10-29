@@ -1,6 +1,6 @@
 <br>
 <br>
-<div class="card bg-light mb-3 " style="max-width: 30rem;">
+<div class="card bg-light mb-3 " style="max-width: 50rem;">
     <div class="container">
         <button type="button" class="close" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -13,34 +13,55 @@
                     <br>
                 </div>
 
-                <div class="form-body">
-                    <div class="form-group">
-                        <label for="validationDefault01">Nombres</label>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Ana María" aria-label="Recipient's Nombres" aria-describedby="button-addon2">
+                <form>
+                    <div class="form-group row">
+                        <label for="login" class="col-3 col-form-label">Login</label>
+                        <div>
+                            <input type="text" size="50" class="form-control input-lg" placeholder="ana_maria.agudelo@implementalsystems.com" id="login" name="login">
                         </div>
                     </div>
-                </div>
-                <div class="form-body">
-                    <div class="form-group">
-                        <label for="validationDefault01">Apellidos</label>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Agudelo Cadavid" aria-label="Recipient's Apellidos" aria-describedby="button-addon2">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-body">
-                    <div class="form-group">
-                        <label for="validationDefault01">Usuario</label>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="ana_maria.agudelo@implementalsystems.com" aria-label="Recipient'sEmail" aria-describedby="button-addon2">
-                        </div>
-                    </div>
-                </div>
-                <hr>
 
+                    <div class="form-group row">
+                        <label for="nombres" class="col-3 col-form-label">Nombres</label>
+                        <div>
+                            <div class="input-group ">
+                                <input type="text" size="50" class="form-control" placeholder="Ana María " id="nombres" name="nombres">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="apellidos" class="col-3 col-form-label">Apellidos</label>
+                        <div>
+                            <div class="input-group ">
+                                <input type="text" size="50" class="form-control" placeholder="Agudelo Cadavid" id="apellidos" name="apellidos">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="email" class="col-3 col-form-label">Email</label>
+                        <div>
+                            <input type="text" size="50" class="form-control" placeholder="ana_maria.agudelo@implementalsystems.com" id="email" name="email">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label for="perfil" class="col-3 col-form-label">Perfil</label>
+                        <div class="col-auto  my-2">
+                            <div>
+                                <input type="text" size="19" class="form-control" placeholder="Administrador" id="email" name="email">
+                            </div>
+                        </div>
+                        <div class="col-auto my-2">
+                            <div>
+                                <input type="text" size="19" class="form-control" placeholder="Activo" id="email" name="email">
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </form>
         </form>
+
+        <hr>
     </div>
 </div>
 <form>

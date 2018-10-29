@@ -2,17 +2,12 @@
 
 </app-nav-clientes>
 
-<div class="container main-container ">
+<div class="container main-container">
 
     <router-outlet></router-outlet>
 
 </div>
 <br>
-<ul>
-    <li *ngFor="let item of items | async">
-        {{ item.codigo }}
-    </li>
-</ul>
 <br>
 
 <div class="card bg-light mb-3" style="max-width: 80rem;">
@@ -24,51 +19,51 @@
                     <hr>
                     <br>
                 </div>
-
-                <div class="form-body">
+                <form #formGuardar="ngForm" (ngSubmit)="onGuardarCliente(formGuardar)">
+                    <!-- <div class="form-body">-->
                     <div class="form-group">
-                        <label for="codigoCliente">Código Cliente</label>
-                        <input type="email" class="form-control" id="codigoCliente" name="codigoCliente" placeholder="Código">
+                        <label for="codigo">Código Cliente</label>
+                        <input type="email" class="form-control" placeholder="Código" id="codigo" name="codigo" [(ngModel)]="cliente.codigo">
                     </div>
                     <div class="form-group">
-                        <label for="NombreCliente">Nombre Cliente</label>
-                        <input type="email" class="form-control" id="NombreCliente" name="NombreCliente" placeholder="Nombre">
+                        <label for="nombre">Nombre Cliente</label>
+                        <input type="email" class="form-control" placeholder="Nombre" id="nombre" name="nombre" [(ngModel)]="cliente.nombre">
                     </div>
                     <div class="form-group">
                         <label for="descripcion">Descripción</label>
-                        <textarea class="form-control" aria-label="With textarea" id="descripcion" name="descripcion">Describe brevemente la actividad del Cliente</textarea>
+                        <textarea class="form-control" aria-label="With textarea" id="descripcion" name="descripcion" [(ngModel)]="cliente.descripcion">Describe brevemente la actividad del Cliente</textarea>
                     </div>
 
                     <label for="region">Región</label>
-                    <select class="custom-select" id="grupoRegion" name="grupoRegion">         
+                    <select class="custom-select" id="region" name="region" [(ngModel)]="cliente.region">         
                             <option selected>Seleccione una Región</option>
-                            <option value="1">Europa</option>
-                            <option value="2">Latinoamerica</option>
-                            <option value="3">Africa</option>
-                          </select>
+                            <option value=" Europa">Europa</option>
+                            <option value="Latinoamerica">Latinoamerica</option>
+                            <option value="Africa">Africa</option>
+                    </select>
 
                     <label for="pais">País</label>
-                    <select class="custom-select" id="grupoPais" name="grupoPais">         
+                    <select class="custom-select" id="pais" name="pais" [(ngModel)]="cliente.pais">         
                             <option selected>Seleccione un País</option>
-                            <option value="1">Colombia</option>
-                            <option value="2">España</option>
-                            <option value="3">Ecuador</option>
-                            <option value="4">Chile</option>
-                          </select>
+                            <option value="Colombia">Colombia</option>
+                            <option value="España">España</option>
+                            <option value="Ecuador">Ecuador</option>
+                            <option value="Chile">Chile</option>
+                    </select>
 
                     <label for="mercado">Mercado</label>
-                    <select class="custom-select" id="grupoMercado" name="grupoMercado">         
+                    <select class="custom-select" id="mercado" name="mercado" [(ngModel)]="cliente.mercado">         
                             <option selected>Seleccione un mercado</option>
-                            <option value="1">Telcom</option>
-                            <option value="2">Electricas</option>
-                            <option value="3">Productos Internos</option>
-                          </select>
-                </div>
-                <hr>
-                <div class="form-footer">
-                    <button type="submit" class=" myButton btn-block " (click)="test()"> Registrar</button>
+                            <option value="Telcom">Telcom</option>
+                            <option value="Electricas">Electricas</option>
+                            <option value="Productos Internos">Productos Internos</option>
+                    </select>
                     <hr>
-                </div>
+                    <div class="form-footer">
+                        <button type="submit" class=" myButton btn-block "> Registrar</button>
+                        <hr>
+                    </div>
+                </form>
             </form>
         </form>
     </div>

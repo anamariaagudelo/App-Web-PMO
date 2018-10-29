@@ -19,7 +19,7 @@
                     <a class="dropdown-item" href="#listarProyecto">LISTA PROYECTOS</a>
                 </div>
             </li>
-            <li class="nav-item dropdown" routerLinkActive="Active" *ngIf="!isLogin">
+            <li class="nav-item dropdown" routerLinkActive="Active" *ngIf="isLogin">
                 <a class="nav-link dropdown-toggle" [routerLink]="['gestionClientes']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><small><b>GESTIÓN CLIENTES</b></small>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -28,7 +28,7 @@
                     <a class="dropdown-item" href="#listarCliente">LISTA CLIENTES</a>
                 </div>
             </li>
-            <li class="nav-item dropdown" routerLinkActive="Active" *ngIf="!isLogin">
+            <li class="nav-item dropdown" routerLinkActive="Active" *ngIf="isLogin">
                 <a class="nav-link dropdown-toggle" [routerLink]="['controlAcceso']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><small><b>CONTROL ACCESO</b></small>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -49,16 +49,15 @@
             <li class="nav-item" routerLinkActive="Active" *ngIf="!isLogin">
                 <a class="nav-link" [routerLink]="['login']"><small><b>LOGIN</b></small></a>
             </li>
-            <li class="navitem" *ngIf="isLogin">
-                <img src="#">
+            <li class="navi-tem" *ngIf="isLogin">
+                <img src="{{userPicture}}" class="rounded-circle" width="30px" height="20px">
             </li>
-            <li class="navitem" *ngIf="isLogin">
-                <span class="navlink">NOMBRE DE USUARIO</span>
+            <li class="navi-tem" *ngIf="isLogin">
+                <span class="nav-link">{{userNombre}}</span>
             </li>
             <li class="nav-item" *ngIf="isLogin">
                 <a class="nav-link" href="#" (click)="onLogout()"><small><b>SALIR</b></small></a>
             </li>
         </ul>
-
     </div>
 </nav>

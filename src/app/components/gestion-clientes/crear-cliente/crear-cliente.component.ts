@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { ClienteInterface } from '../../../Models/cliente';
+import { AuthService } from '../../../services/auth.service';
+import { ClienteService } from '../../../services/Cliente.service';
+import { Router } from '@angular/router';
 
-export interface Item {
-  codigo: string;
-  nombre: string;
-  descripcion: string;
-  region: string;
-}
 
 @Component({
   selector: 'app-crear-cliente',
@@ -15,28 +11,32 @@ export interface Item {
   styleUrls: ['./crear-cliente.component.css']
 })
 export class CrearClienteComponent implements OnInit {
-  private itemsCollection: AngularFirestoreCollection<Item>;
-  items: Observable<Item[]>;
+  cliente: ClienteInterface = {
+    codigo: '',
+    nombre: '',
+    descripcion: '',
+    region: '',
+    pais: '',
+    mercado: ''
+  };
 
 
 
-  constructor(private afs: AngularFirestore) {
-    this.itemsCollection = afs.collection<Item>('clientes');
-    this.items = this.itemsCollection.valueChanges();
-    this.items.subscribe((respuesta) => console.log(respuesta[0].codigo));
-  }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+  ) {}
 
   ngOnInit() {
   }
-
-  test() {
-    console.log('hola');
+  onGuardarCliente({value}: {value: ClienteInterface}) {
+    /*this.authService.getAuth().subscribe ( user => {
+      value.codigo = user.uid;
+      value.nombre = user.displayName;
+      this.clienteService.addNewReceta(value);
+    });*/
+    console.log(value);
   }
-
-  addItem(item: Item) {
-    this.itemsCollection.add(item);
-    console.log('objeto guardado');
   }
-}
 
 
