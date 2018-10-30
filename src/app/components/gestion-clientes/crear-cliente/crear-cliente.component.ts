@@ -17,7 +17,9 @@ export class CrearClienteComponent implements OnInit {
     descripcion: '',
     region: '',
     pais: '',
-    mercado: ''
+    mercado: '',
+    ncontacto: '',
+    econtacto: ''
   };
 
 

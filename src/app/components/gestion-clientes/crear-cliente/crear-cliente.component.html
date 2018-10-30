@@ -58,6 +58,27 @@
                             <option value="Electricas">Electricas</option>
                             <option value="Productos Internos">Productos Internos</option>
                     </select>
+                    <br>
+                    <br>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">Datos de Contacto del Cliente</h5>
+                        </div>
+                        <div class="card-body">
+                            <label for="codigo">Nombre de Contacto</label>
+                            <div class="custom-file">
+                                <input type="text" class="form-control" placeholder="Nombre del contacto" id="Ncontacto" name="Ncontacto" [(ngModel)]="cliente.ncontacto">
+                            </div>
+                            <br>
+                            <br>
+                            <label for="codigo">Email de Contacto</label>
+                            <div class="custom-file">
+                                <input type="text" class="form-control" placeholder="Email del contacto" id="Econtacto" name="Econtacto" [(ngModel)]="cliente.econtacto">
+                            </div>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
                     <hr>
                     <div class="form-footer">
                         <button type="submit" class=" myButton btn-block "> Registrar</button>

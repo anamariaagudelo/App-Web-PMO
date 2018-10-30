@@ -5,4 +5,6 @@ export interface ClienteInterface {
     region?: string;
     pais?: string;
     mercado?: String;
+    ncontacto?: string;
+    econtacto?: string;
 }
