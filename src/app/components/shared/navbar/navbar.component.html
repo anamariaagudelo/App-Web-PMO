@@ -49,9 +49,9 @@
             <li class="nav-item" routerLinkActive="Active" *ngIf="!isLogin">
                 <a class="nav-link" [routerLink]="['login']"><small><b>LOGIN</b></small></a>
             </li>
-            <li class="navi-tem" *ngIf="isLogin">
+            <!--<li class="navi-tem" *ngIf="isLogin">
                 <img src="{{userPicture}}" class="rounded-circle" width="30px" height="20px">
-            </li>
+            </li>-->
             <li class="navi-tem" *ngIf="isLogin">
                 <span class="nav-link">{{userNombre}}</span>
             </li>

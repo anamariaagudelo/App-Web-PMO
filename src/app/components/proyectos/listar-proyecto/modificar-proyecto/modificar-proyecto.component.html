@@ -12,21 +12,21 @@
 
                 <div class="form-body">
                     <div class="form-group">
-                        <label for="exampleDropdownFormEmail1">Código Proyecto</label>
-                        <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="Código">
+                        <label for="exampleDropdownFormEmail1">Código Proyecto<Span class = "rojo">*</Span></label>
+                        <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="001">
                         <span class="help-block" id="error"></span>
                     </div>
                     <div class="form-group">
-                        <label for="exampleDropdownFormEmail1">Nombre Proyecto</label>
-                        <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="Nombre">
+                        <label for="exampleDropdownFormEmail1">Nombre Proyecto<Span class = "rojo">*</Span></label>
+                        <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="Proyecto 1">
                         <span class="help-block" id="error"></span>
                     </div>
                     <div class="form-group">
-                        <label for="exampleDropdownFormEmail1">Descripción</label>
-                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                        <label for="exampleDropdownFormEmail1">Descripción<Span class = "rojo">*</Span></label>
+                        <textarea class="form-control" aria-label="With textarea" placeholder="Este es el primer proyector egistrado en el sistema"></textarea>
                     </div>
 
-                    <label for="exampleDropdownFormEmail1">Cliente</label>
+                    <label for="exampleDropdownFormEmail1">Cliente<Span class = "rojo">*</Span></label>
                     <select class="custom-select" id="inputGroupSelect01">         
                             <option selected>Seleccione un cliente</option>
                             <option value="1">Cliente 1</option>
@@ -40,10 +40,9 @@
                         <h5 class="card-title">Documentos Adjuntos</h5>
                     </div>
                     <div class="card-body">
-                        <p class="card-text">Debe seleccionar los archivos en formato PDF</p>
-
-
-
+                        <p class="card-text">Debe seleccionar los archivos en formato PDF
+                            <Span class="rojo">*</Span>
+                        </p>
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
                             <label class="custom-file-label" for="inputGroupFile01">Alcance proyecto</label>
@@ -86,13 +85,11 @@
                 <form>
                     <div class="row">
                         <div class="col">
-                            <button type="submit" class=" btn btn-primary btn-block "><span class="glyphicon glyphicon-log-in "></span> Modificar</button>
-                        </div>
-                        <div class="col">
-                            <button type="submit" class=" btn btn-primary btn-block "><span class="glyphicon glyphicon-log-in "></span> Guardar Cambios</button>
+                            <button type="submit" class=" myButton btn-block "><span class="glyphicon glyphicon-log-in "></span><b>Guardar Cambios</b></button>
                         </div>
                     </div>
                 </form>
+                <hr>
             </form>
         </form>
     </div>

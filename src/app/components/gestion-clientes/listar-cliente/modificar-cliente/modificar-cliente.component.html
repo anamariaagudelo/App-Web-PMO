@@ -15,47 +15,69 @@
 
                 <div class="form-body">
                     <div class="form-group">
-                        <label for="exampleDropdownFormEmail1">Código Cliente</label>
-                        <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="Código">
+                        <label for="exampleDropdownFormEmail1">Código Cliente<Span class = "rojo">*</Span></label>
+                        <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="xxx1">
                         <span class="help-block" id="error"></span>
                     </div>
                     <div class="form-group">
-                        <label for="exampleDropdownFormEmail1">Nombre Cliente</label>
-                        <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="Nombre">
+                        <label for="exampleDropdownFormEmail1">Nombre Cliente<Span class = "rojo">*</Span></label>
+                        <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="Cliente1">
                         <span class="help-block" id="error"></span>
                     </div>
                     <div class="form-group">
-                        <label for="exampleDropdownFormEmail1">Descripción</label>
-                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                        <label for="exampleDropdownFormEmail1">Descripción<Span class = "rojo">*</Span></label>
+                        <textarea class="form-control" aria-label="With textarea" placeholder="Descripción del Cliente1"></textarea>
                     </div>
 
                     <span class="badge badge-pill badge-dark"></span>
 
-                    <label for="region">Región</label>
+                    <label for="region">Región<Span class = "rojo">*</Span></label>
                     <select class="custom-select" id="grupoRegion" name="grupoRegion">         
-                            <option selected>Seleccione una Región</option>
+                            <option selected>Europa</option>
                             <option value="1">Europa</option>
                             <option value="2">Latinoamerica</option>
                             <option value="3">Africa</option>
                           </select>
 
-                    <label for="pais">País</label>
+                    <label for="pais">País<Span class = "rojo">*</Span></label>
                     <select class="custom-select" id="grupoPais" name="grupoPais">         
-                            <option selected>Seleccione un País</option>
+                            <option selected>España</option>
                             <option value="1">Colombia</option>
                             <option value="2">España</option>
                             <option value="3">Ecuador</option>
                             <option value="4">Chile</option>
                           </select>
 
-                    <label for="mercado">Mercado</label>
+                    <label for="mercado">Mercado<Span class = "rojo">*</Span></label>
                     <select class="custom-select" id="grupoMercado" name="grupoMercado">         
-                            <option selected>Seleccione un mercado</option>
+                            <option selected>Productos Internos</option>
                             <option value="1">Telcom</option>
                             <option value="2">Electricas</option>
                             <option value="3">Productos Internos</option>
                           </select>
+                    <br>
+                    <br>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">Datos de Contacto del Cliente</h5>
+                        </div>
+                        <div class="card-body">
+                            <label for="codigo">Nombre de Contacto<Span class = "rojo">*</Span></label>
+                            <div class="custom-file">
+                                <input type="text" class="form-control" placeholder="Rafael Gómez" id="Ncontacto" name="Ncontacto">
+                            </div>
+                            <br>
+                            <br>
+                            <label for="codigo">Email de Contacto<Span class = "rojo">*</Span></label>
+                            <div class="custom-file">
+                                <input type="text" class="form-control" placeholder="rafael.gomez@cliente1.com" id="Econtacto" name="Econtacto">
+                            </div>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
                     <form>
+                        <label for="email" class="col-6 col-form-label"><Span class = "rojo">*</Span>Campos Obligatorios</label>
                         <hr>
                         <div class="row">
                             <div class="col">
