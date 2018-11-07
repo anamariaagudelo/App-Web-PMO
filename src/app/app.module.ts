@@ -97,7 +97,7 @@ import {FormsModule} from '@angular/forms';
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
     FormsModule
   ],
-  providers: [AuthService, AuthGuard, ClienteService,],
+  providers: [AuthService, AuthGuard, ClienteService, ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

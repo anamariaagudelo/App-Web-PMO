@@ -14,13 +14,22 @@ export class NavbarComponent implements OnInit {
   public isLogin: boolean;
 
   constructor(
-    private authService: AuthService
+    public authService: AuthService
   ) { }
 
   ngOnInit() {
-    this.onComprobarUserLogin();
+    // this.onComprobarUserLogin();
+    this.authService.getAuth().subscribe(auth => {
+      if (auth) {
+        this.isLogin = true;
+        this.userNombre = auth.displayName;
+        this.userEmail = auth.email;
+      } else {
+        this.isLogin = false;
+      }
+    });
   }
-
+/*
   onComprobarUserLogin() {
     this.authService.getAuth().subscribe( auth => {
       if (auth) {
@@ -33,7 +42,7 @@ export class NavbarComponent implements OnInit {
       this.isLogin = false;
       }
     });
-  }
+  }*/
 
   onLogout() {
    this.authService.logout();
