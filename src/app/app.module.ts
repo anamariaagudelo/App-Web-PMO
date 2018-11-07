@@ -21,6 +21,9 @@ import { AuthGuard } from './guards/auth.guard';
 // Routing
 import {APP_ROUTING} from './app.routes';
 
+// Messages
+import { NgFlashMessagesModule } from 'ng-flash-messages';
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
@@ -95,7 +98,8 @@ import {FormsModule} from '@angular/forms';
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
-    FormsModule
+    FormsModule,
+    NgFlashMessagesModule.forRoot(),
   ],
   providers: [AuthService, AuthGuard, ClienteService, ],
   bootstrap: [AppComponent]
