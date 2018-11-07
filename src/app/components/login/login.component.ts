@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { NgFlashMessageService } from 'ng-flash-messages';
 
 @Component({
   selector: 'app-login',
@@ -13,8 +14,9 @@ export class LoginComponent implements OnInit {
 
 
   constructor(
-    private authService: AuthService,
-    private router: Router
+    public authService: AuthService,
+    public router: Router,
+    public ngFlashMensaje: NgFlashMessageService,
   ) { }
 
   ngOnInit() {
@@ -31,9 +33,12 @@ export class LoginComponent implements OnInit {
     onSubmitLogin() {
   this.authService.loginEmail(this.email, this.password)
   .then((res) => {
+    this.ngFlashMensaje.showFlashMessage({messages: ['El usuario inició sesión correctamente'],
+     dismissible: true, timeout: 5000, type: 'success'});
     this.router.navigate(['/admin']);
   }).catch((err) => {
-    console.log(err);
+    this.ngFlashMensaje.showFlashMessage({messages: [err],
+     dismissible: true, timeout: 5000, type: 'danger'});
     this.router.navigate(['/login']);
   });
 }
