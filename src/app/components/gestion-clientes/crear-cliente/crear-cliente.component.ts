@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ClienteInterface } from '../../../Models/cliente';
 import { AuthService } from '../../../services/auth.service';
-import { ClienteService } from '../../../services/Cliente.service';
 import { Router } from '@angular/router';
+import { ClienteService } from 'src/app/services/Cliente.service';
 
 
 @Component({
@@ -24,19 +24,21 @@ export class CrearClienteComponent implements OnInit {
 
 
 
+
   constructor(
     private authService: AuthService,
+    private clienteService: ClienteService,
     private router: Router,
   ) {}
 
   ngOnInit() {
   }
   onGuardarCliente({value}: {value: ClienteInterface}) {
-    /*this.authService.getAuth().subscribe ( user => {
-      value.codigo = user.uid;
-      value.nombre = user.displayName;
-      this.clienteService.addNewReceta(value);
-    });*/
+    this.authService.getAuth().subscribe ( user => {
+      /*value.codigo = user.uid;
+      value.nombre = user.displayName;*/
+      this.clienteService.addNewCliente(value);
+    });
     console.log(value);
   }
   }

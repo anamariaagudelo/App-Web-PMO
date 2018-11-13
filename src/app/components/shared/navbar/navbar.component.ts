@@ -18,7 +18,7 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.onComprobarUserLogin();
+    this.onComprobarUserLogin();
     this.authService.getAuth().subscribe(auth => {
       if (auth) {
         this.isLogin = true;
@@ -29,7 +29,7 @@ export class NavbarComponent implements OnInit {
       }
     });
   }
-/*
+
   onComprobarUserLogin() {
     this.authService.getAuth().subscribe( auth => {
       if (auth) {
@@ -42,7 +42,7 @@ export class NavbarComponent implements OnInit {
       this.isLogin = false;
       }
     });
-  }*/
+  }
 
   onLogout() {
    this.authService.logout();

@@ -24,7 +24,7 @@
                         <label for="nombres" class="col-3 col-form-label">Nombres<Span class = "rojo">*</Span></label>
                         <div>
                             <div class="input-group ">
-                                <input type="text" size="50" class="form-control" placeholder="Nombres" id="nombres" name="nombres">
+                                <input type="text" size="50" class="form-control" placeholder="Nombres" id="nombres" [(ngModel)]="user.nombre" name="nombres">
                             </div>
                         </div>
                     </div>
@@ -32,20 +32,20 @@
                         <label for="apellidos" class="col-3 col-form-label">Apellidos<Span class = "rojo">*</Span></label>
                         <div>
                             <div class="input-group ">
-                                <input type="text" size="50" class="form-control" placeholder="Apellidos" id="apellidos" name="apellidos">
+                                <input type="text" size="50" class="form-control" placeholder="Apellidos" id="apellidos" [(ngModel)]="user.apellido" name="apellidos">
                             </div>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="email" class="col-3 col-form-label">Email<Span class = "rojo">*</Span></label>
                         <div>
-                            <input type="email" size="50" class="form-control" placeholder="Email" id="email" [(ngModel)]="email" name="email">
+                            <input type="email" size="50" class="form-control" placeholder="Email" id="email" [(ngModel)]="user.email" name="email">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="login" class="col-3 col-form-label">Password<Span class = "rojo">*</Span></label>
                         <div>
-                            <input type="password" size="50" class="form-control input-lg" placeholder="Password" id="password" [(ngModel)]="password" name="password">
+                            <input type="password" size="50" class="form-control input-lg" placeholder="Password" id="password" [(ngModel)]="user.password" name="password">
                         </div>
                     </div>
 

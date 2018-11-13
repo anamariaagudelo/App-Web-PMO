@@ -26,7 +26,7 @@ import { AuthGuard } from './guards/auth.guard';
 
 const APP_ROUTES: Routes = [
     {path: 'home', component: HomeComponent},
-    {path: 'proyectos', component: ProyectosComponent, canActivate: [AuthGuard]},
+    {path: 'proyectos', component: ProyectosComponent},
     {path: 'controlAcceso', component: ControlAccesoComponent},
     {path: 'login', component: LoginComponent},
     {path: 'registar', component: RegistarComponent},
@@ -34,17 +34,17 @@ const APP_ROUTES: Routes = [
     {path: 'visualizarUsuario', component: VisualizarUsuarioComponent},
     {path: 'modificarUsuario', component:  ModificarUsuarioComponent},
     {path: 'nuevoProyecto', component:  NuevoProyectoComponent},
-    {path: 'listarProyecto', component:  ListarProyectoComponent, canActivate: [AuthGuard]},
-    {path: 'visualizarProyecto', component:  VisualizarProyectoComponent, canActivate: [AuthGuard] },
+    {path: 'listarProyecto', component:  ListarProyectoComponent},
+    {path: 'visualizarProyecto', component:  VisualizarProyectoComponent},
     {path: 'modificarProyecto', component:  ModificarProyectoComponent, canActivate: [AuthGuard] },
     {path: 'gestionClientes', component:  GestionClientesComponent },
     {path: 'crearCliente', component:  CrearClienteComponent  },
     {path: 'listarCliente', component:  ListarClienteComponent },
     {path: 'visualizarCliente', component:  VisualizarClienteComponent  },
     {path: 'modificarCliente', component:  ModificarClienteComponent },
-    {path: 'infoProyectos', component:  InfoProyectosComponent, canActivate: [AuthGuard]},
-    {path: 'infoCliente', component:  InfoClienteComponent, canActivate: [AuthGuard]  },
-    {path: 'infoAdjuntos', component:   InfoAdjuntosComponent, canActivate: [AuthGuard] },
+    {path: 'infoProyectos', component:  InfoProyectosComponent},
+    {path: 'infoCliente', component:  InfoClienteComponent },
+    {path: 'infoAdjuntos', component:   InfoAdjuntosComponent},
     {path: 'admin', component:   AdminComponent, canActivate: [AuthGuard] },
     {path: '**', component: NotFoundComponent }
 ];

@@ -14,7 +14,7 @@ export class AuthService {
     public afAuth: AngularFireAuth
   ) { }
 
-  registerUser(email: string, pass: string) {
+  registerUser(nombre: string, apellido: string, email: string, pass: string, perfil: string, estado: string) {
     return new Promise((resolve, reject) => {
       this.afAuth.auth.createUserWithEmailAndPassword(email, pass)
       .then( userData => resolve(userData),

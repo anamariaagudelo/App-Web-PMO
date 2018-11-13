@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 import { NgFlashMessageService } from 'ng-flash-messages';
+import { UserInterface } from '../../../Models/user-interface';
+import { User } from 'firebase';
 
 
 
@@ -10,8 +12,14 @@ import { NgFlashMessageService } from 'ng-flash-messages';
   templateUrl: './registar.component.html',
 })
 export class RegistarComponent implements OnInit {
-  public email: string;
-  public password: string;
+  public user: UserInterface = {
+    nombre: '',
+    apellido: '',
+    email: '',
+    password: '',
+    perfil: '',
+    estado: '',
+    };
 
   constructor(
     public authService: AuthService,
@@ -21,11 +29,14 @@ export class RegistarComponent implements OnInit {
 
   ngOnInit() {
   }
+
   onSubmitAddUser() {
-  this.authService.registerUser(this.email, this.password)
+  // tslint:disable-next-line:max-line-length
+  this.authService.registerUser(this.user.nombre, this.user.apellido, this.user.email, this.user.password, this.user.perfil, this.user.estado)
   .then((res) => {
+    console.log(res);
     this.ngFlashMensaje.showFlashMessage({messages: ['Usuario creado Correctamente'], dismissible: true, timeout: 5000, type: 'success'});
-    this.router.navigate(['/controlAcceso']);
+    //  this.router.navigate(['/controlAcceso']);
   }).catch((err) => {
     this.ngFlashMensaje.showFlashMessage({messages: [err], dismissible: true, timeout: 5000, type: 'danger'});
   });
