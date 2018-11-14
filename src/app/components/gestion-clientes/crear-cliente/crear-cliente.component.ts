@@ -28,18 +28,16 @@ export class CrearClienteComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private clienteService: ClienteService,
-    private router: Router,
+    private router: Router
   ) {}
 
   ngOnInit() {
   }
   onGuardarCliente({value}: {value: ClienteInterface}) {
     this.authService.getAuth().subscribe ( user => {
-      /*value.codigo = user.uid;
-      value.nombre = user.displayName;*/
-      this.clienteService.addNewCliente(value);
+    this.clienteService.addNewCliente(value);
     });
-    console.log(value);
+    this.router.navigate(['/home']);
   }
   }
 

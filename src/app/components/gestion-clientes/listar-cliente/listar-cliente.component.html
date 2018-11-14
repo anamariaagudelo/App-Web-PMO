@@ -12,79 +12,31 @@
     <br>
     <h3 style="text-align: center ">Listado de Clientes</h3>
     <hr>
-
     <table class="table ">
-
         <thead class="list-group-item-danger ">
             <tr class="light bg-light">
                 <th scope="col ">Código</th>
-                <th></th>
                 <th scope="col ">Nombre</th>
-                <th></th>
-                <th style="text-align: center " scope="col ">Acciones</th>
-                <th></th>
+                <th scope="col ">Acciones</th>
             </tr>
         </thead>
+
         <tbody>
-            <tr>
-                <td>xxx1</td>
-                <th></th>
-                <td>Cliente 1</td>
-                <th></th>
-                <td> <button [routerLink]="['/visualizarCliente']" class="myButton">
+            <div class="col-md-12" *ngFor="let cliente of clientes">
+                <tr>
+                    <th scope="row ">{{cliente.codigo}}</th>
+                    <td>{{cliente.nombre}}</td>
+                    <td> </td>
+                    <td> </td>
+                    <td> <button [routerLink]="['/visualizarCliente', cliente.codigo]" class="myButton">
                     <span class="glyphicon glyphicon-eye-open"></span> Visualizar
-                  </button>
-                </td>
-                <td><button [routerLink]="['/modificarCliente']" class="myButton">
+                    </button></td>
+                    <td> </td>
+                    <td> </td>
+                    <td><button [routerLink]="['/modificarCliente', cliente.codigo]" class="myButton">
                     <span class="glyphicon glyphicon-edit"></span> Modificar
-                </button>
-
-                </td>
-            </tr>
-            <tr>
-                <td>xxx2</td>
-                <th></th>
-                <td>Cliente 2</td>
-                <th></th>
-                <td> <button [routerLink]="['/visualizarCliente']" class="myButton">
-                    <span class="glyphicon glyphicon-eye-open"></span> Visualizar
-                  </button>
-                </td>
-                <td><button [routerLink]="['/modificarCliente']" class="myButton">
-                    <span class="glyphicon glyphicon-edit"></span> Modificar
-                </button>
-
-                </td>
-            </tr>
-            <tr>
-                <td>xxx3</td>
-                <th></th>
-                <td>Cliente 3</td>
-                <th></th>
-                <td> <button [routerLink]="['/visualizarCliente']" class="myButton">
-                    <span class="glyphicon glyphicon-eye-open"></span> Visualizar
-                  </button>
-                </td>
-                <td><button [routerLink]="['/modificarCliente']" class="myButton">
-                    <span class="glyphicon glyphicon-edit"></span> Modificar
-                </button>
-
-                </td>
-            </tr>
-            <tr>
-                <td>xxx4</td>
-                <th></th>
-                <td>Cliente 4</td>
-                <th></th>
-                <td> <button [routerLink]="['/visualizarCliente']" class="myButton">
-                    <span class="glyphicon glyphicon-eye-open"></span> Visualizar
-                  </button>
-                </td>
-                <td><button [routerLink]="['/modificarCliente']" class="myButton">
-                    <span class="glyphicon glyphicon-edit"></span> Modificar
-                </button>
-                </td>
-            </tr>
-
+                    </button></td>
+                </tr>
+            </div>
         </tbody>
     </table>

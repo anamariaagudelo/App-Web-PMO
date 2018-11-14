@@ -27,15 +27,15 @@ getAllClientes(): Observable<ClienteInterface[]> {
   .map(changes => {
     return changes.map(action => {
       const data = action.payload.doc.data() as ClienteInterface;
-      data.codigo = action.payload.doc.id;
+     // data.codigo = action.payload.doc.id;
       return data;
     });
   });
   return this.clientes;
 }
 
-getOneCliente(codReceta: string) {
-  this.clienteDoc = this.afs.doc<ClienteInterface>(`clientes/${codReceta}`);
+getOneCliente(codCliente: string) {
+  this.clienteDoc = this.afs.doc<ClienteInterface>(`clientes/${codCliente}`);
   this.cliente = this.clienteDoc.snapshotChanges().map(action => {
     if (action.payload.exists === false) {
       return null;
