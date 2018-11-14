@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ClienteService } from 'src/app/services/Cliente.service';
 import { ClienteInterface } from '../../../../Models/cliente';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-
 import { Observable } from 'rxjs/Observable';
 
 @Component({
@@ -24,18 +23,22 @@ export class VisualizarClienteComponent implements OnInit {
     econtacto: ''
   };
   constructor(
-    public clienteService: ClienteService,
-    public router: Router,
-    public route: ActivatedRoute
+    private clienteService: ClienteService,
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
     this.getInfoCliente();
+
 
   }
 
   getInfoCliente() {
     this.codCliente = this.route.snapshot.params['codigo'];
     this.clienteService.getOneCliente(this.codCliente).subscribe(cliente => this.cliente = cliente);
+
   }
+
 }
+

@@ -33,7 +33,6 @@ getAllClientes(): Observable<ClienteInterface[]> {
   });
   return this.clientes;
 }
-
 getOneCliente(codCliente: string) {
   this.clienteDoc = this.afs.doc<ClienteInterface>(`clientes/${codCliente}`);
   this.cliente = this.clienteDoc.snapshotChanges().map(action => {
@@ -41,12 +40,13 @@ getOneCliente(codCliente: string) {
       return null;
     } else {
       const data = action.payload.data() as ClienteInterface;
-      data.codigo = action.payload.id;
+    //  data.id = action.payload.id;
       return data;
     }
   });
   return this.cliente;
-}
+ }
+
 
 updateCliente(cliente: ClienteInterface) {
   this.clienteDoc = this.afs.doc(`clientes/${cliente.codigo}`);

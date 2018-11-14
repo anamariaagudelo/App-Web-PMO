@@ -14,7 +14,7 @@
             <li class="nav-item dropdown" routerLinkActive="Active">
                 <a class="nav-link dropdown-toggle" [routerLink]="['proyectos']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><small><b>PROYECTOS</b></small></a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#nuevoProyecto">NUEVO PROYECTO</a>
+                    <a class="dropdown-item" href="#nuevoProyecto" *ngIf="isLogin">NUEVO PROYECTO</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#listarProyecto">LISTA PROYECTOS</a>
                 </div>

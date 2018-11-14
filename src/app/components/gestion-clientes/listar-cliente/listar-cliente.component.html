@@ -11,32 +11,26 @@
 <div class="container ">
     <br>
     <h3 style="text-align: center ">Listado de Clientes</h3>
-    <hr>
     <table class="table ">
         <thead class="list-group-item-danger ">
             <tr class="light bg-light">
                 <th scope="col ">Código</th>
                 <th scope="col ">Nombre</th>
+                <td></td>
                 <th scope="col ">Acciones</th>
             </tr>
         </thead>
 
-        <tbody>
-            <div class="col-md-12" *ngFor="let cliente of clientes">
-                <tr>
-                    <th scope="row ">{{cliente.codigo}}</th>
-                    <td>{{cliente.nombre}}</td>
-                    <td> </td>
-                    <td> </td>
-                    <td> <button [routerLink]="['/visualizarCliente', cliente.codigo]" class="myButton">
+        <tbody *ngFor="let cliente of clientes">
+            <tr>
+                <th scope="row ">{{cliente.codigo}}</th>
+                <td>{{cliente.nombre}}</td>
+                <td> <button [routerLink]="['/visualizarCliente', cliente.codigo]" class="myButton">
                     <span class="glyphicon glyphicon-eye-open"></span> Visualizar
                     </button></td>
-                    <td> </td>
-                    <td> </td>
-                    <td><button [routerLink]="['/modificarCliente', cliente.codigo]" class="myButton">
+                <td><button [routerLink]="['/modificarCliente', cliente.codigo]" class="myButton">
                     <span class="glyphicon glyphicon-edit"></span> Modificar
                     </button></td>
-                </tr>
-            </div>
+            </tr>
         </tbody>
     </table>

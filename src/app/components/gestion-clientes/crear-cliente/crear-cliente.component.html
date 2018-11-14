@@ -20,7 +20,6 @@
                     <br>
                 </div>
                 <form #formGuardarCliente="ngForm" (ngSubmit)="onGuardarCliente(formGuardarCliente)">
-                    <!-- <div class="form-body">-->
                     <div class="form-group">
                         <label for="codigo">Código Cliente<Span class = "rojo">*</Span></label>
                         <input type="text" class="form-control" placeholder="Código" id="codigo" name="codigo" [(ngModel)]="cliente.codigo">
