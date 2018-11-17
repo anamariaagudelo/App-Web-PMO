@@ -49,7 +49,29 @@ export class ClienteService {
 
 
   updateCliente(cliente: ClienteInterface) {
-    
+    console.log(cliente);
+    this.afs.collection('clientes', ref => ref.where('codigo', '==', cliente.codigo)).snapshotChanges().map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as ClienteInterface;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      });
+    }).subscribe(items => {
+      items.forEach(client => {
+        this.afs.doc(`clientes/${client.id}`).update({
+          // codigo: cliente.codigo,
+          nombre: cliente.nombre,
+          descripcion: cliente.descripcion,
+          region: cliente.region,
+          pais: cliente.pais,
+          mercado: cliente.mercado,
+          Ncontacto: cliente.Ncontacto,
+          Econtacto: cliente.Econtacto
+        });
+      });
+    }
+    );
+
   }
 
 }
