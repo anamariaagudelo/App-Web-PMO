@@ -20,8 +20,8 @@ export class ModificarClienteComponent implements OnInit {
     region: '',
     pais: '',
     mercado: '',
-    ncontacto: '',
-    econtacto: ''
+    Ncontacto: '',
+    Econtacto: ''
   };
 
   constructor(
@@ -36,14 +36,20 @@ export class ModificarClienteComponent implements OnInit {
 
   getInfoModCliente() {
     this.codCliente = this.route.snapshot.params['codigo'];
-    this.clienteService.getOneCliente(this.codCliente).subscribe(cliente => this.cliente = cliente);
+    const collection = this.clienteService.getOneCliente(this.codCliente);
+
+    collection.subscribe(docs => {
+      this.cliente = docs[0];
+    });
   }
+
 
   onModificarCliente({value}: {value: ClienteInterface}) {
+    console.log('entre al metodo');
     value.codigo = this.codCliente;
+    console.log(value);
     this.clienteService.updateCliente(value);
-    this.router.navigate(['/visualizarCliente/' + this.codCliente]);
+    // this.router.navigate(['/visualizarCliente/' + this.codCliente]);
 
   }
-
 }

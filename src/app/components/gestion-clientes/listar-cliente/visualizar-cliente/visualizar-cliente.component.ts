@@ -19,8 +19,8 @@ export class VisualizarClienteComponent implements OnInit {
     region: '',
     pais: '',
     mercado: '',
-    ncontacto: '',
-    econtacto: ''
+    Ncontacto: '',
+    Econtacto: ''
   };
   constructor(
     private clienteService: ClienteService,
@@ -36,8 +36,11 @@ export class VisualizarClienteComponent implements OnInit {
 
   getInfoCliente() {
     this.codCliente = this.route.snapshot.params['codigo'];
-    this.clienteService.getOneCliente(this.codCliente).subscribe(cliente => this.cliente = cliente);
+    const collection = this.clienteService.getOneCliente(this.codCliente);
 
+    collection.subscribe(docs => {
+      this.cliente = docs[0];
+    });
   }
 
 }
