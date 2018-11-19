@@ -23,22 +23,22 @@
                         <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="cliente.nombre">
                     </div>
                     <div class="form-group">
-                        <label for="descripcion">Descripción<Span class = "rojo">*</Span></label>
-                        <textarea class="form-control" aria-label="With textarea" id="descripcion" name="descripcion" [(ngModel)]="cliente.description"></textarea>
+                        <label for="exampleDropdownFormEmail1">Descripción</label>
+                        <textarea class="form-control" aria-label="With textarea" id="descripcion" name="descripcion" [(ngModel)]="cliente.descripcion"></textarea>
                     </div>
 
                     <span class="badge badge-pill badge-dark"></span>
 
                     <label for="region">Región<Span class = "rojo">*</Span></label>
-                    <select class="custom-select" id="region" name="region">  
-                            <option selected ></option>
+                    <select class="custom-select" id="region" name="region" [(ngModel)]="cliente.region">  
+                            <option selected  ></option>
                             <option value=" Europa">Europa</option>
                             <option value="Latinoamerica">Latinoamerica</option>
                             <option value="Africa">Africa</option>
                     </select>
 
                     <label for="pais">País<Span class = "rojo">*</Span></label>
-                    <select class="custom-select" id="pais" name="pais">         
+                    <select class="custom-select" id="pais" name="pais" [(ngModel)]="cliente.pais">         
                             <option selected ></option>
                             <option value="Colombia">Colombia</option>
                             <option value="España">España</option>
@@ -47,7 +47,7 @@
                     </select>
 
                     <label for="mercado">Mercado<Span class = "rojo">*</Span></label>
-                    <select class="custom-select" id="mercado" name="mercado">         
+                    <select class="custom-select" id="mercado" name="mercado" [(ngModel)]="cliente.mercado">         
                             <option selected ></option>
                             <option value="Telcom">Telcom</option>
                             <option value="Electricas">Electricas</option>

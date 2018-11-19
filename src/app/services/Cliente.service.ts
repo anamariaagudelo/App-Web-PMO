@@ -59,7 +59,7 @@ export class ClienteService {
     }).subscribe(items => {
       items.forEach(client => {
         this.afs.doc(`clientes/${client.id}`).update({
-          // codigo: cliente.codigo,
+          codigo: cliente.codigo,
           nombre: cliente.nombre,
           descripcion: cliente.descripcion,
           region: cliente.region,

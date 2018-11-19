@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClienteService } from 'src/app/services/Cliente.service';
 import { ClienteInterface } from '../../../../Models/cliente';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+
 import { Observable } from 'rxjs/Observable';
 
 @Component({
@@ -22,10 +23,11 @@ export class VisualizarClienteComponent implements OnInit {
     Ncontacto: '',
     Econtacto: ''
   };
+
   constructor(
-    private clienteService: ClienteService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private clienteService: ClienteService
   ) { }
 
   ngOnInit() {
@@ -37,7 +39,6 @@ export class VisualizarClienteComponent implements OnInit {
   getInfoCliente() {
     this.codCliente = this.route.snapshot.params['codigo'];
     const collection = this.clienteService.getOneCliente(this.codCliente);
-
     collection.subscribe(docs => {
       this.cliente = docs[0];
     });

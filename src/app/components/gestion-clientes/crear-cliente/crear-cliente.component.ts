@@ -18,8 +18,8 @@ export class CrearClienteComponent implements OnInit {
     region: '',
     pais: '',
     mercado: '',
-    ncontacto: '',
-    econtacto: ''
+    Ncontacto: '',
+    Econtacto: ''
   };
 
 
