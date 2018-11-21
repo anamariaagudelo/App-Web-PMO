@@ -22,14 +22,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-/*
-  onClicklGoogleLogin() {
-    this.authService.loginGoogle()
-    .then ((res) => {
-       this.router.navigate(['/admin']);
-      }).catch( err => console.log(err.message));
-    }*/
-
     onSubmitLogin() {
   this.authService.loginEmail(this.email, this.password)
   .then((res) => {

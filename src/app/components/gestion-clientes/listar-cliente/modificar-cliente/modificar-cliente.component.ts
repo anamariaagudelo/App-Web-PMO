@@ -4,6 +4,8 @@ import { ClienteInterface } from '../../../../Models/cliente';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { Observable } from 'rxjs/Observable';
+import { NgFlashMessageService } from 'ng-flash-messages';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-modificar-cliente',
@@ -25,9 +27,12 @@ export class ModificarClienteComponent implements OnInit {
   };
 
   constructor(
+    private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute,
-    private clienteService: ClienteService
+    private clienteService: ClienteService,
+    public ngFlashMensaje: NgFlashMessageService
+
   ) { }
 
   ngOnInit() {
@@ -45,11 +50,15 @@ export class ModificarClienteComponent implements OnInit {
 
 
   onModificarCliente({value}: {value: ClienteInterface}) {
-    console.log('entre al metodo');
+    this.authService.getAuth().subscribe (user => {
     value.codigo = this.codCliente;
-    console.log(value);
     this.clienteService.updateCliente(value);
-    // this.router.navigate(['/visualizarCliente/' + this.codCliente]);
+    this.ngFlashMensaje.showFlashMessage({messages: ['Cliente Modificado Correctamente'],
+        dismissible: true, timeout: 5000, type: 'success'});
+        this.router.navigate(['/visualizarCliente/' + this.codCliente]);
+    });
+    return Observable.throw(this.ngFlashMensaje.showFlashMessage({messages: ['Campos Obligatorios Requeridos'],
+    dismissible: true, timeout: 5000, type: 'danger'}));
 
   }
 }

@@ -29,13 +29,7 @@ export class AuthService {
     err => reject(err));
   });
   }
-/*
-  loginGoogle() {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    return this.afAuth.auth.signInWithPopup(provider);
-   // return this.afAuth.auth.signInWithPopup (new firebase.auth.GoogleAuthProvider());
 
-  }*/
 getAuth() {
   return this.afAuth.authState.map (auth => auth);
 }

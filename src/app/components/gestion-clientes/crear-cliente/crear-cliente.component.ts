@@ -3,6 +3,10 @@ import { ClienteInterface } from '../../../Models/cliente';
 import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 import { ClienteService } from 'src/app/services/Cliente.service';
+import { NgFlashMessageService } from 'ng-flash-messages';
+import 'rxjs/add/observable/throw';
+import { Observable } from 'rxjs';
+import { error } from 'util';
 
 
 @Component({
@@ -22,23 +26,24 @@ export class CrearClienteComponent implements OnInit {
     Econtacto: ''
   };
 
-
-
-
   constructor(
     private authService: AuthService,
     private clienteService: ClienteService,
-    private router: Router
+    private router: Router,
+    public ngFlashMensaje: NgFlashMessageService
   ) {}
 
   ngOnInit() {
   }
   onGuardarCliente({value}: {value: ClienteInterface}) {
-    this.authService.getAuth().subscribe ( user => {
-    this.clienteService.addNewCliente(value);
-    });
-    this.router.navigate(['/home']);
-  }
-  }
+      this.authService.getAuth().subscribe (user => {
+        this.clienteService.addNewCliente(value);
+        this.ngFlashMensaje.showFlashMessage({messages: ['Cliente Registrado Correctamente'],
+        dismissible: true, timeout: 5000, type: 'success'});
+        this.router.navigate(['/listarCliente']);
+        });
+        return Observable.throw(this.ngFlashMensaje.showFlashMessage({messages: ['Campos Obligatorios Requeridos'],
+        dismissible: true, timeout: 5000, type: 'danger'}));
+}
 
-
+}
