@@ -1,4 +1,4 @@
-export interface ClienteInterface {
+export interface ProyectoInterface {
     codigo?: string;
     nombre?: string;
     descripcion?: string;

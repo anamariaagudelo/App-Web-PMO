@@ -14,89 +14,83 @@
         <form class="px-4 py-3">
             <form role="form" id="register-form" autocomplete="off">
                 <div class="form-header">
-                    <h3 style="text-align: center" class="form-title"><i class="fa fa-user"></i> Formulario Nuevo proyecto</h3>
+                    <h3 style="text-align: center" class="form-title"><i class="fa fa-user"></i> Formulario Nuevo proyecto
+                    </h3>
                     <hr>
                     <br>
                 </div>
 
-                <div class="form-body">
+                <form #formGuardarProyecto="ngForm" (ngSubmit)="onGuardarProyecto(formGuardarProyecto)">
                     <div class="form-group">
-                        <label for="exampleDropdownFormEmail1">Código Proyecto<Span class = "rojo">*</Span></label>
-                        <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="Código">
-                        <span class="help-block" id="error"></span>
+                        <label for="codigo">Código Proyecto<Span class="rojo">*</Span></label>
+                        <input type="text" class="form-control" placeholder="Código" id="codigo" name="codigo" [(ngModel)]="proyecto.codigo">
                     </div>
                     <div class="form-group">
-                        <label for="exampleDropdownFormEmail1">Nombre Proyecto<Span class = "rojo">*</Span></label>
-                        <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="Nombre">
-                        <span class="help-block" id="error"></span>
+                        <label for="nombre">Nombre Proyecto<Span class="rojo">*</Span></label>
+                        <input type="text" class="form-control" placeholder="Nombre" id="nombre" name="nombre" [(ngModel)]="proyecto.nombre">
                     </div>
                     <div class="form-group">
-                        <label for="exampleDropdownFormEmail1">Descripción<Span class = "rojo">*</Span></label>
-                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                        <label for="descripcion">Descripción<Span class="rojo">*</Span></label>
+                        <textarea class="form-control" placeholder="Descripción" aria-label="With textarea" id="descripcion" name="descripcion" [(ngModel)]="proyecto.descripcion">Describe brevemente la actividad del Cliente</textarea>
                     </div>
+                    <label for="cliente">Cliente<Span class="rojo">*</Span></label>
+                    <select class="custom-select" id="cliente" name="cliente" [(ngModel)]="proyecto.cliente">
+                        <option selected *ngFor="let cliente of clientes">{{cliente.nombre}}</option>
+                    </select>
 
-                    <label for="exampleDropdownFormEmail1">Cliente<Span class = "rojo">*</Span></label>
-                    <select class="custom-select" id="inputGroupSelect01">         
-                            <option selected>Seleccione un cliente</option>
-                            <option value="1">Cliente 1</option>
-                            <option value="2">Cliente 2</option>
-                            <option value="3">Cliente 3</option>
-                          </select>
-                </div>
-                <br>
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="card-title">Adjuntar Documentos</h5>
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">Debe seleccionar los archivos en formato PDF
-                            <Span class="rojo">*</Span>
-                        </p>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                            <label class="custom-file-label" for="inputGroupFile01">Alcance proyecto</label>
+                    <br>
+                    <br>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">Adjuntar Documentos</h5>
                         </div>
-                        <br>
-                        <br>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                            <label class="custom-file-label" for="inputGroupFile01">Cronograma</label>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                            <label class="custom-file-label" for="inputGroupFile01">Hitos de Facturación</label>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                            <label class="custom-file-label" for="inputGroupFile01">Informe de Seguimiento</label>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                            <label class="custom-file-label" for="inputGroupFile01">Indicadores de Desempeño</label>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                            <label class="custom-file-label" for="inputGroupFile01">Documento de Riesgos detectados</label>
-                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Debe seleccionar los archivos en formato PDF
+                                <Span class="rojo">*</Span>
+                            </p>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                <label class="custom-file-label" for="inputGroupFile01">Alcance proyecto</label>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                <label class="custom-file-label" for="inputGroupFile01">Cronograma</label>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                <label class="custom-file-label" for="inputGroupFile01">Hitos de Facturación</label>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                <label class="custom-file-label" for="inputGroupFile01">Informe de Seguimiento</label>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                <label class="custom-file-label" for="inputGroupFile01">Indicadores de Desempeño</label>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                <label class="custom-file-label" for="inputGroupFile01">Documento de Riesgos detectados</label>
+                            </div>
 
+                        </div>
                     </div>
-                </div>
-                <br>
-                <label for="email" class="col-6 col-form-label"><Span class = "rojo">*</Span>Campos Obligatorios</label>
-                <hr>
-                <div class="form-footer">
-                    <button type="submit" class=" myButton btn-block "><span class="glyphicon glyphicon-log-in "></span> Registrar</button>
+                    <br>
+                    <label for="email" class="col-6 col-form-label"><Span class="rojo">*</Span>Campos Obligatorios</label>
                     <hr>
-                </div>
+                    <div class="form-footer">
+                        <button type="submit" class=" myButton btn-block "> Registrar</button>
+                        <hr>
+                    </div>
+                </form>
             </form>
-        </form>
-    </div>
-</div>

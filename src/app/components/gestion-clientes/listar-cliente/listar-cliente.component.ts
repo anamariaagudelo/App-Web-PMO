@@ -24,3 +24,4 @@ export class ListarClienteComponent implements OnInit {
     this.clienteService.getAllClientes().subscribe(clientes => this.clientes = clientes);
   }
 }
+
