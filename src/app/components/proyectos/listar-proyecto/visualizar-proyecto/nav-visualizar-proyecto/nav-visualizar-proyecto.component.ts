@@ -4,6 +4,8 @@ import { ProyectoService } from '../../../../../services/proyecto.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { Observable } from 'rxjs/Observable';
+import { ClienteService } from 'src/app/services/Cliente.service';
+import { ClienteInterface } from 'src/app/Models/cliente';
 
 @Component({
   selector: 'app-nav-visualizar-proyecto',
@@ -12,6 +14,18 @@ import { Observable } from 'rxjs/Observable';
 })
 export class NavVisualizarProyectoComponent implements OnInit {
   codProyecto: string;
+  clientProyecto: string;
+
+  cliente: ClienteInterface = {
+    codigo: '',
+    nombre: '',
+    descripcion: '',
+    region: '',
+    pais: '',
+    mercado: '',
+    Ncontacto: '',
+    Econtacto: ''
+  };
 
   proyecto: ProyectoInterface = {
     codigo: '',
@@ -24,11 +38,13 @@ export class NavVisualizarProyectoComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    public proyectoService: ProyectoService
+    public proyectoService: ProyectoService,
+    private clienteService: ClienteService
   ) { }
 
   ngOnInit() {
     this.getInfoProyecto();
+    this.getInfoClienteOfProyecto();
   }
 
   getInfoProyecto() {
@@ -39,4 +55,12 @@ export class NavVisualizarProyectoComponent implements OnInit {
     });
   }
 
+  getInfoClienteOfProyecto() {
+    this.clientProyecto = this.route.snapshot.params['cliente'];
+    console.log('este es el cliente', this.clientProyecto);
+    const collection = this.clienteService.getOneClienteofProyecto(this.clientProyecto);
+    collection.subscribe(docs => {
+      this.cliente = docs[0];
+    });
+  }
 }

@@ -33,7 +33,6 @@ export class VisualizarClienteComponent implements OnInit {
   ngOnInit() {
     this.getInfoCliente();
 
-
   }
 
   getInfoCliente() {

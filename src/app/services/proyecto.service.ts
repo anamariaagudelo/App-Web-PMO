@@ -35,7 +35,6 @@ getAllProyectos(): Observable<ProyectoInterface[]> {
 }
 
 getOneProyecto(codProyecto: string) {
-
   const collection = this.afs.collection('proyectos', ref => ref.where('codigo', '==', codProyecto)).snapshotChanges().map(changes => {
     return changes.map(a => {
       const data = a.payload.doc.data() as ProyectoInterface;

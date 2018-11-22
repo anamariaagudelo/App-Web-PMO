@@ -43,7 +43,7 @@ const APP_ROUTES: Routes = [
     {path: 'visualizarCliente/:codigo', component:  VisualizarClienteComponent, canActivate: [AuthGuard]  },
     {path: 'modificarCliente/:codigo', component:  ModificarClienteComponent, canActivate: [AuthGuard] },
     {path: 'infoProyectos/:codigo', component:  InfoProyectosComponent},
-    {path: 'infoCliente', component:  InfoClienteComponent },
+    {path: 'infoCliente/:cliente', component:  InfoClienteComponent },
     {path: 'infoAdjuntos', component:   InfoAdjuntosComponent},
     {path: 'admin', component:   AdminComponent, canActivate: [AuthGuard] },
     {path: '**', component: NotFoundComponent }

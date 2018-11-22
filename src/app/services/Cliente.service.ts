@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ClienteInterface } from '../Models/cliente';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable } from 'rxjs/Observable';
-
+import { AuthService } from './auth.service';
 
 
 @Injectable({
@@ -39,6 +39,18 @@ export class ClienteService {
   getOneCliente(codCliente: string) {
 
     const collection = this.afs.collection('clientes', ref => ref.where('codigo', '==', codCliente)).snapshotChanges().map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as ClienteInterface;
+        return data;
+      });
+    });
+
+    return collection;
+  }
+
+  getOneClienteofProyecto(clientProyecto: string) {
+
+    const collection = this.afs.collection('clientes', ref => ref.where('nombre', '==', clientProyecto)).snapshotChanges().map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as ClienteInterface;
         return data;
