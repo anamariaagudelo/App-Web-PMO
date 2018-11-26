@@ -44,4 +44,25 @@ getOneProyecto(codProyecto: string) {
 
   return collection;
 }
+
+updateProyecto(proyecto: ProyectoInterface) {
+  this.afs.collection('clientes', ref => ref.where('codigo', '==', proyecto.codigo)).snapshotChanges().map(changes => {
+    return changes.map(a => {
+      const data = a.payload.doc.data() as ProyectoInterface;
+      const id = a.payload.doc.id;
+      return { id, ...data };
+    });
+  }).subscribe(items => {
+    items.forEach(client => {
+      this.afs.doc(`clientes/${client.id}`).update({
+        codigo: proyecto.codigo,
+        nombre: proyecto.nombre,
+        descripcion: proyecto.descripcion,
+        cliente: proyecto.cliente,
+      });
+    });
+  }
+  );
+
+}
 }

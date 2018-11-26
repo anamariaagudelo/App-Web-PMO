@@ -49,7 +49,6 @@ export class ClienteService {
   }
 
   getOneClienteofProyecto(clientProyecto: string) {
-
     const collection = this.afs.collection('clientes', ref => ref.where('nombre', '==', clientProyecto)).snapshotChanges().map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as ClienteInterface;
@@ -63,7 +62,6 @@ export class ClienteService {
 
 
   updateCliente(cliente: ClienteInterface) {
-    console.log(cliente);
     this.afs.collection('clientes', ref => ref.where('codigo', '==', cliente.codigo)).snapshotChanges().map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as ClienteInterface;

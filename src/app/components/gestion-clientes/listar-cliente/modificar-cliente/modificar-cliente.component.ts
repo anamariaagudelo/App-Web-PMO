@@ -57,8 +57,8 @@ export class ModificarClienteComponent implements OnInit {
         dismissible: true, timeout: 5000, type: 'success'});
         this.router.navigate(['/visualizarCliente/' + this.codCliente]);
     });
-    return Observable.throw(this.ngFlashMensaje.showFlashMessage({messages: ['Campos Obligatorios Requeridos'],
-    dismissible: true, timeout: 5000, type: 'danger'}));
+    /*return Observable.throw(this.ngFlashMensaje.showFlashMessage({messages: ['Campos Obligatorios Requeridos'],
+    dismissible: true, timeout: 5000, type: 'danger'}));*/
 
   }
 }

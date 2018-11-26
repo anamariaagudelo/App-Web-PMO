@@ -16,12 +16,13 @@ import { CrearClienteComponent } from './components/gestion-clientes/crear-clien
 import { ListarClienteComponent } from './components/gestion-clientes/listar-cliente/listar-cliente.component';
 import { VisualizarClienteComponent } from './components/gestion-clientes/listar-cliente/visualizar-cliente/visualizar-cliente.component';
 import { ModificarClienteComponent } from './components/gestion-clientes/listar-cliente/modificar-cliente/modificar-cliente.component';
-import { InfoProyectosComponent } from './components/proyectos/listar-proyecto/visualizar-proyecto/info-proyectos/info-proyectos.component';
 import { InfoClienteComponent } from './components/proyectos/listar-proyecto/visualizar-proyecto/info-cliente/info-cliente.component';
 import { InfoAdjuntosComponent } from './components/proyectos/listar-proyecto/visualizar-proyecto/info-adjuntos/info-adjuntos.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { AuthGuard } from './guards/auth.guard';
+
+
 
 
 const APP_ROUTES: Routes = [
@@ -35,14 +36,13 @@ const APP_ROUTES: Routes = [
     {path: 'modificarUsuario', component:  ModificarUsuarioComponent, canActivate: [AuthGuard]},
     {path: 'nuevoProyecto', component:  NuevoProyectoComponent, canActivate: [AuthGuard]},
     {path: 'listarProyecto', component:  ListarProyectoComponent},
-    {path: 'visualizarProyecto/:codigo', component:  VisualizarProyectoComponent},
+    {path: 'VisualizarProyecto/:codigo', component:  VisualizarProyectoComponent},
     {path: 'modificarProyecto/:codigo', component:  ModificarProyectoComponent, canActivate: [AuthGuard] },
     {path: 'gestionClientes', component:  GestionClientesComponent, canActivate: [AuthGuard] },
     {path: 'crearCliente', component:  CrearClienteComponent, canActivate: [AuthGuard]  },
     {path: 'listarCliente', component:  ListarClienteComponent, canActivate: [AuthGuard] },
     {path: 'visualizarCliente/:codigo', component:  VisualizarClienteComponent, canActivate: [AuthGuard]  },
     {path: 'modificarCliente/:codigo', component:  ModificarClienteComponent, canActivate: [AuthGuard] },
-    {path: 'infoProyectos/:codigo', component:  InfoProyectosComponent},
     {path: 'infoCliente/:cliente', component:  InfoClienteComponent },
     {path: 'infoAdjuntos', component:   InfoAdjuntosComponent},
     {path: 'admin', component:   AdminComponent, canActivate: [AuthGuard] },

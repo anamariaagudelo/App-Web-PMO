@@ -41,7 +41,6 @@ export class NuevoProyectoComponent implements OnInit {
   }
 
   onGuardarProyecto({ value }: { value: ProyectoInterface }) {
-    console.log(value),
       this.authService.getAuth().subscribe(user => {
         this.proyectoService.addNewProyecto(value);
         this.ngFlashMensaje.showFlashMessage({
@@ -50,10 +49,6 @@ export class NuevoProyectoComponent implements OnInit {
         });
         this.router.navigate(['/listarProyecto']);
       });
-    return Observable.throw(this.ngFlashMensaje.showFlashMessage({
-      messages: ['Campos Obligatorios Requeridos'],
-      dismissible: true, timeout: 5000, type: 'danger'
-    }));
   }
 
 }

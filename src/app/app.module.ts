@@ -46,7 +46,6 @@ import { ListarClienteComponent } from './components/gestion-clientes/listar-cli
 import { NavClientesComponent } from './components/gestion-clientes/nav-clientes/nav-clientes.component';
 import { VisualizarClienteComponent } from './components/gestion-clientes/listar-cliente/visualizar-cliente/visualizar-cliente.component';
 import { ModificarClienteComponent } from './components/gestion-clientes/listar-cliente/modificar-cliente/modificar-cliente.component';
-import { InfoProyectosComponent } from './components/proyectos/listar-proyecto/visualizar-proyecto/info-proyectos/info-proyectos.component';
 import { InfoClienteComponent } from './components/proyectos/listar-proyecto/visualizar-proyecto/info-cliente/info-cliente.component';
 import { InfoAdjuntosComponent } from './components/proyectos/listar-proyecto/visualizar-proyecto/info-adjuntos/info-adjuntos.component';
 // tslint:disable-next-line:max-line-length
@@ -84,7 +83,6 @@ import {FormsModule} from '@angular/forms';
     NavClientesComponent,
     VisualizarClienteComponent,
     ModificarClienteComponent,
-    InfoProyectosComponent,
     InfoClienteComponent,
     InfoAdjuntosComponent,
     NavVisualizarProyectoComponent,
