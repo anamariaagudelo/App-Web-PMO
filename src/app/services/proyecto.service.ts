@@ -46,7 +46,7 @@ export class ProyectoService {
   }
 
   updateProyecto(proyecto: ProyectoInterface) {
-    this.afs.collection('clientes', ref => ref.where('codigo', '==', proyecto.codigo)).snapshotChanges().map(changes => {
+    this.afs.collection('proyectos', ref => ref.where('codigo', '==', proyecto.codigo)).snapshotChanges().map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as ProyectoInterface;
         const id = a.payload.doc.id;
@@ -54,7 +54,7 @@ export class ProyectoService {
       });
     }).subscribe(items => {
       items.forEach(client => {
-        this.afs.doc(`clientes/${client.id}`).update({
+        this.afs.doc(`proyectos/${client.id}`).update({
           codigo: proyecto.codigo,
           nombre: proyecto.nombre,
           descripcion: proyecto.descripcion,
@@ -67,13 +67,13 @@ export class ProyectoService {
 
 
   buscarOneproyectos(termino: string) {
-    const collBusqueda = this.afs.collection('proyectos', ref => ref.where('codigo', '==', termino)).snapshotChanges().map(changes => {
+    // tslint:disable-next-line:max-line-length
+    const collBusqueda = this.afs.collection('proyectos', ref => ref.where('codigo', '==', termino.toLocaleLowerCase())).snapshotChanges().map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as ProyectoInterface;
         return data;
       });
     });
-
     return collBusqueda;
   }
 

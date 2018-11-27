@@ -34,12 +34,10 @@ export class BuscadorComponent implements OnInit {
   getBusquedaproyecto() {
     this.activateRoute.params.subscribe(params => {
       this.proy = this.proyectoService.buscarOneproyectos(params['termino']);
-      console.log('entró al método');
     });
     const collection = this.proy;
     collection.subscribe(docs => {
       this.proyecto = docs[0];
-      console.log(this.proyecto);
     });
 }
 }
