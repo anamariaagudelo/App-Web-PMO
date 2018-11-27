@@ -39,8 +39,8 @@
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-            <button [routerLink]="['/#']" class="myButton">
+            <input class="form-control mr-sm-2" type="text" placeholder="Buscar Proyecto" #buscarTexto (keyup.enter)="buscarProyecto(buscarTexto)">
+            <button (click)="buscarProyecto(buscarTexto.value)" class="myButton" type="button">
             <span class="glyphicon glyphicon-search"></span> Buscar
             </button>
         </form>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -14,7 +15,8 @@ export class NavbarComponent implements OnInit {
   public isLogin: boolean;
 
   constructor(
-    public authService: AuthService
+    public authService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -46,5 +48,11 @@ export class NavbarComponent implements OnInit {
 
   onLogout() {
    this.authService.logout();
+  }
+
+  buscarProyecto(termino: string) {
+    // console.log(termino);
+    this.router.navigate(['/buscador', termino]);
+
   }
 }

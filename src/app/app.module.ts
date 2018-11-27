@@ -53,6 +53,7 @@ import { NavVisualizarProyectoComponent } from './components/proyectos/listar-pr
 import { AdminComponent } from './components/admin/admin.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import {FormsModule} from '@angular/forms';
+import { BuscadorComponent } from './components/buscador/buscador.component';
 
 
 
@@ -88,6 +89,7 @@ import {FormsModule} from '@angular/forms';
     NavVisualizarProyectoComponent,
     AdminComponent,
     NotFoundComponent,
+    BuscadorComponent,
      ],
   imports: [
     BrowserModule,

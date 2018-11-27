@@ -21,6 +21,7 @@ import { InfoAdjuntosComponent } from './components/proyectos/listar-proyecto/vi
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { AuthGuard } from './guards/auth.guard';
+import { BuscadorComponent } from './components/buscador/buscador.component';
 
 
 
@@ -46,6 +47,7 @@ const APP_ROUTES: Routes = [
     {path: 'infoCliente/:cliente', component:  InfoClienteComponent },
     {path: 'infoAdjuntos', component:   InfoAdjuntosComponent},
     {path: 'admin', component:   AdminComponent, canActivate: [AuthGuard] },
+    {path: 'buscador/:termino', component:   BuscadorComponent},
     {path: '**', component: NotFoundComponent }
 ];
 

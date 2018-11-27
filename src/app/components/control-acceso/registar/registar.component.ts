@@ -36,7 +36,7 @@ export class RegistarComponent implements OnInit {
   .then((res) => {
     console.log(res);
     this.ngFlashMensaje.showFlashMessage({messages: ['Usuario creado Correctamente'], dismissible: true, timeout: 5000, type: 'success'});
-    //  this.router.navigate(['/controlAcceso']);
+    this.router.navigate(['/listar']);
   }).catch((err) => {
     this.ngFlashMensaje.showFlashMessage({messages: [err], dismissible: true, timeout: 5000, type: 'danger'});
   });
