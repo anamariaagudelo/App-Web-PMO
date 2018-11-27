@@ -67,8 +67,7 @@ export class ProyectoService {
 
 
   buscarOneproyectos(termino: string) {
-    // tslint:disable-next-line:max-line-length
-    const collBusqueda = this.afs.collection('proyectos', ref => ref.where('codigo', '==', termino.toLocaleLowerCase())).snapshotChanges().map(changes => {
+    const collBusqueda = this.afs.collection('proyectos', ref => ref.where('codigo', '==', termino)).snapshotChanges().map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as ProyectoInterface;
         return data;

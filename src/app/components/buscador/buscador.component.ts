@@ -31,6 +31,7 @@ export class BuscadorComponent implements OnInit {
   }
 
 
+  // PENDIENTE OPTIMIZAR BÚSQUEDA
   getBusquedaproyecto() {
     this.activateRoute.params.subscribe(params => {
       this.proy = this.proyectoService.buscarOneproyectos(params['termino']);

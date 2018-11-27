@@ -36,14 +36,10 @@ export class CrearClienteComponent implements OnInit {
   ngOnInit() {
   }
   onGuardarCliente({value}: {value: ClienteInterface}) {
-      this.authService.getAuth().subscribe (user => {
         this.clienteService.addNewCliente(value);
         this.ngFlashMensaje.showFlashMessage({messages: ['Cliente Registrado Correctamente'],
         dismissible: true, timeout: 5000, type: 'success'});
         this.router.navigate(['/listarCliente']);
-        });
-        return Observable.throw(this.ngFlashMensaje.showFlashMessage({messages: ['Campos Obligatorios Requeridos'],
-        dismissible: true, timeout: 5000, type: 'danger'}));
 }
 
 }
