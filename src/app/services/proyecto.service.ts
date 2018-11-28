@@ -53,8 +53,8 @@ export class ProyectoService {
         return { id, ...data };
       });
     }).subscribe(items => {
-      items.forEach(client => {
-        this.afs.doc(`proyectos/${client.id}`).update({
+      items.forEach(proyect => {
+        this.afs.doc(`proyectos/${proyect.id}`).update({
           codigo: proyecto.codigo,
           nombre: proyecto.nombre,
           descripcion: proyecto.descripcion,
@@ -65,6 +65,10 @@ export class ProyectoService {
     );
   }
 
+  getProyectoImagenes(codProyecto: string) {
+    return this.afs.doc<ProyectoInterface>(`proyectos/${codProyecto}`).collection('uploads');
+
+  }
 
   buscarOneproyectos(termino: string) {
     const collBusqueda = this.afs.collection('proyectos', ref => ref.where('codigo', '==', termino)).snapshotChanges().map(changes => {

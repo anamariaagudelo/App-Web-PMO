@@ -41,12 +41,13 @@ export class NuevoProyectoComponent implements OnInit {
   }
 
   onGuardarProyecto({ value }: { value: ProyectoInterface }) {
-        this.proyectoService.addNewProyecto(value);
-        this.ngFlashMensaje.showFlashMessage({
-          messages: ['Proyecto Registrado Correctamente'],
-          dismissible: true, timeout: 5000, type: 'success'
-        });
-        this.router.navigate(['/listarProyecto']);
-      }
+      this.proyectoService.addNewProyecto(value);
+      this.ngFlashMensaje.showFlashMessage({
+        messages: ['Proyecto Registrado Correctamente'],
+        dismissible: true, timeout: 5000, type: 'success'
+      });
+      this.router.navigate(['/listarProyecto']);
+  }
 
 }
+
