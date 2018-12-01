@@ -36,29 +36,53 @@
                             <h5 class="card-title">Adjuntar Documentos</h5>
                         </div>
                         <div class="card-body">
-                            <p class="card-text">Documentos Actuales:
-                            </p>
                             <div class="row">
                                 <div class="col-5">
-                                    <input type="file" multiple="false" id="docuemnto" name="docuemnto" accept=".pdf">
+                                    <input type="file" class="formcontrol" multiple="true" (change)="startUpload($event)" id="docuemento" name="docuemento" accept=".pdf">
                                 </div>
                                 <div class="row">
                                     <label for="perfil" class="col-3 col-form-label"><b>Descripción</b></label>
                                     <div class="col-1  ">
                                         <select class="custom-select" id="perfil" name="perfil" style="width:380px" size="1">
                                                 <option selected>Seleccionar Tipo de Archivo</option>
-                                                <option value="Administrador">Alcance proyecto</option>
-                                                <option value="Consultor">Cronograma</option>
-                                                <option value="Consultor">Hitos de Facturación</option>
-                                                <option value="Consultor">Informe de Seguimiento</option>
-                                                <option value="Consultor">Indicadores de Desempeño</option>
-                                                <option value="Consultor">Documento de Riesgos detectados</option>
+                                                <option value="Alcance proyecto">Alcance proyecto</option>
+                                                <option value="Cronograma">Cronograma</option>
+                                                <option value="Hitos de Facturación">Hitos de Facturación</option>
+                                                <option value="Informe de Seguimiento">Informe de Seguimiento</option>
+                                                <option value="Indicadores de Desempeño">Indicadores de Desempeño</option>
+                                                <option value="Documento de Riesgos detectados">Documento de Riesgos
+                                                    detectados</option>
                                             </select>
                                     </div>
                                 </div>
-                                <div>
-                                    <a class="nav-link" href="#">Añadir otro Archivo</a>
-                                </div>
+                                <br>
+                                <br>
+                                <table class="table">
+                                    <thead class="list-group-item-danger ">
+                                        <tr class="light bg-light">
+                                            <th>Nombre Archivo</th>
+                                            <th>Progreso</th>
+                                            <th></th>
+                                            <th></th>
+                                            <th>Acción</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>Nombre</td>
+                                            <td>
+                                                <div class="progress">
+                                                    <div class="progress-bar" role="progressbar"></div>
+                                                </div>
+                                            </td>
+                                            <th></th>
+                                            <th></th>
+                                            <td> <button class="myButton">Limpiar</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
 
                         </div>

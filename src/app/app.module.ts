@@ -11,6 +11,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 // Srevices
 import { AuthService } from './services/auth.service';
 import { ClienteService } from './services/Cliente.service';
+import { ProyectoService } from './services/proyecto.service';
 
 // Interfaces
 import { ClienteInterface } from './Models/cliente';
@@ -60,6 +61,7 @@ import { BuscadorComponent } from './components/buscador/buscador.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -101,7 +103,7 @@ import { BuscadorComponent } from './components/buscador/buscador.component';
     FormsModule,
     NgFlashMessagesModule.forRoot(),
   ],
-  providers: [AuthService, AuthGuard, ClienteService, ],
+  providers: [AuthService, AuthGuard, ClienteService, ProyectoService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
