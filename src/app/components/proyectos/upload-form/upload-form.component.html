@@ -5,7 +5,8 @@
         <form class="px-4 py-3">
             <form role="form" id="register-form" autocomplete="off">
                 <div class="form-header">
-                    <h3 style="text-align: center" class="form-title"><i class="fa fa-user"></i> Modificar Información del proyecto</h3>
+                    <h3 style="text-align: center" class="form-title"><i class="fa fa-user"></i> Formulario Nuevo proyecto
+                    </h3>
                     <hr>
                     <br>
                 </div>
@@ -27,8 +28,8 @@
                     <!--OJO REVISAR EL SELECTOR-->
                     <label for="cliente">Cliente<Span class="rojo">*</Span></label>
                     <select class="custom-select" id="cliente" name="cliente" [(ngModel)]="proyecto.cliente">
-                         <option selected *ngFor="let cliente of clientes">{{cliente.nombre}}</option>
-                       
+                        <option selected>{{proyecto.cliente}}</option>
+
                     </select>
                     <br>
                     <br>
@@ -45,15 +46,15 @@
                                     <label for="perfil" class="col-3 col-form-label"><b>Descripción</b></label>
                                     <div class="col-1  ">
                                         <select class="custom-select" id="perfil" name="perfil" style="width:380px" size="1">
-                                                <option selected>Seleccionar Tipo de Archivo</option>
-                                                <option value="Alcance proyecto">Alcance proyecto</option>
-                                                <option value="Cronograma">Cronograma</option>
-                                                <option value="Hitos de Facturación">Hitos de Facturación</option>
-                                                <option value="Informe de Seguimiento">Informe de Seguimiento</option>
-                                                <option value="Indicadores de Desempeño">Indicadores de Desempeño</option>
-                                                <option value="Documento de Riesgos detectados">Documento de Riesgos
-                                                    detectados</option>
-                                            </select>
+                                            <option selected>Seleccionar Tipo de Archivo</option>
+                                            <option value="Alcance proyecto">Alcance proyecto</option>
+                                            <option value="Cronograma">Cronograma</option>
+                                            <option value="Hitos de Facturación">Hitos de Facturación</option>
+                                            <option value="Informe de Seguimiento">Informe de Seguimiento</option>
+                                            <option value="Indicadores de Desempeño">Indicadores de Desempeño</option>
+                                            <option value="Documento de Riesgos detectados">Documento de Riesgos
+                                                detectados</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <br>

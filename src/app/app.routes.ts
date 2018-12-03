@@ -22,6 +22,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { AuthGuard } from './guards/auth.guard';
 import { BuscadorComponent } from './components/buscador/buscador.component';
+import { UploadFormComponent } from './components/proyectos/upload-form/upload-form.component';
 
 
 
@@ -48,6 +49,7 @@ const APP_ROUTES: Routes = [
     {path: 'infoAdjuntos', component:   InfoAdjuntosComponent},
     {path: 'admin', component:   AdminComponent, canActivate: [AuthGuard] },
     {path: 'buscador/:termino', component:   BuscadorComponent},
+    {path: 'nuevoProyectoAdjuntos/:codigo', component:   UploadFormComponent},
     {path: '**', component: NotFoundComponent }
 ];
 

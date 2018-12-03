@@ -1,4 +1,4 @@
-export class FileItem {
+/*export class FileItem {
   public archivo: File;
   public nombreArchivo: string;
   public url: string;
@@ -13,4 +13,10 @@ export class FileItem {
     this.estaSubiendo = false;
     this.progrso = 0;
   }
+}*/
+export class Upload {
+  id: string;
+  file: File;
+  name: string;
+  url: string;
 }

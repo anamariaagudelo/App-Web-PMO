@@ -55,6 +55,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import {FormsModule} from '@angular/forms';
 import { BuscadorComponent } from './components/buscador/buscador.component';
+import { UploadFormComponent } from './components/proyectos/upload-form/upload-form.component';
 
 
 
@@ -92,6 +93,7 @@ import { BuscadorComponent } from './components/buscador/buscador.component';
     AdminComponent,
     NotFoundComponent,
     BuscadorComponent,
+    UploadFormComponent,
      ],
   imports: [
     BrowserModule,
