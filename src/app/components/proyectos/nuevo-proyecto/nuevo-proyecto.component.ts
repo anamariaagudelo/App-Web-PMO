@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 import { ClienteService } from 'src/app/services/Cliente.service';
 import { ClienteInterface } from '../../../Models/cliente';
 import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
-import { Upload } from '../../../Models/file-item';
+import { FileItem } from '../../../Models/file-item';
 
 
 @Component({
@@ -19,7 +19,7 @@ import { Upload } from '../../../Models/file-item';
 })
 export class NuevoProyectoComponent implements OnInit {
   clientes: ClienteInterface[];
-  // archivos: FileItem[] = [];
+  archivos: FileItem[] = [];
 
 
   proyecto: ProyectoInterface = {
@@ -48,12 +48,21 @@ export class NuevoProyectoComponent implements OnInit {
     this.clienteService.getAllClientes().subscribe(clientes => this.clientes = clientes);
   }
 
-  /*startUpload(event) {
+  selectFile(event) {
     const file = event.target.files[0];
-    this.archivos.push(file);
+    const nuevoArchivo = new FileItem(file);
+    this.archivos.push(nuevoArchivo);
+    console.log(this.archivos);
+  }
+
+    cargarArchivos () {
+      this.proyectoService.cargarArchivosFirebase(this.archivos);
+    }
+
+    limpiarArchivos() {
+      this.archivos = [];
       console.log(this.archivos);
-      return this.archivos;
-    }*/
+    }
 
 
   onGuardarProyecto({ value }: { value: ProyectoInterface }) {

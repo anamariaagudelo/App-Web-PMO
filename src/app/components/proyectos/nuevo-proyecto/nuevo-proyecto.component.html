@@ -15,7 +15,7 @@
                     <hr>
                     <br>
                 </div>
-
+                <!--#formGuardarProyecto="ngForm" (ngSubmit)="onGuardarProyecto(formGuardarProyecto)"-->
                 <form #formGuardarProyecto="ngForm" (ngSubmit)="onGuardarProyecto(formGuardarProyecto)">
                     <div class="form-group">
                         <label for="codigo">Código Proyecto<Span class="rojo">*</Span></label>
@@ -34,15 +34,25 @@
                         <option selected *ngFor="let cliente of clientes">{{cliente.nombre}}</option>
                     </select>
                     <br>
+                    <br>
                     <label for="email" class="col-6 col-form-label"><Span class="rojo">*</Span>Campos Obligatorios</label>
                     <hr>
-                    <div class="form-footer">
-                        <button type="submit" class=" myButton btn-btn"> Guardar</button>
-                        <button [routerLink]="['/nuevoProyectoAdjuntos', proyecto.codigo]" class="myButton"> Adjuntar docuemntos
-                            </button>
+                    <div class="row">
+                        <div class="col-6">
+                            <button type="submit" class=" myButton btn-btn"> Guardar Información General</button>
+                        </div>
+                        <div class="col-6">
+                            <button type="button" [routerLink]="['/nuevoProyectoAdjuntos', proyecto.codigo]" class="myButton">
+                                        Adjuntar documentos
+                                    </button>
+                        </div>
                         <hr>
                     </div>
+                    <hr>
                 </form>
+
+
+
             </form>
         </form>
     </div>

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ClienteService } from 'src/app/services/Cliente.service';
 import { ClienteInterface } from '../../../../Models/cliente';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-
 import { Observable } from 'rxjs/Observable';
 import { NgFlashMessageService } from 'ng-flash-messages';
 import { AuthService } from 'src/app/services/auth.service';

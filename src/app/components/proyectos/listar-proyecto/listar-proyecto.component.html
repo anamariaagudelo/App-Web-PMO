@@ -22,11 +22,12 @@
                 <th scope="row ">{{proyecto.codigo}}</th>
                 <td>{{proyecto.nombre}}</td>
                 <td> <button [routerLink]="['/VisualizarProyecto', proyecto.codigo]" class="myButton">
-                    <span class="glyphicon glyphicon-eye-open"></span> Visualizar
+                        <span class="glyphicon glyphicon-eye-open"></span> Visualizar
                     </button></td>
                 <td><button [routerLink]="['/modificarProyecto', proyecto.codigo]" class="myButton">
-                    <span class="glyphicon glyphicon-edit"></span> Modificar
+                        <span class="glyphicon glyphicon-edit"></span> Modificar
                     </button></td>
             </tr>
         </tbody>
     </table>
+</div>

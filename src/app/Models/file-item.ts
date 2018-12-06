@@ -1,22 +1,19 @@
-/*export class FileItem {
-  public archivo: File;
-  public nombreArchivo: string;
+export class FileItem {
+  public id: string;
+  public adjunto: File;
+  public nombreAdjunto: string;
   public url: string;
   public estaSubiendo: boolean;
-  public progrso: number;
+  public progreso: number;
+  public descripcion: string;
 
 
   constructor(archivo: File) {
-    this.archivo = archivo;
-    this.nombreArchivo = archivo.name;
-
+    this.adjunto = archivo;
+    this.nombreAdjunto = archivo.name;
     this.estaSubiendo = false;
-    this.progrso = 0;
+    this.progreso = 0;
   }
-}*/
-export class Upload {
-  id: string;
-  file: File;
-  name: string;
-  url: string;
 }
+
+

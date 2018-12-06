@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { ProyectoInterface } from '../Models/proyecto';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable } from 'rxjs/Observable';
-import * as firebase from 'firebase';
-import { Upload } from '../Models/file-item';
+import * as firebase from 'firebase/app';
 import * as faker from 'faker';
+import { FileItem } from '../Models/file-item';
 
 
 @Injectable({
@@ -68,67 +68,36 @@ updateProyecto(proyecto: ProyectoInterface) {
   );
 }
 
-pushFileTostorage(fileUpload: Upload, progress: { percentage: number }, id: any) {
-  const storageRef = firebase.storage().ref();
-  const fieleId = faker.random.alphaNumeric(16);
-  const uploadTask = storageRef.child(`${this.basePath}/${fieleId}`).put(fileUpload.file);
-
-  uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, (snapshot) => {
-    const snap = snapshot as firebase.storage.UploadTaskSnapshot;
-    progress.percentage = Math.round((snap.bytesTransferred / snap.totalBytes) * 100);
-  },
-  () => {
-      fileUpload.id = fieleId;
-      fileUpload.url = uploadTask.snapshot.downloadURL;
-      fileUpload.name = fileUpload.file.name;
-      this.saveFileData(fileUpload, id);
-    });
-}
-
-private saveFileData(fileUload: Upload, id) {
-  const proyect = this.afs.collection('proyectos').doc(id);
-  const newRef = proyect.collection('uploads').doc(fileUload.id);
-  newRef.set({
-    id: fileUload.id,
-    name: fileUload.name,
-    url: fileUload.url
-  });
-}
-
-public removeFile(fileId) {
-  return firebase.storage().ref().child(`${this.basePath} /${fileId}`).delete();
-}
-
-/*
 addNewArchivo(archivo: { nombre: string,  url: string}) {
-  this.afs.collection(`/${this.CARPETA_FILES}`).add(archivo);
+  this.afs.collection(`/${this.basePath}`).add(archivo);
+
 }
 
 cargarArchivosFirebase(archivos: FileItem[]) {
   const storageRef = firebase.storage().ref();
 
   for (const item of archivos) {
-    if (item.progrso >= 100 ) {
+    if (item.progreso >= 100 ) {
       continue;
     }
     const uploadTask: firebase.storage.UploadTask =
-    storageRef.child(`${this.CARPETA_FILES}/${item.nombreArchivo}`)
-      .put(item.archivo);
+    storageRef.child(`${this.basePath}/${item.nombreAdjunto}`)
+      .put(item.adjunto);
 
       uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
-          (snapshot: firebase.storage.UploadTaskSnapshot) => item.progrso = (snapshot.bytesTransferred / snapshot.totalBytes) * 100,
+          (snapshot: firebase.storage.UploadTaskSnapshot) => item.progreso = (snapshot.bytesTransferred / snapshot.totalBytes) * 100,
           (error) => console.error('Error al subir Archivo', error),
           () => {
             console.log('Archivo cargado correctamente');
             item.url = uploadTask.snapshot.downloadURL;
             item.estaSubiendo = false;
             this.addNewArchivo({
-              nombre: item.nombreArchivo,
+              nombre: item.nombreAdjunto,
               url: item.url,
             });
           });
   }
-}*/
+}
 
 
 buscarOneproyectos(termino: string) {
