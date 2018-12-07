@@ -15,13 +15,13 @@ export class NavbarComponent implements OnInit {
   public isLogin: boolean;
 
   constructor(
-    public authService: AuthService,
+    public auth: AuthService,
     private router: Router
   ) { }
 
   ngOnInit() {
     this.onComprobarUserLogin();
-    this.authService.getAuth().subscribe(auth => {
+    this.auth.getAuth().subscribe(auth => {
       if (auth) {
         this.isLogin = true;
         this.userNombre = auth.displayName;
@@ -33,7 +33,7 @@ export class NavbarComponent implements OnInit {
   }
 
   onComprobarUserLogin() {
-    this.authService.getAuth().subscribe( auth => {
+    this.auth.getAuth().subscribe( auth => {
       if (auth) {
         this.isLogin = true;
         this.userNombre = auth.displayName,
@@ -47,7 +47,7 @@ export class NavbarComponent implements OnInit {
   }
 
   onLogout() {
-   this.authService.logout();
+   this.auth.logout();
   }
 
   buscarProyecto(termino: string) {
