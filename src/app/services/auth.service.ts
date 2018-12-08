@@ -50,7 +50,7 @@ export class AuthService {
     return this.afAuth.auth.signInWithEmailAndPassword(email.value, password.value);
   }
 
-  /*
+
 loginEmail(email: string, pass: string) {
   return new Promise((resolve, reject) => {
     this.afAuth.auth.signInWithEmailAndPassword(email, pass)
@@ -58,10 +58,10 @@ loginEmail(email: string, pass: string) {
         err => reject(err));
   });
 }
-
+/*
   singUp(email, password) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password);
-  }*/
+  }
 
 registerUser(nombre: string, apellido: string, email: string, pass: string, perfil: string, estado: string) {
   return new Promise((resolve, reject) => {
@@ -69,18 +69,13 @@ registerUser(nombre: string, apellido: string, email: string, pass: string, perf
       .then(userData => resolve(userData),
         err => reject(err));
   });
-}
+}*/
 
 logout() {
   return this.afAuth.auth.signOut().then(() => {
     this.router.navigate(['/loguin']);
   });
 }
-
-/*
-addNewUser(user: UserInterface) {
-  this.userColletion.add(user);
-}*/
 
 getAuth() {
   return this.afAuth.authState.map(auth => auth);

@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
   public userNombre: string;
   public userEmail: string;
-  public userPicture: string;
   public userId: string;
   public isLogin: boolean;
 
@@ -21,15 +20,6 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.onComprobarUserLogin();
-    this.auth.getAuth().subscribe(auth => {
-      if (auth) {
-        this.isLogin = true;
-        this.userNombre = auth.displayName;
-        this.userEmail = auth.email;
-      } else {
-        this.isLogin = false;
-      }
-    });
   }
 
   onComprobarUserLogin() {
@@ -38,7 +28,6 @@ export class NavbarComponent implements OnInit {
         this.isLogin = true;
         this.userNombre = auth.displayName,
         this.userEmail = auth.email;
-        this.userPicture = auth.photoURL;
         this.userId = auth.uid;
       } else {
       this.isLogin = false;

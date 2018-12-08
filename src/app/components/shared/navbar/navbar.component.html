@@ -3,75 +3,72 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div *ngIf="auth.user | async; then authenticated else guest">
-        <ul class="navbar-nav mr-auto">
-            <form #authenticated class="collapse navbar-collapse" id="navbarPrincipal">
-                <li *ngIf="auth.user | async as user" class="nav-item dropdown" routerLinkActive="Active">
-                    <a *ngIf="user.role === 'consult' || user.role === 'admin'" class="nav-link dropdown-toggle" [routerLink]="['proyectos']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><small><b>PROYECTOS</b></small></a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a *ngIf="user.role === 'admin'" class="dropdown-item" href="#nuevoProyecto">NUEVO PROYECTO</a>
-                        <div class="dropdown-divider"></div>
-                        <a *ngIf="user.role === 'consult' || user.role === 'admin'" class="dropdown-item" href="#listarProyecto">LISTA
+    <ul class="navbar-nav mr-auto">
+        <form class="collapse navbar-collapse">
+            <li class="nav-item " routerLinkActive="router-link-active ">
+                <a class="nav-link active " href="#home "><small><b>INICIO</b></small></a>
+            </li>
+            <li class="nav-item dropdown" routerLinkActive="Active">
+                <a class="nav-link dropdown-toggle" [routerLink]="['proyectos']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><small><b>PROYECTOS</b></small></a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#nuevoProyecto" *ngIf="isLogin ">NUEVO PROYECTO</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#listarProyecto">LISTA
                         PROYECTOS</a>
-                    </div>
-                </li>
-                <li *ngIf="auth.user | async as user" class="nav-item dropdown" routerLinkActive="Active">
-                    <a *ngIf="user.role === 'admin'" class="nav-link dropdown-toggle" [routerLink]="['gestionClientes']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><small><b>GESTIÓN
+                </div>
+            </li>
+            <li class="nav-item dropdown" routerLinkActive="Active" *ngIf="isLogin ">
+                <a class="nav-link dropdown-toggle" [routerLink]="['gestionClientes']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><small><b>GESTIÓN
                             CLIENTES</b></small>
                 </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a *ngIf="user.role === 'admin'" class="dropdown-item" href="#crearCliente">REGISTRO CLIENTES</a>
-                        <div class="dropdown-divider"></div>
-                        <a *ngIf="user.role === 'admin'" class="dropdown-item" href="#listarCliente">LISTA CLIENTES</a>
-                    </div>
-                </li>
-                <li *ngIf="auth.user | async as user" class="nav-item dropdown" routerLinkActive="Active">
-                    <a *ngIf="user.role === 'admin'" class="nav-link dropdown-toggle" [routerLink]="['controlAcceso']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><small><b>CONTROL
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#crearCliente">REGISTRO CLIENTES</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#listarCliente">LISTA CLIENTES</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown" routerLinkActive="Active" *ngIf="isLogin ">
+                <a class="nav-link dropdown-toggle" [routerLink]="['controlAcceso']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><small><b>CONTROL
                             ACCESO</b></small>
                 </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a *ngIf="user.role === 'admin'" class="dropdown-item" href="#registar">REGISTRO USUARIOS</a>
-                        <div class="dropdown-divider"></div>
-                        <a *ngIf="user.role === 'admin'" class="dropdown-item" href="#listar">LISTA USUARIOS</a>
-                    </div>
-                </li>
-                <li *ngIf="auth.user | async as user" class="nav-item">
-                    <a *ngIf="user.role === 'consult' || user.role === 'admin'" class="nav-link" href="#home" (click)="onLogout()"><small><b>SALIR</b></small></a>
-                </li>
-
-            </form>
-
-            <form #guest class="collapse navbar-collapse" id="navbarPrincipal">
-                <li class="nav-item" routerLinkActive="router-link-active">
-                    <a class="nav-link active" href="#home"><small><b>INICIO</b></small></a>
-                </li>
-                <form class="form-inline my-2 my-lg-0">
-
-                    <input class="form-control mr-sm-2" type="text" placeholder="Buscar Proyecto" #buscarTexto (keyup.enter)="buscarProyecto(buscarTexto)">
-                    <button (click)="buscarProyecto(buscarTexto.value)" class="myButton" type="button">
-                    <span class="glyphicon glyphicon-search"></span> Buscar
-                </button>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#login"><small><b>LOGIN</b></small></a>
-                    </li>
-                </form>
-            </form>
-        </ul>
-    </div>
-
-
-    <!--<ul class="navbar-nav ml-auto">
-        <li class="nav-item" routerLinkActive="Active" *ngIf="!isLogin">
-            <a class="nav-link" [routerLink]="['login']"><small><b>LOGIN</b></small></a>
-        </li>
-        <li class="navi-tem" *ngIf="isLogin">
-                <img src="{{userPicture}}" class="rounded-circle" width="30px" height="20px">
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#registar">REGISTRO USUARIOS</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#listar">LISTA USUARIOS</a>
+                </div>
             </li>
-        <li class="navi-tem" *ngIf="isLogin">
-            <span class="nav-link">{{userNombre}}</span>
+        </form>
+        <form class="form-inline my-2 my-lg-0 ">
+
+            <input class="form-control mr-sm-2 " type="text " placeholder="Buscar Proyecto " #buscarTexto (keyup.enter)="buscarProyecto(buscarTexto) ">
+            <button (click)="buscarProyecto(buscarTexto.value) " class="myButton " type="button ">
+                    <span class="glyphicon glyphicon-search "></span> Buscar
+                </button>
+        </form>
+        <ul class="navbar-nav ml-auto "></ul>
+        <li class="nav-item">
+            <a class="nav-link" href="#home" (click)="onLogout()" *ngIf="isLogin"><small><b>SALIR</b></small></a>
         </li>
-        <li class="nav-item" >
-            <a class="nav-link" href="#home" (click)="onLogout()"><small><b>SALIR</b></small></a>
+        <li class="nav-item ">
+            <a class="nav-link " href="#login " *ngIf="!isLogin"><small><b>LOGIN</b></small></a>
+        </li>
+    </ul>
+
+
+
+
+    <!--<ul class="navbar-nav ml-auto ">
+        <li class="nav-item " routerLinkActive="Active " *ngIf="!isLogin ">
+            <a class="nav-link " [routerLink]="[ 'login'] "><small><b>LOGIN</b></small></a>
+        </li>
+        <li class="navi-tem " *ngIf="isLogin ">
+                <img src="{{userPicture}} " class="rounded-circle " width="30px " height="20px ">
+            </li>
+        <li class="navi-tem " *ngIf="isLogin ">
+            <span class="nav-link ">{{userNombre}}</span>
+        </li>
+        <li class="nav-item " >
+            <a class="nav-link " href="#home " (click)="onLogout() "><small><b>SALIR</b></small></a>
         </li>
     </ul>-->
 

@@ -23,8 +23,9 @@ export class LoginComponent implements OnInit {
   }
 
     onSubmitLogin() {
-  this.authService.emailAndPassword(this.email, this.password)
-  .then((res) => {
+  this.authService.loginEmail(this.email, this.password)
+   .then((res) => {
+    console.log(this.email, this.password);
     this.ngFlashMensaje.showFlashMessage({messages: ['El usuario inició sesión correctamente'],
      dismissible: true, timeout: 5000, type: 'success'});
     this.router.navigate(['/admin']);
