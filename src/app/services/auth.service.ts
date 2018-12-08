@@ -15,6 +15,8 @@ import 'rxjs/add/observable/of';
 export class AuthService {
   usersColletion: AngularFirestoreCollection<UserInterface>;
   user: Observable<UserInterface>;
+  users: Observable<UserInterface[]>;
+
 
   constructor(
     public afAuth: AngularFireAuth,
@@ -79,6 +81,18 @@ logout() {
 
 getAuth() {
   return this.afAuth.authState.map(auth => auth);
+}
+
+getAllUsers(): Observable<UserInterface[]> {
+  this.users = this.usersColletion.snapshotChanges()
+  .map(changes => {
+    return changes.map(action => {
+      const data = action.payload.doc.data() as UserInterface;
+      // data.codigo = action.payload.doc.id;
+      return data;
+    });
+  });
+return this.users;
 }
 
 }

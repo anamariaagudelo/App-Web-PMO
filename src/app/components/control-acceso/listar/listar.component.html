@@ -20,87 +20,16 @@
                 <th></th>
             </tr>
         </thead>
-        <tbody>
+
+        <tbody *ngFor="let user of users">
             <tr>
-                <td>ana_maria.agudelo@implementalsystems.com</td>
-                <td> <button [routerLink]="['/visualizarUsuario']" class="myButton">
+                <th scope="row ">{{user.email}}</th>
+                <td> <button [routerLink]="['/visualizarUsuario', user.email]" class="myButton">
                         <span class="glyphicon glyphicon-eye-open"></span> Visualizar
-                      </button>
-                </td>
-                <td><button [routerLink]="['/modificarUsuario']" class="myButton">
-                    <span class="glyphicon glyphicon-edit"></span> Modificar
-                  </button>
-                </td>
-            </tr>
-            <tr>
-                <td>ana_maria.agudelo@implementalsystems.com</td>
-                <td> <button [routerLink]="['/visualizarUsuario']" class="myButton">
-                            <span class="glyphicon glyphicon-eye-open"></span> Visualizar
-                          </button>
-                </td>
-                <td><button [routerLink]="['/modificarUsuario']" class="myButton">
+                        </button></td>
+                <td><button [routerLink]="['/modificarUsuario', user.email]" class="myButton">
                         <span class="glyphicon glyphicon-edit"></span> Modificar
-                      </button>
-
-                </td>
-            </tr>
-            <tr>
-                <td>ana_maria.agudelo@implementalsystems.com</td>
-                <td> <button [routerLink]="['/visualizarUsuario']" class="myButton">
-                                <span class="glyphicon glyphicon-eye-open"></span> Visualizar
-                              </button>
-                </td>
-                <td><button [routerLink]="['/modificarUsuario']" class="myButton">
-                            <span class="glyphicon glyphicon-edit"></span> Modificar
-                          </button>
-
-                </td>
-            </tr>
-            <tr>
-                <td>ana_maria.agudelo@implementalsystems.com</td>
-                <td> <button [routerLink]="['/visualizarUsuario']" class="myButton">
-                                    <span class="glyphicon glyphicon-eye-open"></span> Visualizar
-                                  </button>
-                </td>
-                <td><button [routerLink]="['/modificarUsuario']" class="myButton">
-                                <span class="glyphicon glyphicon-edit"></span> Modificar
-                              </button>
-
-                </td>
-            </tr>
-            <tr>
-                <td>ana_maria.agudelo@implementalsystems.com</td>
-                <td> <button [routerLink]="['/visualizarUsuario']" class="myButton">
-                                        <span class="glyphicon glyphicon-eye-open"></span> Visualizar
-                                      </button>
-                </td>
-                <td><button [routerLink]="['/modificarUsuario']" class="myButton">
-                                    <span class="glyphicon glyphicon-edit"></span> Modificar
-                                  </button>
-
-                </td>
-            </tr>
-            <tr>
-                <td>ana_maria.agudelo@implementalsystems.com</td>
-                <td> <button [routerLink]="['/visualizarUsuario']" class="myButton">
-                                            <span class="glyphicon glyphicon-eye-open"></span> Visualizar
-                                          </button>
-                </td>
-                <td><button [routerLink]="['/modificarUsuario']" class="myButton">
-                                        <span class="glyphicon glyphicon-edit"></span> Modificar
-                                      </button>
-
-                </td>
-            </tr>
-            <tr>
-                <td>ana_maria.agudelo@implementalsystems.com</td>
-                <td> <button [routerLink]="['/visualizarUsuario']" class="myButton">
-                                                <span class="glyphicon glyphicon-eye-open"></span> Visualizar
-                                              </button>
-                </td>
-                <td><button [routerLink]="['/modificarUsuario']" class="myButton">
-                                            <span class="glyphicon glyphicon-edit"></span> Modificar
-                                          </button>
+                        </button></td>
             </tr>
         </tbody>
     </table>
