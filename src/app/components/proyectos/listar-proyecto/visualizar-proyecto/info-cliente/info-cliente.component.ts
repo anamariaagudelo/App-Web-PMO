@@ -30,6 +30,7 @@ export class InfoClienteComponent implements OnInit {
     nombre: '',
     descripcion: '',
     cliente: '',
+    adjuntoUrl: [],
 
   };
 

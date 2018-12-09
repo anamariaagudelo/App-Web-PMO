@@ -20,6 +20,7 @@ export class VisualizarProyectoComponent implements OnInit {
     nombre: '',
     descripcion: '',
     cliente: '',
+    adjuntoUrl: [],
 
   };
 

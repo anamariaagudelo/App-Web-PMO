@@ -46,7 +46,7 @@ const APP_ROUTES: Routes = [
     {path: 'visualizarCliente/:codigo', component:  VisualizarClienteComponent, canActivate: [AuthGuard]  },
     {path: 'modificarCliente/:codigo', component:  ModificarClienteComponent, canActivate: [AuthGuard] },
     {path: 'infoCliente/:cliente', component:  InfoClienteComponent },
-    {path: 'infoAdjuntos', component:   InfoAdjuntosComponent},
+    {path: 'infoAdjuntos/:codigo', component:   InfoAdjuntosComponent},
     {path: 'admin', component:   AdminComponent},
     {path: 'buscador/:termino', component:   BuscadorComponent},
     {path: 'nuevoProyectoAdjuntos/:codigo', component:   UploadFormComponent},

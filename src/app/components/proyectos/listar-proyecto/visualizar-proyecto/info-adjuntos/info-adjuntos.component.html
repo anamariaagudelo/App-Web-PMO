@@ -1,3 +1,27 @@
-<p>
-    info-adjuntos works!
-</p>
+<app-nav-visualizar-proyecto>
+
+</app-nav-visualizar-proyecto>
+
+<div class="container main-container ">
+
+    <router-outlet></router-outlet>
+
+</div>
+
+<div class="container ">
+    <br>
+    <h3 style="text-align: center ">Listado de Docuemntos Adjuntos</h3>
+    <table class="table ">
+        <thead class="list-group-item-danger ">
+            <tr class="light bg-light">
+                <th scope="col ">URL</th>
+            </tr>
+        </thead>
+
+        <tbody *ngFor="let item of proyecto.adjuntoUrl">
+            <tr>
+                <th><a href={{item}} class="card-link">{{item}}</a></th>
+            </tr>
+        </tbody>
+    </table>
+</div>
