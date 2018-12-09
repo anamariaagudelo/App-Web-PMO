@@ -27,7 +27,7 @@ export class NuevoProyectoComponent implements OnInit {
     nombre: '',
     descripcion: '',
     cliente: '',
-    adjuntoUrl: '',
+    adjuntoUrl: [],
 
   };
   ProyectoInterface: any;

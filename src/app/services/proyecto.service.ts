@@ -5,6 +5,8 @@ import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
 import * as faker from 'faker';
 import { FileItem } from '../Models/file-item';
+import { finalize } from 'rxjs/operators';
+import { isNgTemplate } from '@angular/compiler';
 
 
 @Injectable({
@@ -12,10 +14,13 @@ import { FileItem } from '../Models/file-item';
 })
 export class ProyectoService {
   private basePath = 'adjuntos';
+  id: string;
+  adjuntouRL: string[];
   proyectoColletion: AngularFirestoreCollection<ProyectoInterface>;
   proyectoDoc: AngularFirestoreDocument<ProyectoInterface>;
   proyectos: Observable<ProyectoInterface[]>;
   proyecto: ProyectoInterface;
+
 
   constructor(
     private afs: AngularFirestore) {
@@ -23,91 +28,105 @@ export class ProyectoService {
   }
 
   addNewProyecto(proyecto: ProyectoInterface) {
-    this.proyectoColletion.add(proyecto);
+    this.id = this.afs.createId();
+    console.log(this.id);
+    this.proyectoColletion.doc(this.id).set(proyecto);
   }
 
 
-getOneProyecto(codProyecto: string) {
-  const collection = this.afs.collection('proyectos', ref => ref.where('codigo', '==', codProyecto)).snapshotChanges().map(changes => {
-    return changes.map(a => {
-      const data = a.payload.doc.data() as ProyectoInterface;
-      return data;
-    });
-  });
-
-  return collection;
-}
-getAllProyectos(): Observable < ProyectoInterface[] > {
-  this.proyectos = this.proyectoColletion.snapshotChanges()
-    .map(changes => {
-      return changes.map(action => {
-        const data = action.payload.doc.data() as ProyectoInterface;
-        // data.codigo = action.payload.doc.id;
+  getOneProyecto(codProyecto: string) {
+    const collection = this.afs.collection('proyectos', ref => ref.where('codigo', '==', codProyecto)).snapshotChanges().map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as ProyectoInterface;
         return data;
       });
     });
-  return this.proyectos;
-}
-updateProyecto(proyecto: ProyectoInterface) {
-  this.afs.collection('proyectos', ref => ref.where('codigo', '==', proyecto.codigo)).snapshotChanges().map(changes => {
-    return changes.map(a => {
-      const data = a.payload.doc.data() as ProyectoInterface;
-      const id = a.payload.doc.id;
-      return { id, ...data };
-    });
-  }).subscribe(items => {
-    items.forEach(proyect => {
-      this.afs.doc(`proyectos/${proyect.id}`).update({
-        codigo: proyecto.codigo,
-        nombre: proyecto.nombre,
-        descripcion: proyecto.descripcion,
-        cliente: proyecto.cliente,
+
+    return collection;
+  }
+  getAllProyectos(): Observable<ProyectoInterface[]> {
+    this.proyectos = this.proyectoColletion.snapshotChanges()
+      .map(changes => {
+        return changes.map(action => {
+          const data = action.payload.doc.data() as ProyectoInterface;
+          // data.codigo = action.payload.doc.id;
+          return data;
+        });
+      });
+    return this.proyectos;
+  }
+  updateProyecto(proyecto: ProyectoInterface) {
+    this.afs.collection('proyectos', ref => ref.where('codigo', '==', proyecto.codigo)).snapshotChanges().map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as ProyectoInterface;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      });
+    }).subscribe(items => {
+      items.forEach(proyect => {
+        this.afs.doc(`proyectos/${proyect.id}`).update({
+          codigo: proyecto.codigo,
+          nombre: proyecto.nombre,
+          descripcion: proyecto.descripcion,
+          cliente: proyecto.cliente,
+        });
+      });
+    }
+    );
+  }
+
+  addNewArchivo(url: string) {
+    const docRef = this.proyectoColletion.doc(this.id).ref;
+    this.proyectoColletion.doc(this.id).ref.firestore.runTransaction((t) => {
+      return t.get(docRef).then((doc) => {
+        // doc doesn't exist; can't update
+        if (!doc.exists) {
+          console.log('Documento no existe');
+          return;
+        }
+        // update the users array after getting it from Firestore.
+        const newURL = doc.get('adjuntoUrl');
+        newURL.push(url);
+        t.set(docRef, { adjuntoUrl: newURL }, { merge: true });
       });
     });
   }
-  );
-}
 
-addNewArchivo(archivo: { nombre: string,  url: string}) {
-  this.afs.collection(`/${this.basePath}`).add(archivo);
 
-}
+  cargarArchivosFirebase(archivos: FileItem[]) {
+    const storageRef = firebase.storage().ref();
 
-cargarArchivosFirebase(archivos: FileItem[]) {
-  const storageRef = firebase.storage().ref();
-
-  for (const item of archivos) {
-    if (item.progreso >= 100 ) {
-      continue;
+    for (const item of archivos) {
+      if (item.progreso >= 100) {
+        continue;
+      }
+      storageRef.child(`${this.basePath}${item.nombreAdjunto}`)
+        .put(item.adjunto)
+        .then(snapshot => {
+          return snapshot.ref.getDownloadURL();   // Will return a promise with the download link
+        }).then(downloadURL => {
+          console.log(`Successfully uploaded file and got download link - ${downloadURL}`);
+          const PDFFileUrl: string = downloadURL;
+          // this.adjuntouRL.push(PDFFileUrl);
+          this.addNewArchivo(PDFFileUrl);
+        })
+        .catch(error => {
+          // Use to signal error if something goes wrong.
+          console.log(`Failed to upload file and get link - ${error}`);
+        });
+      console.log(this.adjuntouRL);
     }
-    const uploadTask: firebase.storage.UploadTask =
-    storageRef.child(`${this.basePath}/${item.nombreAdjunto}`)
-      .put(item.adjunto);
-
-      uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
-          (snapshot: firebase.storage.UploadTaskSnapshot) => item.progreso = (snapshot.bytesTransferred / snapshot.totalBytes) * 100,
-          (error) => console.error('Error al subir Archivo', error),
-          () => {
-            console.log('Archivo cargado correctamente');
-            item.url = uploadTask.snapshot.downloadURL;
-            item.estaSubiendo = false;
-            this.addNewArchivo({
-              nombre: item.nombreAdjunto,
-              url: item.url,
-            });
-          });
   }
-}
 
 
-buscarOneproyectos(termino: string) {
-  const collBusqueda = this.afs.collection('proyectos', ref => ref.where('codigo', '==', termino)).snapshotChanges().map(changes => {
-    return changes.map(a => {
-      const data = a.payload.doc.data() as ProyectoInterface;
-      return data;
+  buscarOneproyectos(termino: string) {
+    const collBusqueda = this.afs.collection('proyectos', ref => ref.where('codigo', '==', termino)).snapshotChanges().map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as ProyectoInterface;
+        return data;
+      });
     });
-  });
-  return collBusqueda;
-}
+    return collBusqueda;
+  }
 
 }

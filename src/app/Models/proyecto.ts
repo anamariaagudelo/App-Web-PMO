@@ -3,5 +3,5 @@ export interface ProyectoInterface {
     nombre?: string;
     descripcion?: string;
     cliente?: string;
-    adjuntoUrl?: string;
+    adjuntoUrl?: string[];
 }

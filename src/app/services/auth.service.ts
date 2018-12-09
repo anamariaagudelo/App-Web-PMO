@@ -95,4 +95,15 @@ getAllUsers(): Observable<UserInterface[]> {
 return this.users;
 }
 
+getOneUser(emailUser: string) {
+  const collection = this.afs.collection('users', ref => ref.where('email', '==', emailUser)).snapshotChanges().map(changes => {
+    return changes.map(a => {
+      const data = a.payload.doc.data() as UserInterface;
+      return data;
+    });
+  });
+
+  return collection;
+}
+
 }

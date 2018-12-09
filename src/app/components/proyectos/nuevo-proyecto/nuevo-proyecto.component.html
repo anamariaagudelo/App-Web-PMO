@@ -33,6 +33,11 @@
                     <select class="custom-select" id="cliente" name="cliente" [(ngModel)]="proyecto.cliente">
                         <option selected *ngFor="let cliente of clientes">{{cliente.nombre}}</option>
                     </select>
+                    <div class="form-group" style="display: none">
+                        <label for="nombre">Adjuntos Proyecto<Span class="rojo">*</Span></label>
+                        <input type="text" class="form-control" placeholder="Adjuntos" id="adjuntoUrl" name="adjuntoUrl" [(ngModel)]="proyecto.adjuntoUrl">
+                    </div>
+
                     <br>
                     <br>
                     <label for="email" class="col-6 col-form-label"><Span class="rojo">*</Span>Campos Obligatorios</label>
