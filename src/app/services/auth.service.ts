@@ -13,15 +13,22 @@ import 'rxjs/add/observable/of';
   providedIn: 'root'
 })
 export class AuthService {
+  id: string;
+  users: UserInterface[];
+
   usersColletion: AngularFirestoreCollection<UserInterface>;
   user: Observable<UserInterface>;
-  users: Observable<UserInterface[]>;
+  userss: Observable<UserInterface[]>;
+  usuario: UserInterface;
 
 
   constructor(
     public afAuth: AngularFireAuth,
     private router: Router,
-    private afs: AngularFirestore) {
+    private afs: AngularFirestore,
+
+
+  ) {
     this.usersColletion = this.afs.collection('users', ref => ref);
     this.user = this.afAuth.authState.switchMap(user => {
       if (user) {
@@ -32,15 +39,10 @@ export class AuthService {
     });
   }
 
- /* private oAuthLogin(provider) {
-  return this.afAuth.auth.signInWithPopup(provider)
-    .then(credentials => {
-      this.router.navigate(['/admin']);
-    });
-  }*/
-
   addNewUser(user: UserInterface) {
-    this.usersColletion.add(user);
+    this.id = this.afs.createId();
+    console.log(this.id);
+    this.usersColletion.doc(this.id).set(user);
     return new Promise((resolve, reject) => {
       this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password)
         .then(userData => resolve(userData),
@@ -52,58 +54,63 @@ export class AuthService {
     return this.afAuth.auth.signInWithEmailAndPassword(email.value, password.value);
   }
 
-
-loginEmail(email: string, pass: string) {
-  return new Promise((resolve, reject) => {
-    this.afAuth.auth.signInWithEmailAndPassword(email, pass)
-      .then(userData => resolve(userData),
-        err => reject(err));
-  });
-}
-/*
-  singUp(email, password) {
-    return this.afAuth.auth.createUserWithEmailAndPassword(email, password);
+  logout() {
+    return this.afAuth.auth.signOut().then(() => {
+      this.router.navigate(['/login']);
+    });
   }
 
-registerUser(nombre: string, apellido: string, email: string, pass: string, perfil: string, estado: string) {
-  return new Promise((resolve, reject) => {
-    this.afAuth.auth.createUserWithEmailAndPassword(email, pass)
-      .then(userData => resolve(userData),
-        err => reject(err));
-  });
-}*/
+  getAuth() {
+    return this.afAuth.authState.map(auth => auth);
+  }
 
-logout() {
-  return this.afAuth.auth.signOut().then(() => {
-    this.router.navigate(['/loguin']);
-  });
-}
 
-getAuth() {
-  return this.afAuth.authState.map(auth => auth);
-}
+  getAllUsers(): Observable<UserInterface[]> {
+    this.userss = this.usersColletion.snapshotChanges()
+      .map(changes => {
+        return changes.map(action => {
+          const data = action.payload.doc.data() as UserInterface;
+          // data.codigo = action.payload.doc.id;
+          return data;
+        });
+      });
+    return this.userss;
+  }
 
-getAllUsers(): Observable<UserInterface[]> {
-  this.users = this.usersColletion.snapshotChanges()
-  .map(changes => {
-    return changes.map(action => {
-      const data = action.payload.doc.data() as UserInterface;
-      // data.codigo = action.payload.doc.id;
-      return data;
+  getOneUser(emailUser: string) {
+    const collection = this.afs.collection('users', ref => ref.where('email', '==', emailUser)).snapshotChanges().map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as UserInterface;
+        return data;
+      });
     });
-  });
-return this.users;
+
+    return collection;
+  }
+
+
+  updateUser(usuario: UserInterface) {
+    this.afs.collection('users', ref => ref.where('email', '==', usuario.email)).snapshotChanges().map(changes => {
+      return changes.map(a => {
+        const data = a.payload.doc.data() as UserInterface;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      });
+    }).subscribe(items => {
+      items.forEach(user => {
+        this.afs.doc(`users/${user.id}`).update({
+          nombres: usuario.nombres,
+          apellidos: usuario.apellidos,
+          email: usuario.email,
+          role: usuario.role,
+          estado: usuario.estado
+        });
+      });
+    }
+    );
+
+  }
+
 }
 
-getOneUser(emailUser: string) {
-  const collection = this.afs.collection('users', ref => ref.where('email', '==', emailUser)).snapshotChanges().map(changes => {
-    return changes.map(a => {
-      const data = a.payload.doc.data() as UserInterface;
-      return data;
-    });
-  });
 
-  return collection;
-}
-
-}

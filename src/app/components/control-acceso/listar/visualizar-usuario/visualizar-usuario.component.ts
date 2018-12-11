@@ -12,8 +12,8 @@ export class VisualizarUsuarioComponent implements OnInit {
   emailUser: string;
 
   user: UserInterface = {
-    nombre: '',
-    apellido: '',
+    nombres: '',
+    apellidos: '',
     email: '',
     password: '',
     role: '',
@@ -32,10 +32,10 @@ export class VisualizarUsuarioComponent implements OnInit {
 
   getInfoUser() {
     this.emailUser = this.route.snapshot.params['email'];
-    console.log('estes es el email', this.emailUser);
     const collection = this.userService.getOneUser(this.emailUser);
     collection.subscribe(docs => {
       this.user = docs[0];
+      console.log(this.user);
     });
   }
 

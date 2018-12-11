@@ -1,6 +1,6 @@
 export interface UserInterface {
-  nombre?: string;
-  apellido?: string;
+  nombres?: string;
+  apellidos?: string;
   email?: string;
   password?: string;
   role?: string;

@@ -10,7 +10,7 @@
                     <br>
                 </div>
 
-                <form #formModificarProyecto="ngForm" (ngSubmit)="onModificarProyecto(formModificarProyecto)">
+                <form>
                     <div class="form-group">
                         <label for="codigo">Código Proyecto<Span class="rojo">*</Span></label>
                         <input type="text" class="form-control" placeholder="Código" id="codigo" name="codigo" [(ngModel)]="proyecto.codigo">
@@ -27,24 +27,29 @@
                     <!--OJO REVISAR EL SELECTOR-->
                     <label for="cliente">Cliente<Span class="rojo">*</Span></label>
                     <select class="custom-select" id="cliente" name="cliente" [(ngModel)]="proyecto.cliente">
-                         <option selected *ngFor="let cliente of clientes">{{cliente.nombre}}</option>
-                       
+                        <option selected>{{proyecto.cliente}}</option>
+
                     </select>
                     <br>
                     <br>
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="card-title">Adjuntar Documentos</h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-5">
-                                    <input type="file" class="formcontrol" multiple="true" id="docuemento" name="docuemento" accept=".pdf">
-                                </div>
+                    <form #formGuardarArchivo="ngForm" (ngSubmit)="cargarArchivos(formGuardarArchivo)">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Adjuntar Documentos</h5>
+                            </div>
+
+                            <div class="card-body">
                                 <div class="row">
-                                    <label for="perfil" class="col-3 col-form-label"><b>Descripción</b></label>
-                                    <div class="col-1  ">
-                                        <select class="custom-select" id="perfil" name="perfil" style="width:380px" size="1">
+                                    <div class="col-8">
+                                        <input type="file" (change)="selectFile($event)" id="docuemento" name="docuemento" accept=".pdf">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-8  ">
+                                            <button type="submit" class=" myButton btn-btn"> Adjuntar</button>
+
+                                            <!--<label for="perfil" class="col-3 col-form-label"><b>Descripción</b></label>
+                                        <div class="col-1  ">
+                                            <select class="custom-select" id="perfil" name="perfil" style="width:325px" size="1">
                                                 <option selected>Seleccionar Tipo de Archivo</option>
                                                 <option value="Alcance proyecto">Alcance proyecto</option>
                                                 <option value="Cronograma">Cronograma</option>
@@ -53,48 +58,55 @@
                                                 <option value="Indicadores de Desempeño">Indicadores de Desempeño</option>
                                                 <option value="Documento de Riesgos detectados">Documento de Riesgos
                                                     detectados</option>
-                                            </select>
+                                            </select>-->
+                                        </div>
+                                        <div class="col-4">
+                                            <button type="button" class="myButton" (click)="limpiarArchivos()"> limpiar</button>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="container">
+                                        <table class="table">
+                                            <thead class="list-group-item-danger ">
+                                                <tr class="light bg-light">
+                                                    <th scope="col ">Nombre Archivo</th>
+                                                    <th scope="col ">Tamaño</th>
+                                                    <td></td>
+                                                    <th scope="col ">progreso</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                <tr *ngFor="let archivo of archivos">
+                                                    <td>{{archivo.nombreAdjunto}}</td>
+                                                    <td>{{archivo.adjunto.size / 1024 /1024 | number: '.2-2'}} MB</td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                        <div class="progress">
+                                                            <div class="progress-bar" role="progressbar" [ngStyle]="{'width': archivo.progreso + '%'}"></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
                                     </div>
                                 </div>
-                                <br>
-                                <br>
-                                <table class="table">
-                                    <thead class="list-group-item-danger ">
-                                        <tr class="light bg-light">
-                                            <th>Nombre Archivo</th>
-                                            <th>Progreso</th>
-                                            <th></th>
-                                            <th></th>
-                                            <th>Acción</th>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody>
-                                        <tr>
-                                            <td>Nombre</td>
-                                            <td>
-                                                <div class="progress">
-                                                    <div class="progress-bar" role="progressbar"></div>
-                                                </div>
-                                            </td>
-                                            <th></th>
-                                            <th></th>
-                                            <td> <button class="myButton">Limpiar</button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
                             </div>
-
                         </div>
-                    </div>
-                    <br>
-                    <label for="email" class="col-6 col-form-label"><Span class="rojo">*</Span>Campos Obligatorios</label>
-                    <hr>
-                    <div class="form-footer">
-                        <button type="submit" class=" myButton btn-block"> Guardar Cambios </button>
+                        <!--<div class="col-6">
+                            <button type="submit" class=" myButton btn-btn"> Adjuntar archivos</button>
+                        </div>-->
+
+                        <label for="email" class="col-6 col-form-label"><Span class="rojo">*</Span>Campos Obligatorios</label>
                         <hr>
-                    </div>
+                        <div class="form-footer">
+                            <button type="submit" (click)="guardarFinal()" class=" myButton btn-block"> Guardar</button>
+                            <hr>
+                        </div>
+                    </form>
                 </form>
             </form>
         </form>

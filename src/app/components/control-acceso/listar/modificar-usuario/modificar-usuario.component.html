@@ -2,9 +2,6 @@
 <br>
 <div class="card bg-light mb-3 " style="max-width: 50rem;">
     <div class=" container ">
-        <button type="button " class="close " aria-label="Close ">
-            <span aria-hidden="true ">&times;</span>
-          </button>
         <form class="px-4 py-3 ">
             <form role="form " id="register-form " autocomplete="off ">
                 <div class="form-header ">
@@ -13,11 +10,11 @@
                     <br>
                 </div>
 
-                <form>
+                <form #formModificarUser="ngForm" (ngSubmit)="onModificarUser(formModificarUser)">
                     <div class="form-group row">
                         <label for="login" class="col-3 col-form-label">Login<Span class = "rojo">*</Span></label>
                         <div>
-                            <input type="text" size="50" class="form-control input-lg Fields" placeholder="ana_maria.agudelo@implementalsystems.com" id="login" name="login">
+                            <input type="text" size="50" class="form-control" id="login" name="login" [(ngModel)]="user.email">
                         </div>
                     </div>
 
@@ -25,7 +22,7 @@
                         <label for="nombres" class="col-3 col-form-label">Nombres<Span class = "rojo">*</Span></label>
                         <div>
                             <div class="input-group ">
-                                <input type="text" size="50" class="form-control" placeholder="Ana María" id="nombres" name="nombres">
+                                <input type="text" size="50" class="form-control" id="nombres" name="nombres" [(ngModel)]="user.nombres">
                             </div>
                         </div>
                     </div>
@@ -33,45 +30,47 @@
                         <label for="apellidos" class="col-3 col-form-label">Apellidos<Span class = "rojo">*</Span></label>
                         <div>
                             <div class="input-group ">
-                                <input type="text" size="50" class="form-control" placeholder="Agudelo Cadavid" id="apellidos" name="apellidos">
+                                <input type="text" size="50" class="form-control" id="apellidos" name="apellidos" [(ngModel)]="user.apellidos">
                             </div>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="email" class="col-3 col-form-label">Email<Span class = "rojo">*</Span></label>
                         <div>
-                            <input type="text" size="50" class="form-control" placeholder="ana_maria.agudelo@implementalsystems.com" id="email" name="email">
+                            <input type="text" size="50" class="form-control" id="email" name="email" [(ngModel)]="user.email">
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="form-group row">
                         <label for="perfil" class="col-3 col-form-label">Perfil<Span class = "rojo">*</Span></label>
-                        <div class="col-auto  ">
-                            <select class="custom-select" id="perfil" name="perfil" style="width:350px" size="1">
-                                              <option selected>Administrador</option>
-                                              <option value="Administrador">Administrador</option>
-                                              <option value="Consultor">Consultor</option>
-                                            </select>
+                        <div>
+                            <select class="custom-select" id="role" name="role" style="width:350px" size="1" [(ngModel)]="user.role">
+                                          <option selected>SELECCIONE PERFIL </option>
+                                          <option value="admin">ADMINISTRADOR</option>
+                                          <option value="consult">CONSULTOR</option>
+                                        </select>
                         </div>
-                        <div class="col-auto my-2">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="autoSizingCheck2">
-                                <label class="form-check-label" for="autoSizingCheck2">
-                                        Activo
-                                      </label>
-                            </div>
-                        </div>
-                        <br>
-                        <label for="email" class="col-6 col-form-label"><Span class = "rojo">*</Span>Campos Obligatorios</label>
                     </div>
+                    <div class="form-group row">
+                        <label for="perfil" class="col-3 col-form-label">Estado<Span class = "rojo">*</Span></label>
+                        <div>
+                            <select class="custom-select" id="estado" name="estado" style="width:350px" size="1" [(ngModel)]="user.estado">
+                                          <option selected>SELECCIONE ESTADO</option>
+                                          <option value="activo">ACTIVO</option>
+                                          <option value="inactivo">INACTIVO</option>
+                                        </select>
+                        </div>
+                    </div>
+                    <label for="email" class="col-6 col-form-label"><Span class = "rojo">*</Span>Campos Obligatorios</label>
+                    <hr>
+                    <div class="row">
+                        <div class="col">
+                            <button type="submit" class=" myButton btn-block "> Guardar Cambios </button>
+                        </div>
+                    </div>
+                    <hr>
                 </form>
             </form>
         </form>
-
-        <hr>
-        <div class="form-footer">
-            <button type="submit" class="myButton btn-block "><span class="glyphicon glyphicon-log-in "></span><b>Guardar Cambios</b></button>
-        </div>
-        <hr>
     </div>
 </div>

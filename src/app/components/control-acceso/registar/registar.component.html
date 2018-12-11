@@ -24,7 +24,7 @@
                         <label for="nombres" class="col-3 col-form-label">Nombres<Span class = "rojo">*</Span></label>
                         <div>
                             <div class="input-group ">
-                                <input type="text" size="50" class="form-control" placeholder="Nombres" id="nombres" [(ngModel)]="user.nombre" name="nombres">
+                                <input type="text" size="50" class="form-control" placeholder="Nombres" id="nombres" [(ngModel)]="user.nombres" name="nombres">
                             </div>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                         <label for="apellidos" class="col-3 col-form-label">Apellidos<Span class = "rojo">*</Span></label>
                         <div>
                             <div class="input-group ">
-                                <input type="text" size="50" class="form-control" placeholder="Apellidos" id="apellidos" [(ngModel)]="user.apellido" name="apellidos">
+                                <input type="text" size="50" class="form-control" placeholder="Apellidos" id="apellidos" [(ngModel)]="user.apellidos" name="apellidos">
                             </div>
                         </div>
                     </div>
@@ -53,7 +53,7 @@
                     <div class="form-group row">
                         <label for="perfil" class="col-3 col-form-label">Perfil<Span class = "rojo">*</Span></label>
                         <div>
-                            <select class="custom-select" id="perfil" name="perfil" style="width:350px" size="1" [(ngModel)]="user.role">
+                            <select class="custom-select" id="role" name="role" style="width:350px" size="1" [(ngModel)]="user.role">
                                           <option selected>SELECCIONE PERFIR </option>
                                           <option value="admin">ADMINISTRADOR</option>
                                           <option value="consult">CONSULTOR</option>

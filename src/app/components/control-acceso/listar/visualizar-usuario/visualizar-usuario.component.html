@@ -2,9 +2,6 @@
 <br>
 <div class="card bg-light mb-3 " style="max-width: 50rem;">
     <div class="container">
-        <button type="button" class="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
         <form class="px-4 py-3">
             <form role="form" id="register-form" autocomplete="off">
                 <div class="form-header">
@@ -25,7 +22,7 @@
                         <label for="nombres" class="col-3 col-form-label">Nombres</label>
                         <div>
                             <div class="input-group ">
-                                <input type="text" size="50" class="form-control" id="nombres" name="nombres" [(ngModel)]="user.nombre">
+                                <input type="text" size="50" class="form-control" id="nombres" name="nombres" [(ngModel)]="user.nombres">
                             </div>
                         </div>
                     </div>
@@ -33,7 +30,7 @@
                         <label for="apellidos" class="col-3 col-form-label">Apellidos</label>
                         <div>
                             <div class="input-group ">
-                                <input type="text" size="50" class="form-control" id="apellidos" name="apellidos" [(ngModel)]="user.apellido">
+                                <input type="text" size="50" class="form-control" id="apellidos" name="apellidos" [(ngModel)]="user.apellidos">
                             </div>
                         </div>
                     </div>
@@ -43,20 +40,19 @@
                             <input type="text" size="50" class="form-control" id="email" name="email" [(ngModel)]="user.email">
                         </div>
                     </div>
-
-                    <div class="row">
+                    <div class="form-group row">
                         <label for="perfil" class="col-3 col-form-label">Perfil</label>
-                        <div class="col-auto  my-2">
-                            <div>
-                                <input type="text" size="19" class="form-control" id="rol" name="rol" [(ngModel)]="user.role">
-                            </div>
-                        </div>
-                        <div class="col-auto my-2">
-                            <div>
-                                <input type="text" size="19" class="form-control" id="estado" name="estado" [(ngModel)]="user.estado">
-                            </div>
+                        <div>
+                            <input type="text" size="50" class="form-control" id="rol" name="rol" [(ngModel)]="user.role">
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label for="perfil" class="col-3 col-form-label">Estado</label>
+                        <div>
+                            <input type="text" size="50" class="form-control" id="estado" name="estado" [(ngModel)]="user.estado">
+                        </div>
+                    </div>
+
                 </form>
             </form>
         </form>

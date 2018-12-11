@@ -12,6 +12,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AuthService } from './services/auth.service';
 import { ClienteService } from './services/Cliente.service';
 import { ProyectoService } from './services/proyecto.service';
+import { LoginService } from './services/login.service';
 
 // Interfaces
 import { ClienteInterface } from './Models/cliente';
@@ -30,7 +31,7 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { ControlAccesoComponent } from './components/control-acceso/control-acceso.component';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './components/shared/navbar/login/login.component';
 import { RegistarComponent } from './components/control-acceso/registar/registar.component';
 import { ListarComponent } from './components/control-acceso/listar/listar.component';
 import { VisualizarUsuarioComponent } from './components/control-acceso/listar/visualizar-usuario/visualizar-usuario.component';
@@ -56,6 +57,15 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import {FormsModule} from '@angular/forms';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { UploadFormComponent } from './components/proyectos/upload-form/upload-form.component';
+import { ConsultComponent } from './components/consult/consult.component';
+import { NabvarAdminComponent } from './components/shared/nabvar-admin/nabvar-admin.component';
+import { NabvarConsultComponent } from './components/shared/nabvar-consult/nabvar-consult.component';
+import { HomeConsultComponent } from './components/consult/home-consult/home-consult.component';
+import { ProyectosConsultComponent } from './components/consult/proyectos-consult/proyectos-consult.component';
+// tslint:disable-next-line:max-line-length
+import { ListarproyectosConsultComponent } from './components/consult/proyectos-consult/listarproyectos-consult/listarproyectos-consult.component';
+import { PerfilConsultComponent } from './components/consult/perfil-consult/perfil-consult.component';
+
 
 
 
@@ -94,6 +104,13 @@ import { UploadFormComponent } from './components/proyectos/upload-form/upload-f
     NotFoundComponent,
     BuscadorComponent,
     UploadFormComponent,
+    ConsultComponent,
+    NabvarAdminComponent,
+    NabvarConsultComponent,
+    HomeConsultComponent,
+    ProyectosConsultComponent,
+    ListarproyectosConsultComponent,
+    PerfilConsultComponent,
      ],
   imports: [
     BrowserModule,

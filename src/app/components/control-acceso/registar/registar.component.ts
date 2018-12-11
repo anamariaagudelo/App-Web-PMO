@@ -14,8 +14,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class RegistarComponent implements OnInit {
 
   public user: UserInterface = {
-    nombre: '',
-    apellido: '',
+    nombres: '',
+    apellidos: '',
     email: '',
     password: '',
     role: '',

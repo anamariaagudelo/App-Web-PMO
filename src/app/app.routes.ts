@@ -2,7 +2,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { ControlAccesoComponent } from './components/control-acceso/control-acceso.component';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './components/shared/navbar/login/login.component';
 import { RegistarComponent } from './components/control-acceso/registar/registar.component';
 import { ListarComponent } from './components/control-acceso/listar/listar.component';
 import { VisualizarUsuarioComponent } from './components/control-acceso/listar/visualizar-usuario/visualizar-usuario.component';
@@ -23,21 +23,31 @@ import { AdminComponent } from './components/admin/admin.component';
 import { AuthGuard } from './guards/auth.guard';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { UploadFormComponent } from './components/proyectos/upload-form/upload-form.component';
+import { ConsultComponent } from './components/consult/consult.component';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { HomeConsultComponent } from './components/consult/home-consult/home-consult.component';
+import { ProyectosConsultComponent } from './components/consult/proyectos-consult/proyectos-consult.component';
+// tslint:disable-next-line:max-line-length
+import { ListarproyectosConsultComponent } from './components/consult/proyectos-consult/listarproyectos-consult/listarproyectos-consult.component';
+import { PerfilConsultComponent } from './components/consult/perfil-consult/perfil-consult.component';
 
 
 
 
 const APP_ROUTES: Routes = [
     {path: 'home', component: HomeComponent},
+    {path: 'homeConsult', component: HomeConsultComponent},
     {path: 'proyectos', component: ProyectosComponent},
+    {path: 'proyectosConsult', component: ProyectosConsultComponent},
     {path: 'controlAcceso', component: ControlAccesoComponent, canActivate: [AuthGuard]},
     {path: 'login', component: LoginComponent},
     {path: 'registar', component: RegistarComponent},
     {path: 'listar', component: ListarComponent},
-    {path: 'visualizarUsuario/: email', component: VisualizarUsuarioComponent, canActivate: [AuthGuard]},
-    {path: 'modificarUsuario/ : email', component:  ModificarUsuarioComponent, canActivate: [AuthGuard]},
+    {path: 'visualizarUsuario/:email', component: VisualizarUsuarioComponent, canActivate: [AuthGuard]},
+    {path: 'modificarUsuario/:email', component:  ModificarUsuarioComponent, canActivate: [AuthGuard]},
     {path: 'nuevoProyecto', component:  NuevoProyectoComponent, canActivate: [AuthGuard]},
     {path: 'listarProyecto', component:  ListarProyectoComponent},
+    {path: 'listarProyectosConsult', component:  ListarproyectosConsultComponent},
     {path: 'VisualizarProyecto/:codigo', component:  VisualizarProyectoComponent},
     {path: 'modificarProyecto/:codigo', component:  ModificarProyectoComponent, canActivate: [AuthGuard] },
     {path: 'gestionClientes', component:  GestionClientesComponent, canActivate: [AuthGuard] },
@@ -48,8 +58,11 @@ const APP_ROUTES: Routes = [
     {path: 'infoCliente/:cliente', component:  InfoClienteComponent },
     {path: 'infoAdjuntos/:codigo', component:   InfoAdjuntosComponent},
     {path: 'admin', component:   AdminComponent},
+    {path: 'consult', component:   ConsultComponent},
     {path: 'buscador/:termino', component:   BuscadorComponent},
     {path: 'nuevoProyectoAdjuntos/:codigo', component:   UploadFormComponent},
+    {path: 'perfilConsult', component:   PerfilConsultComponent},
+    {path: 'navbar', component:   NavbarComponent},
     {path: '**', component: NotFoundComponent }
 ];
 
