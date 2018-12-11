@@ -65,6 +65,13 @@ import { ProyectosConsultComponent } from './components/consult/proyectos-consul
 // tslint:disable-next-line:max-line-length
 import { ListarproyectosConsultComponent } from './components/consult/proyectos-consult/listarproyectos-consult/listarproyectos-consult.component';
 import { PerfilConsultComponent } from './components/consult/perfil-consult/perfil-consult.component';
+import { HomeAdminComponent } from './components/admin/home-admin/home-admin.component';
+import { ProyectosAdminComponent } from './components/admin/proyectos-admin/proyectos-admin.component';
+import { ListarproyectosAdminComponent } from './components/admin/proyectos-admin/listarproyectos-admin/listarproyectos-admin.component';
+import { GestionClientesAdminComponent } from './components/admin/gestion-clientes-admin/gestion-clientes-admin.component';
+import { ControlAccesoAdminComponent } from './components/admin/control-acceso-admin/control-acceso-admin.component';
+import { PerfilAdminComponent } from './components/admin/perfil-admin/perfil-admin.component';
+
 
 
 
@@ -111,6 +118,12 @@ import { PerfilConsultComponent } from './components/consult/perfil-consult/perf
     ProyectosConsultComponent,
     ListarproyectosConsultComponent,
     PerfilConsultComponent,
+    HomeAdminComponent,
+    ProyectosAdminComponent,
+    ListarproyectosAdminComponent,
+    GestionClientesAdminComponent,
+    ControlAccesoAdminComponent,
+    PerfilAdminComponent,
      ],
   imports: [
     BrowserModule,

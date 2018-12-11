@@ -30,6 +30,12 @@ import { ProyectosConsultComponent } from './components/consult/proyectos-consul
 // tslint:disable-next-line:max-line-length
 import { ListarproyectosConsultComponent } from './components/consult/proyectos-consult/listarproyectos-consult/listarproyectos-consult.component';
 import { PerfilConsultComponent } from './components/consult/perfil-consult/perfil-consult.component';
+import { HomeAdminComponent } from './components/admin/home-admin/home-admin.component';
+import { ProyectosAdminComponent } from './components/admin/proyectos-admin/proyectos-admin.component';
+import { ListarproyectosAdminComponent } from './components/admin/proyectos-admin/listarproyectos-admin/listarproyectos-admin.component';
+import { GestionClientesAdminComponent } from './components/admin/gestion-clientes-admin/gestion-clientes-admin.component';
+import { ControlAccesoAdminComponent } from './components/admin/control-acceso-admin/control-acceso-admin.component';
+import { PerfilAdminComponent } from './components/admin/perfil-admin/perfil-admin.component';
 
 
 
@@ -37,9 +43,12 @@ import { PerfilConsultComponent } from './components/consult/perfil-consult/perf
 const APP_ROUTES: Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'homeConsult', component: HomeConsultComponent},
+    {path: 'homeAdmin', component: HomeAdminComponent},
     {path: 'proyectos', component: ProyectosComponent},
     {path: 'proyectosConsult', component: ProyectosConsultComponent},
-    {path: 'controlAcceso', component: ControlAccesoComponent, canActivate: [AuthGuard]},
+    {path: 'proyectosAdmin', component: ProyectosAdminComponent},
+    {path: 'controlAcceso', component: ControlAccesoComponent , canActivate: [AuthGuard]},
+    {path: 'controlAccesoAdmin', component: ControlAccesoAdminComponent , canActivate: [AuthGuard]},
     {path: 'login', component: LoginComponent},
     {path: 'registar', component: RegistarComponent},
     {path: 'listar', component: ListarComponent},
@@ -48,9 +57,11 @@ const APP_ROUTES: Routes = [
     {path: 'nuevoProyecto', component:  NuevoProyectoComponent, canActivate: [AuthGuard]},
     {path: 'listarProyecto', component:  ListarProyectoComponent},
     {path: 'listarProyectosConsult', component:  ListarproyectosConsultComponent},
+    {path: 'listarProyectosAdmin', component:  ListarproyectosAdminComponent },
     {path: 'VisualizarProyecto/:codigo', component:  VisualizarProyectoComponent},
     {path: 'modificarProyecto/:codigo', component:  ModificarProyectoComponent, canActivate: [AuthGuard] },
     {path: 'gestionClientes', component:  GestionClientesComponent, canActivate: [AuthGuard] },
+    {path: 'gestionClientesAdmin', component:  GestionClientesAdminComponent, canActivate: [AuthGuard] },
     {path: 'crearCliente', component:  CrearClienteComponent, canActivate: [AuthGuard]  },
     {path: 'listarCliente', component:  ListarClienteComponent, canActivate: [AuthGuard] },
     {path: 'visualizarCliente/:codigo', component:  VisualizarClienteComponent, canActivate: [AuthGuard]  },
@@ -62,6 +73,7 @@ const APP_ROUTES: Routes = [
     {path: 'buscador/:termino', component:   BuscadorComponent},
     {path: 'nuevoProyectoAdjuntos/:codigo', component:   UploadFormComponent},
     {path: 'perfilConsult', component:   PerfilConsultComponent},
+    {path: 'perfilAdmin', component:   PerfilAdminComponent},
     {path: 'navbar', component:   NavbarComponent},
     {path: '**', component: NotFoundComponent }
 ];
