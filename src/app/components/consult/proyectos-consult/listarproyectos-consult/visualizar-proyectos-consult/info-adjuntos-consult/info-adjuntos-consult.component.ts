@@ -4,11 +4,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ProyectoService } from 'src/app/services/proyecto.service';
 
 @Component({
-  selector: 'app-visualizar-proyectos-consult',
-  templateUrl: './visualizar-proyectos-consult.component.html',
-  styleUrls: ['./visualizar-proyectos-consult.component.css']
+  selector: 'app-info-adjuntos-consult',
+  templateUrl: './info-adjuntos-consult.component.html',
+  styleUrls: ['./info-adjuntos-consult.component.css']
 })
-export class VisualizarProyectosConsultComponent implements OnInit {
+export class InfoAdjuntosConsultComponent implements OnInit {
   codProyecto: string;
 
   proyecto: ProyectoInterface = {
@@ -39,3 +39,4 @@ export class VisualizarProyectosConsultComponent implements OnInit {
   }
 
 }
+

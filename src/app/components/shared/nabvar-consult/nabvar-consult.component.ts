@@ -22,7 +22,7 @@ export class NabvarConsultComponent implements OnInit {
    }
 
    buscarProyecto(termino: string) {
-    this.router.navigate(['/buscador', termino]);
+    this.router.navigate(['/buscadorConsult', termino]);
 
   }
 

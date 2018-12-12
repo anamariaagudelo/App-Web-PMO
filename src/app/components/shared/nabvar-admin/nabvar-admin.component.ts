@@ -22,7 +22,7 @@ export class NabvarAdminComponent implements OnInit {
    }
 
    buscarProyecto(termino: string) {
-    this.router.navigate(['/buscador', termino]);
+    this.router.navigate(['/buscadorAdmin', termino]);
 
   }
 }

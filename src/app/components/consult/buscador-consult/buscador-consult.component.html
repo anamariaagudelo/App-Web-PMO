@@ -10,7 +10,7 @@
 
 <div class="container ">
     <br>
-    <h3 style="text-align: center ">Listado de Proyectos</h3>
+    <h3 style="text-align: center ">Proyectos Encontrados</h3>
     <table class="table ">
         <thead class="list-group-item-danger ">
             <tr class="light bg-light">
@@ -21,15 +21,14 @@
             </tr>
         </thead>
 
-        <tbody *ngFor="let proyecto of proyectos">
+        <tbody>
             <tr>
                 <th scope="row ">{{proyecto.codigo}}</th>
                 <td>{{proyecto.nombre}}</td>
                 <td></td>
                 <td> <button [routerLink]="['/VisualizarProyectoConsult', proyecto.codigo]" class="myButton">
-                            <span class="glyphicon glyphicon-eye-open"></span> Visualizar
-                        </button></td>
+                        <span class="glyphicon glyphicon-eye-open"></span> Visualizar
+                    </button></td>
             </tr>
         </tbody>
     </table>
-</div>

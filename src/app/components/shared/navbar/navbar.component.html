@@ -1,27 +1,28 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light" *ngIf="!isLogin">
-    <img src="/assets/img/LogoIS.ico" class="rounded-circle" width="30" height="30" alt="">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" *ngIf="!isLogin">
+        <img src="/assets/img/LogoIS.ico" class="rounded-circle" width="30" height="30" alt="">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <ul class="navbar-nav mr-auto">
-        <form class="collapse navbar-collapse">
-            <li class="nav-item " routerLinkActive="router-link-active ">
-                <a class="nav-link active " href="#home " *ngIf="!isLogin"><small><b>INICIO</b></small></a>
+        <ul class="navbar-nav mr-auto">
+            <form class="collapse navbar-collapse">
+                <li class="nav-item " routerLinkActive="router-link-active ">
+                    <a class="nav-link active " href="#home " *ngIf="!isLogin"><small><b>INICIO</b></small></a>
+                </li>
+
+            </form>
+        </ul>
+
+        <ul class="navbar-nav ml-auto ">
+
+
+            <ul class="navbar-nav ml-auto "></ul>
+            <li class="nav-item " routerLinkActive="Active " *ngIf="!isLogin">
+                <a class="nav-link " [routerLink]="[ 'login'] "><small><b>LOGIN</b></small></a>
             </li>
-
-        </form>
-    </ul>
-
-    <ul class="navbar-nav ml-auto ">
-
-
-        <ul class="navbar-nav ml-auto "></ul>
-        <li class="nav-item " routerLinkActive="Active " *ngIf="!isLogin">
-            <a class="nav-link " [routerLink]="[ 'login'] "><small><b>LOGIN</b></small></a>
-        </li>
-    </ul>
-    <!--
+        </ul>
+        <!--
     <ul class="navbar-nav ml-auto ">
         <li class="nav-item " routerLinkActive="Active " *ngIf="!isLogin ">
             <a class="nav-link " [routerLink]="[ 'login'] "><small><b>LOGIN</b></small></a>
@@ -36,5 +37,5 @@
             <a class="nav-link " href="#home " (click)="onLogout() "><small><b>SALIR</b></small></a>
         </li>
     </ul>-->
-
-</nav>
+    </nav>
+</div>

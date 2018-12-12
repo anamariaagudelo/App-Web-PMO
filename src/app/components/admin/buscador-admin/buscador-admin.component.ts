@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ProyectoService } from '../../services/proyecto.service';
 import { ProyectoInterface } from 'src/app/Models/proyecto';
+import { ActivatedRoute } from '@angular/router';
+import { ProyectoService } from 'src/app/services/proyecto.service';
 
 @Component({
-  selector: 'app-buscador',
-  templateUrl: './buscador.component.html',
-  styleUrls: ['./buscador.component.css']
+  selector: 'app-buscador-admin',
+  templateUrl: './buscador-admin.component.html',
+  styleUrls: ['./buscador-admin.component.css']
 })
-export class BuscadorComponent implements OnInit {
+export class BuscadorAdminComponent implements OnInit {
   proy: any;
 
   proyecto: ProyectoInterface = {
@@ -41,3 +41,4 @@ export class BuscadorComponent implements OnInit {
     });
 }
 }
+

@@ -14,7 +14,7 @@
                 <a class="nav-link dropdown-toggle" [routerLink]="[ '/proyectosConsult'] " id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><small><b>PROYECTOS</b></small></a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#listarProyectosConsult">LISTA
-                    PROYECTOS</a>
+                            PROYECTOS</a>
                 </div>
             </li>
         </ul>
@@ -22,9 +22,9 @@
         <form class="form-inline my-2 my-lg-0 ">
 
             <input class="form-control mr-sm-2 " type="text " placeholder="Buscar Proyecto " #buscarTexto (keyup.enter)="buscarProyecto(buscarTexto) ">
-            <button (click)="buscarProyecto(buscarTexto.value) " class="myButton " type="button ">
-                <span class="glyphicon glyphicon-search "></span> Buscar
-            </button>
+            <button (click)="buscarProyecto(buscarTexto.value) " class="myButton " type="button">
+                    <span class="glyphicon glyphicon-search "></span> Buscar
+                </button>
         </form>
     </ul>
     <ul class="navbar-nav ml-auto ">
@@ -35,5 +35,4 @@
             <a class="nav-link " [routerLink]="[ '/home'] " (click)="onLogout()"><small><b>SALIR</b></small></a>
         </li>
     </ul>
-
 </nav>

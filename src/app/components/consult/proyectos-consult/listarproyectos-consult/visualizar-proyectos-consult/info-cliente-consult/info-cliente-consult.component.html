@@ -1,0 +1,71 @@
+<app-nabvar-consult>
+
+</app-nabvar-consult>
+<br>
+<br>
+<div class="card bg-light mb-3" style="max-width: 80rem;">
+    <div class="container">
+        <form class="px-4 py-3">
+            <form role="form" id="register-form" autocomplete="off">
+                <div class="form-header">
+                    <h3 style="text-align: center" class="form-title"><i class="fa fa-user"></i> Información Cliente</h3>
+                    <hr>
+                    <br>
+                </div>
+
+                <div class="form-body">
+                    <div class="form-group">
+                        <label for="codigo">Código Cliente</label>
+                        <input type="text" class="form-control" id="codigo" name="codigo" [(ngModel)]="cliente.codigo">
+                    </div>
+                    <div class="form-group">
+                        <label for="codigo">Nombre Cliente</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="cliente.nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleDropdownFormEmail1">Descripción</label>
+                        <textarea class="form-control" aria-label="With textarea" id="descripcion" name="descripcion" [(ngModel)]="cliente.descripcion"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleDropdownFormEmail1">Región</label>
+                        <input type="text" class="form-control" id="region" name="region" [(ngModel)]="cliente.region">
+                        <span class="help-block" id="error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleDropdownFormEmail1">País</label>
+                        <input type="text" class="form-control" id="pais" name="pais" [(ngModel)]="cliente.pais">
+                        <span class="help-block" id="error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleDropdownFormEmail1">Mercado</label>
+                        <input type="text" class="form-control" id="mercado" name="mercado" [(ngModel)]="cliente.mercado">
+                        <span class="help-block" id="error"></span>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">Datos de Contacto del Cliente</h5>
+                        </div>
+                        <div class="card-body">
+                            <label for="codigo">Nombre de Contacto</label>
+                            <div class="custom-file">
+                                <input type="text" class="form-control" id="Ncontacto" name="Ncontacto" [(ngModel)]="cliente.Ncontacto">
+                            </div>
+                            <br>
+                            <br>
+                            <label for="codigo">Email de Contacto</label>
+                            <div class="custom-file">
+                                <input type="email" class="form-control" id="Econtacto" name="Econtacto" [(ngModel)]="cliente.Econtacto">
+                            </div>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </form>
+        </form>
+    </div>
+</div>
