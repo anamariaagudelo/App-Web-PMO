@@ -61,6 +61,7 @@ export class UploadFormComponent implements OnInit {
 
     cargarArchivos () {
       this.proyectoService.cargarArchivosFirebase(this.archivos);
+      this.router.navigate(['/listarProyectosAdmin']);
 
     }
 
@@ -79,10 +80,6 @@ export class UploadFormComponent implements OnInit {
         this.router.navigate(['/listarProyecto']);
     });
 
-  }
-
-  guardarFinal() {
-    this.router.navigate(['/listarProyecto']);
   }
 
 }

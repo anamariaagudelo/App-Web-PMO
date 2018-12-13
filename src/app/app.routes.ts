@@ -44,13 +44,18 @@ import { VisualizarProyectosConsultComponent} from './components/consult/proyect
 import { InfoAdjuntosConsultComponent } from './components/consult/proyectos-consult/listarproyectos-consult/visualizar-proyectos-consult/info-adjuntos-consult/info-adjuntos-consult.component';
 // tslint:disable-next-line:max-line-length
 import { InfoClienteConsultComponent } from './components/consult/proyectos-consult/listarproyectos-consult/visualizar-proyectos-consult/info-cliente-consult/info-cliente-consult.component';
-
+// tslint:disable-next-line:max-line-length
+import { VisualizarProyectosAdminComponent } from './components/admin/proyectos-admin/listarproyectos-admin/visualizar-proyectos-admin/visualizar-proyectos-admin.component';
+// tslint:disable-next-line:max-line-length
+import { InfoClienteAdminComponent } from './components/admin/proyectos-admin/listarproyectos-admin/visualizar-proyectos-admin/info-cliente-admin/info-cliente-admin.component';
+// tslint:disable-next-line:max-line-length
+import { InfoAdjuntosAdminComponent } from './components/admin/proyectos-admin/listarproyectos-admin/visualizar-proyectos-admin/info-adjuntos-admin/info-adjuntos-admin.component';
 
 
 
 
 const APP_ROUTES: Routes = [
-    {path: 'home', component: HomeComponent},
+    {path: '', component: HomeComponent},
     {path: 'homeConsult', component: HomeConsultComponent},
     {path: 'homeAdmin', component: HomeAdminComponent},
     {path: 'proyectos', component: ProyectosComponent},
@@ -69,6 +74,7 @@ const APP_ROUTES: Routes = [
     {path: 'listarProyectosAdmin', component:  ListarproyectosAdminComponent },
     {path: 'VisualizarProyecto/:codigo', component:  VisualizarProyectoComponent},
     {path: 'VisualizarProyectoConsult/:codigo', component:  VisualizarProyectosConsultComponent},
+    {path: 'VisualizarProyectoAdmin/:codigo', component:  VisualizarProyectosAdminComponent },
     {path: 'modificarProyecto/:codigo', component:  ModificarProyectoComponent, canActivate: [AuthGuard] },
     {path: 'gestionClientes', component:  GestionClientesComponent, canActivate: [AuthGuard] },
     {path: 'gestionClientesAdmin', component:  GestionClientesAdminComponent, canActivate: [AuthGuard] },
@@ -78,8 +84,10 @@ const APP_ROUTES: Routes = [
     {path: 'modificarCliente/:codigo', component:  ModificarClienteComponent, canActivate: [AuthGuard] },
     {path: 'infoCliente/:cliente', component:  InfoClienteComponent },
     {path: 'infoClienteConsult/:cliente', component:  InfoClienteConsultComponent  },
+    {path: 'infoClienteAdmin/:cliente', component:  InfoClienteAdminComponent  },
     {path: 'infoAdjuntos/:codigo', component:   InfoAdjuntosComponent},
     {path: 'infoAdjuntosConsult/:codigo', component:   InfoAdjuntosConsultComponent},
+    {path: 'info/Adjuntos/Admin/:codigo', component:   InfoAdjuntosAdminComponent },
     {path: 'admin', component:   AdminComponent},
     {path: 'consult', component:   ConsultComponent},
     {path: 'buscador/:termino', component:   BuscadorComponent},
@@ -89,7 +97,7 @@ const APP_ROUTES: Routes = [
     {path: 'perfilConsult', component:   PerfilConsultComponent},
     {path: 'perfilAdmin', component:   PerfilAdminComponent},
     {path: 'navbar', component:   NavbarComponent},
-    {path: '**', component: NotFoundComponent }
+    {path: '**', component: NotFoundComponent, }
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES, {useHash: true});

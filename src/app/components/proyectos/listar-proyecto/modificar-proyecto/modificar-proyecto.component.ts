@@ -7,6 +7,7 @@ import { NgFlashMessageService } from 'ng-flash-messages';
 import { AuthService } from 'src/app/services/auth.service';
 import { ClienteService } from 'src/app/services/Cliente.service';
 import { ClienteInterface } from 'src/app/Models/cliente';
+import { FileItem } from 'src/app/Models/file-item';
 
 @Component({
   selector: 'app-modificar-proyecto',
@@ -16,6 +17,7 @@ import { ClienteInterface } from 'src/app/Models/cliente';
 export class ModificarProyectoComponent implements OnInit {
   clientes: ClienteInterface[];
   codProyecto: string;
+  archivos: FileItem[] = [];
 
   proyecto: ProyectoInterface = {
     codigo: '',
@@ -50,13 +52,31 @@ export class ModificarProyectoComponent implements OnInit {
     });
   }
 
+  selectFile(event) {
+    const file = event.target.files[0];
+    const nuevoArchivo = new FileItem(file);
+    this.archivos.push(nuevoArchivo);
+    console.log(this.archivos);
+  }
+
+    cargarArchivos () {
+      this.proyectoService.cargarArchivosFirebase(this.archivos);
+      this.router.navigate(['/listarProyectosAdmin']);
+
+    }
+
+    limpiarArchivos() {
+      this.archivos = [];
+      console.log(this.archivos);
+    }
+
   onModificarProyecto({value}: {value: ProyectoInterface}) {
     this.authService.getAuth().subscribe (user => {
     value.codigo = this.codProyecto;
     this.proyectoService.updateProyecto(value);
     this.ngFlashMensaje.showFlashMessage({messages: ['ProyectoModificado Correctamente'],
         dismissible: true, timeout: 5000, type: 'success'});
-        this.router.navigate(['/listarProyecto']);
+        this.router.navigate(['/VisualizarProyectoAdmin/' + this.codProyecto]);
     });
 
   }

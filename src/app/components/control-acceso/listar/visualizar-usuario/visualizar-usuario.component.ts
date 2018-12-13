@@ -35,7 +35,6 @@ export class VisualizarUsuarioComponent implements OnInit {
     const collection = this.userService.getOneUser(this.emailUser);
     collection.subscribe(docs => {
       this.user = docs[0];
-      console.log(this.user);
     });
   }
 

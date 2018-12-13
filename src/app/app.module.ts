@@ -79,6 +79,14 @@ import { VisualizarProyectosConsultComponent} from './components/consult/proyect
 import { InfoAdjuntosConsultComponent } from './components/consult/proyectos-consult/listarproyectos-consult/visualizar-proyectos-consult/info-adjuntos-consult/info-adjuntos-consult.component';
 // tslint:disable-next-line:max-line-length
 import { InfoClienteConsultComponent } from './components/consult/proyectos-consult/listarproyectos-consult/visualizar-proyectos-consult/info-cliente-consult/info-cliente-consult.component';
+// tslint:disable-next-line:max-line-length
+import { VisualizarProyectosAdminComponent } from './components/admin/proyectos-admin/listarproyectos-admin/visualizar-proyectos-admin/visualizar-proyectos-admin.component';
+// tslint:disable-next-line:max-line-length
+import { InfoClienteAdminComponent } from './components/admin/proyectos-admin/listarproyectos-admin/visualizar-proyectos-admin/info-cliente-admin/info-cliente-admin.component';
+// tslint:disable-next-line:max-line-length
+import { NavVisualizarProyectoAdminComponent } from './components/admin/proyectos-admin/listarproyectos-admin/visualizar-proyectos-admin/nav-visualizar-proyecto-admin/nav-visualizar-proyecto-admin.component';
+// tslint:disable-next-line:max-line-length
+import { InfoAdjuntosAdminComponent } from './components/admin/proyectos-admin/listarproyectos-admin/visualizar-proyectos-admin/info-adjuntos-admin/info-adjuntos-admin.component';
 
 
 
@@ -139,6 +147,10 @@ import { InfoClienteConsultComponent } from './components/consult/proyectos-cons
     VisualizarProyectosConsultComponent,
     InfoAdjuntosConsultComponent,
     InfoClienteConsultComponent,
+    VisualizarProyectosAdminComponent,
+    InfoClienteAdminComponent,
+    NavVisualizarProyectoAdminComponent,
+    InfoAdjuntosAdminComponent,
      ],
   imports: [
     BrowserModule,

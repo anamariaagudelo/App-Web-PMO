@@ -8,11 +8,12 @@
         <form class="px-4 py-3">
             <form role="form" id="register-form" autocomplete="off">
                 <div class="form-header">
-                    <h3 style="text-align: center" class="form-title"><i class="fa fa-user"></i> Modificar Información del proyecto</h3>
+                    <h3 style="text-align: center" class="form-title"><i class="fa fa-user"></i> Formulario Nuevo proyecto
+                    </h3>
                     <hr>
                     <br>
                 </div>
-
+                <!--#formModificarProyecto="ngForm" (ngSubmit)="onModificarProyecto(formModificarProyecto)"-->
                 <form>
                     <div class="form-group">
                         <label for="codigo">Código Proyecto<Span class="rojo">*</Span></label>
@@ -30,12 +31,12 @@
                     <!--OJO REVISAR EL SELECTOR-->
                     <label for="cliente">Cliente<Span class="rojo">*</Span></label>
                     <select class="custom-select" id="cliente" name="cliente" [(ngModel)]="proyecto.cliente">
-                        <option selected>{{proyecto.cliente}}</option>
-
-                    </select>
+                            <option selected>{{proyecto.cliente}}</option>
+    
+                        </select>
                     <br>
                     <br>
-                    <form #formGuardarArchivo="ngForm" (ngSubmit)="cargarArchivos(formGuardarArchivo)">
+                    <form #formGuardarArchivo="ngForm" (ngSubmit)="onModificarProyecto(formGuardarArchivo)">
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="card-title">Adjuntar Documentos</h5>
@@ -48,20 +49,19 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-8  ">
-                                            <button type="submit" class=" myButton btn-btn"> Adjuntar</button>
 
                                             <!--<label for="perfil" class="col-3 col-form-label"><b>Descripción</b></label>
-                                        <div class="col-1  ">
-                                            <select class="custom-select" id="perfil" name="perfil" style="width:325px" size="1">
-                                                <option selected>Seleccionar Tipo de Archivo</option>
-                                                <option value="Alcance proyecto">Alcance proyecto</option>
-                                                <option value="Cronograma">Cronograma</option>
-                                                <option value="Hitos de Facturación">Hitos de Facturación</option>
-                                                <option value="Informe de Seguimiento">Informe de Seguimiento</option>
-                                                <option value="Indicadores de Desempeño">Indicadores de Desempeño</option>
-                                                <option value="Documento de Riesgos detectados">Documento de Riesgos
-                                                    detectados</option>
-                                            </select>-->
+                                            <div class="col-1  ">
+                                                <select class="custom-select" id="perfil" name="perfil" style="width:325px" size="1">
+                                                    <option selected>Seleccionar Tipo de Archivo</option>
+                                                    <option value="Alcance proyecto">Alcance proyecto</option>
+                                                    <option value="Cronograma">Cronograma</option>
+                                                    <option value="Hitos de Facturación">Hitos de Facturación</option>
+                                                    <option value="Informe de Seguimiento">Informe de Seguimiento</option>
+                                                    <option value="Indicadores de Desempeño">Indicadores de Desempeño</option>
+                                                    <option value="Documento de Riesgos detectados">Documento de Riesgos
+                                                        detectados</option>
+                                                </select>-->
                                         </div>
                                         <div class="col-4">
                                             <button type="button" class="myButton" (click)="limpiarArchivos()"> limpiar</button>
@@ -76,7 +76,6 @@
                                                     <th scope="col ">Nombre Archivo</th>
                                                     <th scope="col ">Tamaño</th>
                                                     <td></td>
-                                                    <th scope="col ">progreso</th>
                                                 </tr>
                                             </thead>
 
@@ -86,11 +85,11 @@
                                                     <td>{{archivo.adjunto.size / 1024 /1024 | number: '.2-2'}} MB</td>
                                                     <td>
                                                     </td>
-                                                    <td>
-                                                        <div class="progress">
-                                                            <div class="progress-bar" role="progressbar" [ngStyle]="{'width': archivo.progreso + '%'}"></div>
-                                                        </div>
-                                                    </td>
+                                                    <!-- <td>
+                                                            <div class="progress">
+                                                                <div class="progress-bar" role="progressbar" [ngStyle]="{'width': archivo.progreso + '%'}"></div>
+                                                            </div>
+                                                        </td> -->
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -100,13 +99,14 @@
                             </div>
                         </div>
                         <!--<div class="col-6">
-                            <button type="submit" class=" myButton btn-btn"> Adjuntar archivos</button>
-                        </div>-->
+                                <button type="submit" class=" myButton btn-btn"> Adjuntar archivos</button>
+                            </div>-->
 
                         <label for="email" class="col-6 col-form-label"><Span class="rojo">*</Span>Campos Obligatorios</label>
                         <hr>
                         <div class="form-footer">
-                            <button type="submit" (click)="guardarFinal()" class=" myButton btn-block"> Guardar</button>
+
+                            <button type="submit" class=" myButton btn-block"> Guardar Cambios</button>
                             <hr>
                         </div>
                     </form>

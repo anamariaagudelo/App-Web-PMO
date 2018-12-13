@@ -3,5 +3,39 @@
 </app-nabvar-admin>
 <br>
 <br>
+<div class="card bg-light mb-3 mx-auto" style="max-width: 50rem; ">
+    <div class="container">
+        <form class="px-4 py-3">
+            <form role="form" id="register-form" autocomplete="off">
+                <div class="form-header">
+                    <h3 style="text-align: center" class="form-title"><i class="fa fa-user"></i> Nombres Y Apellido del Usuario</h3>
+                    <hr>
+                    <br>
+                </div>
 
-<h5>Información del perfil del usuario</h5>
+                <form>
+                    <div class="form-group row">
+                        <label for="email" class="col-3 col-form-label">Email</label>
+                        <div>
+                            <input type="text" size="50" class="form-control" id="email" name="email" [(ngModel)]="userEmail">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="perfil" class="col-3 col-form-label">Perfil</label>
+                        <div>
+                            <input type="text" size="50" class="form-control" id="rol" name="rol">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="perfil" class="col-3 col-form-label">Estado</label>
+                        <div>
+                            <input type="text" size="50" class="form-control" id="estado" name="estado">
+                        </div>
+                    </div>
+
+                </form>
+            </form>
+        </form>
+    </div>
+</div>
+<form>
