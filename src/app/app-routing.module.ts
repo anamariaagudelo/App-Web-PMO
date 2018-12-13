@@ -1,4 +1,5 @@
-import {RouterModule, Routes} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { ControlAccesoComponent } from './components/control-acceso/control-acceso.component';
@@ -52,10 +53,8 @@ import { InfoClienteAdminComponent } from './components/admin/proyectos-admin/li
 import { InfoAdjuntosAdminComponent } from './components/admin/proyectos-admin/listarproyectos-admin/visualizar-proyectos-admin/info-adjuntos-admin/info-adjuntos-admin.component';
 
 
-
-
-const APP_ROUTES: Routes = [
-    {path: '', component: HomeComponent},
+const routes: Routes = [
+    {path: 'home', component: HomeComponent},
     {path: 'homeConsult', component: HomeConsultComponent},
     {path: 'homeAdmin', component: HomeAdminComponent},
     {path: 'proyectos', component: ProyectosComponent},
@@ -97,7 +96,11 @@ const APP_ROUTES: Routes = [
     {path: 'perfilConsult', component:   PerfilConsultComponent},
     {path: 'perfilAdmin', component:   PerfilAdminComponent},
     {path: 'navbar', component:   NavbarComponent},
-    {path: '**', component: NotFoundComponent, }
+    {path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 
-export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES, {useHash: true});
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }

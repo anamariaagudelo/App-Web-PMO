@@ -21,7 +21,7 @@ import { ClienteInterface } from './Models/cliente';
 import { AuthGuard } from './guards/auth.guard';
 
 // Routing
-import {APP_ROUTING} from './app.routes';
+import { AppRoutingModule } from './app-routing.module';
 
 // Messages
 import { NgFlashMessagesModule } from 'ng-flash-messages';
@@ -154,7 +154,7 @@ import { InfoAdjuntosAdminComponent } from './components/admin/proyectos-admin/l
      ],
   imports: [
     BrowserModule,
-    APP_ROUTING,
+    AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase), // imports firebase/app needed for everything
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
