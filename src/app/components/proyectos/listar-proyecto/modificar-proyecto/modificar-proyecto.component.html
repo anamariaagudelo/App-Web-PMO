@@ -36,6 +36,23 @@
                         </select>
                     <br>
                     <br>
+
+
+                    <table class="table">
+                        <thead class="list-group-item-danger ">
+                            <tr class="light bg-light">
+                                <th scope="col ">Archivos Adjuntos</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr *ngFor="let item of proyecto.adjuntoUrl">
+                                <td> <a href={{proyecto.adjuntoUrl}} class="card-link">{{proyecto.adjuntoUrl}}</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
                     <form #formGuardarArchivo="ngForm" (ngSubmit)="onModificarProyecto(formGuardarArchivo)">
                         <div class="card">
                             <div class="card-header">

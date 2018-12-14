@@ -35,7 +35,7 @@
                     </div>
                     <label for="cliente">Cliente<Span class="rojo">*</Span></label>
                     <select class="custom-select" id="cliente" name="cliente" [(ngModel)]="proyecto.cliente">
-                        <option selected *ngFor="let cliente of clientes">{{cliente.nombre}}</option>
+                        <option selected *ngFor="let cliente of clientes">{{cliente.codigo}}</option>
                     </select>
                     <div class="form-group" style="display: none">
                         <label for="nombre">Adjuntos Proyecto<Span class="rojo">*</Span></label>

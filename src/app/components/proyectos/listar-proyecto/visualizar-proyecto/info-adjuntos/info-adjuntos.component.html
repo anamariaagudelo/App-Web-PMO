@@ -13,10 +13,10 @@
                 <th scope="col ">URL</th>
             </tr>
         </thead>
-
+        <!---->
         <tbody *ngFor="let item of proyecto.adjuntoUrl">
             <tr>
-                <th><a href={{item}} class="card-link">{{item}}</a></th>
+                <th><a href={{item.url}} class="card-link">{{item.nombre}}</a></th>
             </tr>
         </tbody>
     </table>

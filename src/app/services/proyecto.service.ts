@@ -15,6 +15,7 @@ import { isNgTemplate } from '@angular/compiler';
 export class ProyectoService {
   private basePath = 'adjuntos';
   id: string;
+  archivo: {url: string, nombre: string };
   adjuntouRL: string[];
   proyectoColletion: AngularFirestoreCollection<ProyectoInterface>;
   proyectoDoc: AngularFirestoreDocument<ProyectoInterface>;
@@ -69,13 +70,14 @@ export class ProyectoService {
           nombre: proyecto.nombre,
           descripcion: proyecto.descripcion,
           cliente: proyecto.cliente,
+          adjuntos: proyecto.adjuntoUrl,
         });
       });
     }
     );
   }
 
-  addNewArchivo(url: string) {
+  addNewArchivo(archivo: {url: string, nombre: string}) {
     const docRef = this.proyectoColletion.doc(this.id).ref;
     this.proyectoColletion.doc(this.id).ref.firestore.runTransaction((t) => {
       return t.get(docRef).then((doc) => {
@@ -86,7 +88,8 @@ export class ProyectoService {
         }
         // update the users array after getting it from Firestore.
         const newURL = doc.get('adjuntoUrl');
-        newURL.push(url);
+        newURL.push(archivo);
+        console.log('esto es lo que tiene el objeto archivo', archivo);
         t.set(docRef, { adjuntoUrl: newURL }, { merge: true });
       });
     });
@@ -105,10 +108,14 @@ export class ProyectoService {
         .then(snapshot => {
           return snapshot.ref.getDownloadURL();   // Will return a promise with the download link
         }).then(downloadURL => {
-          console.log(`Successfully uploaded file and got download link - ${downloadURL}`);
+          console.log(`Successfully uploaded file and got download link - ${downloadURL} /${ item.nombreAdjunto}`);
           const PDFFileUrl: string = downloadURL;
+          const nombre1 = item.nombreAdjunto;
+          this.archivo = {url: PDFFileUrl, nombre: nombre1};
+
           // this.adjuntouRL.push(PDFFileUrl);
-          this.addNewArchivo(PDFFileUrl);
+          this.addNewArchivo(this.archivo);
+          console.log('esto es lo que tiene el objeto archivo', this.archivo);
         })
         .catch(error => {
           // Use to signal error if something goes wrong.

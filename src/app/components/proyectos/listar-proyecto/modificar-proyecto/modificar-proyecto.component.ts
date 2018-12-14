@@ -38,13 +38,13 @@ export class ModificarProyectoComponent implements OnInit {
   ngOnInit() {
     this.getInfoModCliente();
     this.todosClientes();
-   }
+  }
 
-   todosClientes() {
+  todosClientes() {
     this.clienteService.getAllClientes().subscribe(clientes => this.clientes = clientes);
   }
 
-   getInfoModCliente() {
+  getInfoModCliente() {
     this.codProyecto = this.route.snapshot.params['codigo'];
     const collection = this.proyectoService.getOneProyecto(this.codProyecto);
     collection.subscribe(docs => {
@@ -59,24 +59,27 @@ export class ModificarProyectoComponent implements OnInit {
     console.log(this.archivos);
   }
 
-    cargarArchivos () {
+  cargarArchivos() {
+    this.proyectoService.cargarArchivosFirebase(this.archivos);
+    this.router.navigate(['/listarProyectosAdmin']);
+
+  }
+
+  limpiarArchivos() {
+    this.archivos = [];
+    console.log(this.archivos);
+  }
+
+  onModificarProyecto({ value }: { value: ProyectoInterface }) {
+    this.authService.getAuth().subscribe(user => {
       this.proyectoService.cargarArchivosFirebase(this.archivos);
-      this.router.navigate(['/listarProyectosAdmin']);
-
-    }
-
-    limpiarArchivos() {
-      this.archivos = [];
-      console.log(this.archivos);
-    }
-
-  onModificarProyecto({value}: {value: ProyectoInterface}) {
-    this.authService.getAuth().subscribe (user => {
-    value.codigo = this.codProyecto;
-    this.proyectoService.updateProyecto(value);
-    this.ngFlashMensaje.showFlashMessage({messages: ['ProyectoModificado Correctamente'],
-        dismissible: true, timeout: 5000, type: 'success'});
-        this.router.navigate(['/VisualizarProyectoAdmin/' + this.codProyecto]);
+      value.codigo = this.codProyecto;
+      this.proyectoService.updateProyecto(value);
+      this.ngFlashMensaje.showFlashMessage({
+        messages: ['ProyectoModificado Correctamente'],
+        dismissible: true, timeout: 5000, type: 'success'
+      });
+      this.router.navigate(['/VisualizarProyectoAdmin/' + this.codProyecto]);
     });
 
   }

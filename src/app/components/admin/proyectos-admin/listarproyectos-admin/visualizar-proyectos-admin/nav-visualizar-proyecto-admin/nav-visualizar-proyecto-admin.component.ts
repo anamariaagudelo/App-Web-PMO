@@ -18,6 +18,7 @@ export class NavVisualizarProyectoAdminComponent implements OnInit {
     nombre: '',
     descripcion: '',
     cliente: '',
+    adjuntoUrl: [],
 
   };
 
