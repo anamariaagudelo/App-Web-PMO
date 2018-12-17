@@ -41,6 +41,9 @@
 }
 
 .myButton {
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
     -moz-box-shadow: 3px 4px 0px 0px #8a2a21;
     -webkit-box-shadow: 3px 4px 0px 0px #8a2a21;
     box-shadow: 3px 4px 0px 0px #8a2a21;
@@ -67,7 +70,7 @@
 }
 
 .myButton {
-    -moz-box-shadow: inset 0px 1px 0px 0px #cf866c;
+    -moz-box-shadow: inset 0px 1px 0px 0px #773e58f1;
     -webkit-box-shadow: inset 0px 1px 0px 0px #cf866c;
     box-shadow: inset 0px 1px 0px 0px #cf866c;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #8f3440), color-stop(1, #8f3440));
@@ -101,6 +104,11 @@
     background: linear-gradient(to bottom, #862b37 5%, #862b37 100%);
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#bc3315', endColorstr='#d0451b', GradientType=0);
     background-color: #f0dfe1;
+}
+
+.myButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 body {

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ProyectoInterface } from '../../../Models/proyecto';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
-import { NgFlashMessagesModule } from 'ng-flash-messages';
 import { ProyectoService } from '../../../services/proyecto.service';
 import 'rxjs/add/observable/throw';
 import { Observable } from 'rxjs';
@@ -10,13 +9,15 @@ import { ClienteService } from 'src/app/services/Cliente.service';
 import { ClienteInterface } from '../../../Models/cliente';
 import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
 import { FileItem } from '../../../Models/file-item';
+import {  NgForm } from '@angular/forms';
+import { NgFlashMessageService } from 'ng-flash-messages';
 
 
 @Component({
   selector: 'app-nuevo-proyecto',
   templateUrl: './nuevo-proyecto.component.html',
-  styleUrls: ['./nuevo-proyecto.component.css']
 })
+
 export class NuevoProyectoComponent implements OnInit {
   clientes: ClienteInterface[];
   archivos: FileItem[] = [];
@@ -30,15 +31,14 @@ export class NuevoProyectoComponent implements OnInit {
     adjuntoUrl: [],
 
   };
-  ProyectoInterface: any;
 
   constructor(
     private authService: AuthService,
     private proyectoService: ProyectoService,
     private router: Router,
-    public ngFlashMensaje: NgFlashMessagesModule,
     public clienteService: ClienteService,
     private storage: AngularFireStorage,
+    public ngFlashMensaje: NgFlashMessageService
   ) { }
 
   ngOnInit() {
@@ -65,10 +65,11 @@ export class NuevoProyectoComponent implements OnInit {
     }
 
 
-  onGuardarProyecto({ value }: { value: ProyectoInterface }) {
-      this.proyectoService.addNewProyecto(value);
-      console.log('Proyeco creado correctamente');
-  }
+  onGuardarProyecto(formGuardarProyecto: NgForm) {
+      this.proyectoService.addNewProyecto(formGuardarProyecto.value);
+        this.router.navigate(['/nuevoProyectoAdjuntos', this.proyecto.codigo]);
+     }
+
 
 }
 

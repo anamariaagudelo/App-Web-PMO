@@ -111,11 +111,10 @@ export class ProyectoService {
           console.log(`Successfully uploaded file and got download link - ${downloadURL} /${ item.nombreAdjunto}`);
           const PDFFileUrl: string = downloadURL;
           const nombre1 = item.nombreAdjunto;
-          this.archivo = {url: PDFFileUrl, nombre: nombre1};
+          this.archivo = {nombre: nombre1, url: PDFFileUrl};
 
           // this.adjuntouRL.push(PDFFileUrl);
           this.addNewArchivo(this.archivo);
-          console.log('esto es lo que tiene el objeto archivo', this.archivo);
         })
         .catch(error => {
           // Use to signal error if something goes wrong.

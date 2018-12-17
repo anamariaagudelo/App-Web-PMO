@@ -23,7 +23,8 @@ import { AuthGuard } from './guards/auth.guard';
 // Routing
 import { AppRoutingModule } from './app-routing.module';
 
-// Messages
+// Forms
+import {FormsModule} from '@angular/forms';
 import { NgFlashMessagesModule } from 'ng-flash-messages';
 
 import { AppComponent } from './app.component';
@@ -54,7 +55,6 @@ import { InfoAdjuntosComponent } from './components/proyectos/listar-proyecto/vi
 import { NavVisualizarProyectoComponent } from './components/proyectos/listar-proyecto/visualizar-proyecto/nav-visualizar-proyecto/nav-visualizar-proyecto.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import {FormsModule} from '@angular/forms';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { UploadFormComponent } from './components/proyectos/upload-form/upload-form.component';
 import { ConsultComponent } from './components/consult/consult.component';
