@@ -24,45 +24,80 @@
                     <hr>
                     <br>
                 </div>
-                <form #formGuardarCliente="ngForm" (ngSubmit)="onGuardarCliente(formGuardarCliente)">
-                    <div class="form-group">
+                <form (ngSubmit)="onGuardarCliente(formGuardarCliente)" #formGuardarCliente="ngForm" novalidate="">
+                    <div class="form-group was-validated">
                         <label for="codigo">Código Cliente<Span class="rojo">*</Span></label>
-                        <input type="text" class="form-control" placeholder="Código" id="codigo" name="codigo" [(ngModel)]="cliente.codigo">
+                        <input type="text" class="form-control" #input [value]="input.value.toUpperCase()" placeholder="Código" id="codigo" name="codigo" [(ngModel)]="cliente.codigo" required #codigo="ngModel">
+                        <div *ngIf="codigo?.errors?.required && (codigo.touched)" class="invalid-feedback">Este campo es requerido</div>
+                        <div *ngIf="codigo?.errors?.minlength && (codigo.touched)" class="invalid-feedback">Mínimo 3 caracteres
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group was-validated">
                         <label for="nombre">Nombre Cliente<Span class="rojo">*</Span></label>
-                        <input type="text" class="form-control" placeholder="Nombre" id="nombre" name="nombre" [(ngModel)]="cliente.nombre">
+                        <input type="text" class="form-control" #input1 [value]="input1.value.toUpperCase()" placeholder="Nombre" id="nombre" name="nombre" [(ngModel)]="cliente.nombre" required #nombre="ngModel">
+                        <div *ngIf="nombre?.errors?.required && (nombre.touched)" class="invalid-feedback">Este campo es requerido</div>
+                        <div *ngIf="nombre?.errors?.minlength" class="invalid-feedback">Mínimo 3 caracteres</div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group was-validated">
                         <label for="descripcion">Descripción<Span class="rojo">*</Span></label>
-                        <textarea class="form-control" placeholder="Descripción" aria-label="With textarea" id="descripcion" name="descripcion" [(ngModel)]="cliente.descripcion">Describe brevemente la actividad del Cliente</textarea>
+                        <textarea class="form-control is-invalid" #input4 [value]="input4.value.toUpperCase()" placeholder="Descripción" aria-label="With textarea" id="descripcion" name="descripcion" [(ngModel)]="cliente.descripcion" required required #descripcion="ngModel"></textarea>
+                        <div *ngIf="descripcion?.errors?.required && (descripcion.touched)" class="invalid-feedback">Este campo es requerido</div>
+                        <div *ngIf="descripcion?.errors?.minlength" class="invalid-feedback">Mínimo 2 caracteres</div>
+                    </div>
+                    <div class="form-group was-validated">
+                        <label for="region">Región<Span class="rojo">*</Span></label>
+                        <select class="custom-select" id="region" name="region" [(ngModel)]="cliente.region" #region="ngModel" required>
+                            <option value="">SELECCIONE UNA REGIÓN</option>
+                            <option *ngFor="let region of regiones" [value]="region.nombre">{{region.nombre}}</option>
+                            <div *ngIf="region?.errors?.required && (codigo.touched)" class="invalid-feedback">Debe
+                                seleccionar una región</div>
+                        </select>
+                    </div>
+                    <div class="form-group was-validated">
+                        <label for="pais">País<Span class="rojo">*</Span></label>
+                        <div>
+                            <select *ngIf="region.value === 'EUROPA'" class="form-control is-invalid" id="pais" name="pais" [(ngModel)]="cliente.pais" #pais="ngModel" required>
+                                <option value="">SELECCIONE UN PAIS</option>
+                                <option value="ESPAÑA">ESPAÑA</option>
+                                <option value="GIBRALTAR">GIBRALTAR</option>
+                        </select>
+                        </div>
+                        <div>
+                            <select *ngIf="region.value === 'LATINOAMERICA'" class="form-control is-invalid" id="pais" name="pais" [(ngModel)]="cliente.pais" #pais="ngModel" required>
+                            <option value="">SELECCIONE UN PAIS</option>
+                            <option value="COLOMBIA">COLOMBIA</option>
+                            <option value="ECUADOR">ECUADOR</option>
+                            <option value="CHILE">CHILE</option>
+                            <option value="PERÚ">PERÚ</option>
+                            <option value="MEXICO">MEXICO</option>
+                            <option value="PUERTO RICO">PUERTO RICO</option>
+                    </select>
+                        </div>
+                        <div>
+                            <select *ngIf="region.value === 'AFRICA'" class="form-control is-invalid" id="pais" name="pais" [(ngModel)]="cliente.pais" #pais="ngModel" required>
+                                    <option value="">SELECCIONE UN PAIS</option>
+                                    <option value="MARRUECOS">MARRUECOS</option>
+                            </select>
+                        </div>
+
                     </div>
 
-                    <label for="region">Región<Span class="rojo">*</Span></label>
-                    <select class="custom-select" id="region" name="region" [(ngModel)]="cliente.region">
-                        <option selected>SELECCIONE UNA REGIÓN</option>
-                        <option value=" EUROPA">EUROPA</option>
-                        <option value="LATINOAMERICA">LATINOAMERICA</option>
-                        <option value="AFRICA">AFRICA</option>
-                    </select>
+                    <!--<select class="custom-select" id="pais" name="pais" [(ngModel)]="cliente.pais" #pais="ngModel" required>
+                            <option value="">SELECCIONE UNA PAÍS</option>
+                            <option *ngFor="let pais of paises" [value]="pais.nombre">{{pais.nombre}}</option>
+                            <div *ngIf="region?.errors?.required && (codigo.touched)" class="invalid-feedback">Debe seleccionar un país</div>
+                    </select>-->
 
-                    <label for="pais">País<Span class="rojo">*</Span></label>
-                    <select class="custom-select" id="pais" name="pais" [(ngModel)]="cliente.pais">
-                        <option selected>SELECCIONE UN PAIS</option>
-                        <option value="COLOMBIA">COLOMBIA</option>
-                        <option value="ESPAÑA">ESPAÑA</option>
-                        <option value="ECUADOR">ECUADOR</option>
-                        <option value="CHILE">CHILE</option>
-                        <option value="CHILE">MEXICO</option>
-                    </select>
 
-                    <label for="mercado">Mercado<Span class="rojo">*</Span></label>
-                    <select class="custom-select" id="mercado" name="mercado" [(ngModel)]="cliente.mercado">
-                        <option selected>SELECCIONE UN MERCADO</option>
-                        <option value="TELCOM">TELCOM</option>
-                        <option value="ELECTRICAS">ELECTRICAS</option>
-                        <option value="PRODUCTOS INTERNOS">PRODUCTOS INTERNOS</option>
-                    </select>
+                    <div class="form-group was-validated">
+                        <label for="mercado">Mercado<Span class="rojo">*</Span></label>
+                        <select class="custom-select" id="mercado" name="mercado" [(ngModel)]="cliente.mercado" #mercado="ngModel" required>
+                            <option value="">SELECCIONE UN MERCADO</option>
+                            <option *ngFor="let mercado of mercados" [value]="mercado.nombre">{{mercado.nombre}}</option>
+                            <div *ngIf="region?.errors?.required && (codigo.touched)" class="invalid-feedback">Debe
+                                seleccionar un mercado</div>
+                        </select>
+                    </div>
                     <br>
                     <br>
                     <div class="card">
@@ -70,15 +105,17 @@
                             <h5 class="card-title">Datos de Contacto del Cliente</h5>
                         </div>
                         <div class="card-body">
-                            <label for="codigo">Nombre de Contacto<Span class="rojo">*</Span></label>
-                            <div class="custom-file">
-                                <input type="text" class="form-control" placeholder="Nombre del contacto" id="Ncontacto" name="Ncontacto" [(ngModel)]="cliente.Ncontacto">
+                            <div class="form-group was-validated">
+                                <label for="codigo">Nombre de Contacto<Span class="rojo">*</Span></label>
+                                <input type="text" class="form-control" #input2 [value]="input2.value.toUpperCase()" placeholder="Nombre del contacto" id="Ncontacto" name="Ncontacto" [(ngModel)]="cliente.Ncontacto" required #ncontacto="ngModel">
+                                <div *ngIf="ncontacto?.errors?.required && (ncontacto.touched)" class="invalid-feedback">Este campo es requerido</div>
+                                <div *ngIf="ncontacto?.errors?.minlength && (ncontacto.touched)" class="invalid-feedback">Mínimo 3 caracteres</div>
                             </div>
-                            <br>
-                            <br>
-                            <label for="codigo">Email de Contacto<Span class="rojo">*</Span></label>
-                            <div class="custom-file">
-                                <input type="email" class="form-control" placeholder="Email del contacto" id="Econtacto" name="Econtacto" [(ngModel)]="cliente.Econtacto">
+                            <div class="form-group was-validated">
+                                <label for="codigo">Email de Contacto<Span class="rojo">*</Span></label>
+                                <input type="Email" class="form-control" #input3 [value]="input3.value.toUpperCase()" placeholder="Email del contacto" id="Econtacto" name="Econtacto" [(ngModel)]="cliente.Econtacto" required #econtacto="ngModel">
+                                <div *ngIf="econtacto?.errors?.required && (econtacto.touched)" class="invalid-feedback">Este campo es requerido</div>
+                                <div *ngIf="econtacto?.errors?.minlength && (econtacto.touched)" class="invalid-feedback">Mínimo 3 caracteres</div>
                             </div>
                             <br>
                         </div>
@@ -87,7 +124,8 @@
                         Obligatorios</label>
                     <hr>
                     <div class="form-footer">
-                        <button type="submit" class=" myButton btn-block "> Registrar</button>
+                        <button type="submit" [disabled]="!formGuardarCliente.valid" class=" myButton btn-block ">
+                            Registrar</button>
                         <hr>
                     </div>
                 </form>

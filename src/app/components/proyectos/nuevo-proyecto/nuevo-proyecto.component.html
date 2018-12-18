@@ -24,7 +24,7 @@
                         <label for="codigo">Código Proyecto<Span class="rojo">*</Span></label>
                         <input class="form-control" type="text" #input [value]="input.value.toUpperCase()" placeholder="Código" id="codigo" name="codigo" [(ngModel)]="proyecto.codigo" minlength="3" required #codigo="ngModel">
                         <div *ngIf="codigo?.errors?.required && (codigo.touched)" class="invalid-feedback">Este campo es requerido</div>
-                        <div *ngIf="codigo?.errors?.minlength" class="invalid-feedback">Mínimo 3 caracteres</div>
+                        <div *ngIf="codigo?.errors?.minlength && (codigo.touched)" class="invalid-feedback">Mínimo 3 caracteres</div>
                     </div>
                     <div class="form-group was-validated">
                         <label for="nombre">Nombre Proyecto<Span class="rojo">*</Span></label>
@@ -34,7 +34,7 @@
                     </div>
                     <div class="form-group was-validated">
                         <label for="descripcion">Descripción<Span class="rojo">*</Span></label>
-                        <textarea class="form-control" #input2 [value]="input2.value.toUpperCase()" placeholder="Descripción" aria-label="With textarea" id="descripcion" name="descripcion" [(ngModel)]="proyecto.descripcion" minlength="2" required required #descripcion="ngModel">Describe brevemente la actividad del Cliente</textarea>
+                        <textarea class="form-control" #input2 [value]="input2.value.toUpperCase()" placeholder="Descripción" aria-label="With textarea" id="descripcion" name="descripcion" [(ngModel)]="proyecto.descripcion" minlength="2" required required #descripcion="ngModel"></textarea>
                         <div *ngIf="descripcion?.errors?.required && (descripcion.touched)" class="invalid-feedback">Este campo es requerido</div>
                         <div *ngIf="descripcion?.errors?.minlength" class="invalid-feedback">Mínimo 2 caracteres</div>
                     </div>
