@@ -25,6 +25,17 @@ export class ModificarClienteComponent implements OnInit {
     Econtacto: ''
   };
 
+  regiones = [{
+    nombre: 'EUROPA'
+  },
+  {
+    nombre: 'LATINOAMERICA'
+  },
+  {
+    nombre: 'AFRICA'
+  },
+  ];
+
   constructor(
     private authService: AuthService,
     private router: Router,
