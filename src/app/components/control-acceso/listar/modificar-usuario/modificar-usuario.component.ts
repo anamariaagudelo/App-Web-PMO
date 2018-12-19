@@ -20,7 +20,7 @@ export class ModificarUsuarioComponent implements OnInit {
     role: '',
     estado: '',
   };
- 
+
   constructor(
     private authService: AuthService,
     private router: Router,

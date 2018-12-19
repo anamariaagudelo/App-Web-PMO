@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { NgFlashMessageService } from 'ng-flash-messages';
 import { UserInterface } from '../../../Models/user-interface';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { NgForm } from '@angular/forms';
 
 
 
@@ -33,9 +34,9 @@ export class RegistarComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmitAddUser({value}: {value: UserInterface}) {
-    this.authService.addNewUser(value);
-    console.log(value);
+  onSubmitAddUser(formGuardarUsers: NgForm) {
+    this.authService.addNewUser(formGuardarUsers.value);
+    console.log(formGuardarUsers.value);
         this.ngFlashMensaje.showFlashMessage({messages: ['Usuario creado Correctamente'],
         dismissible: true, timeout: 5000, type: 'success'});
         this.router.navigate(['/listar']);

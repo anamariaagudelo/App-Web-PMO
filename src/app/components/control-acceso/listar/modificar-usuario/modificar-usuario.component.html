@@ -14,54 +14,47 @@
                 </div>
 
                 <form #formModificarUser="ngForm" (ngSubmit)="onModificarUser(formModificarUser)">
-                    <div class="form-group row">
-                        <label for="login" class="col-3 col-form-label">Login<Span class = "rojo">*</Span></label>
-                        <div>
-                            <input type="text" size="50" class="form-control" id="login" name="login" [(ngModel)]="user.email">
+                    <div class="form-group row was-validated">
+                        <label for="nombres" class="col-2 col-form-label">Nombres<Span class="rojo">*</Span></label>
+                        <div class="col-md-10">
+                            <input size="50" class="form-control" type="text" #input [value]="input.value.toUpperCase()" placeholder="Nombres" id="nombres" name="nombres" [(ngModel)]="user.nombres" minlength="3" required #nombres="ngModel">
+                            <div *ngIf="nombres?.errors?.required && (nombres.touched)" class="invalid-feedback">Este campo es requerido</div>
+                            <div *ngIf="nombres?.errors?.minlength && (nombres.touched)" class="invalid-feedback">Mínimo 3 caracteres</div>
                         </div>
                     </div>
-
-                    <div class="form-group row">
-                        <label for="nombres" class="col-3 col-form-label">Nombres<Span class = "rojo">*</Span></label>
-                        <div>
-                            <div class="input-group ">
-                                <input type="text" size="50" class="form-control" id="nombres" name="nombres" [(ngModel)]="user.nombres">
-                            </div>
+                    <div class="form-group row was-validated">
+                        <label for="apellidos" class="col-2 col-form-label">Apellidos<Span class="rojo">*</Span></label>
+                        <div class="col-md-10">
+                            <input size="50" class="form-control" type="text" #input1 [value]="input1.value.toUpperCase()" placeholder="Apellidos" id="apellidos" name="apellidos" [(ngModel)]="user.apellidos" minlength="3" required #apellidos="ngModel">
+                            <div *ngIf="apellidos?.errors?.required && (apellidos.touched)" class="invalid-feedback">Este campo es requerido</div>
+                            <div *ngIf="apellidos?.errors?.minlength && (apellidos.touched)" class="invalid-feedback">Mínimo 3 caracteres</div>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="apellidos" class="col-3 col-form-label">Apellidos<Span class = "rojo">*</Span></label>
-                        <div>
-                            <div class="input-group ">
-                                <input type="text" size="50" class="form-control" id="apellidos" name="apellidos" [(ngModel)]="user.apellidos">
-                            </div>
+                    <div class="form-group row was-validated">
+                        <label for="email" class="col-2 col-form-label">Email<Span class="rojo">*</Span></label>
+                        <div class="col-md-10">
+                            <input size="50" class="form-control" type="email" #input2 [value]="input2.value.toUpperCase()" placeholder="Email@mail.com" id="email" name="email" [(ngModel)]="user.email" required #email="ngModel">
+                            <div *ngIf="email?.errors?.required && (email.touched)" class="invalid-feedback">Este campo es requerido</div>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="email" class="col-3 col-form-label">Email<Span class = "rojo">*</Span></label>
-                        <div>
-                            <input type="text" size="50" class="form-control" id="email" name="email" [(ngModel)]="user.email">
+                    <div class="form-group row was-validated">
+                        <label for="perfil" class="col-2 col-form-label">Perfil<Span class="rojo">*</Span></label>
+                        <div class="col-md-10">
+                            <select class="form-control" id="role" name="role" style="width:595px" size="1" [(ngModel)]="user.role" required #role="ngModel">
+                                    <option value="">SELECCIONE UN ROL</option>
+                                    <option value="ADMIN">ADMINISTRADOR</option>
+                                    <option value="CONSULT">CONSULTOR</option>
+                                </select>
                         </div>
                     </div>
-
-                    <div class="form-group row">
-                        <label for="perfil" class="col-3 col-form-label">Perfil<Span class = "rojo">*</Span></label>
-                        <div>
-                            <select class="custom-select" id="role" name="role" style="width:350px" size="1" [(ngModel)]="user.role">
-                                          <option selected>SELECCIONE PERFIL </option>
-                                          <option value="admin">ADMINISTRADOR</option>
-                                          <option value="consult">CONSULTOR</option>
-                                        </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="perfil" class="col-3 col-form-label">Estado<Span class = "rojo">*</Span></label>
-                        <div>
-                            <select class="custom-select" id="estado" name="estado" style="width:350px" size="1" [(ngModel)]="user.estado">
-                                          <option selected>SELECCIONE ESTADO</option>
-                                          <option value="activo">ACTIVO</option>
-                                          <option value="inactivo">INACTIVO</option>
-                                        </select>
+                    <div class="form-group row was-validated">
+                        <label for="perfil" class="col-2 col-form-label">Estado<Span class="rojo">*</Span></label>
+                        <div class="col-md-10">
+                            <select class="form-control" id="estado" name="estado" style="width:595px" size="1" [(ngModel)]="user.estado" required #role="ngModel">
+                                        <option value="">SELECCIONE ESTADO</option>
+                                        <option value="ACTIVO">ACTIVO</option>
+                                        <option value="INACTIVO">INACTIVO</option>
+                                    </select>
                         </div>
                     </div>
                     <label for="email" class="col-6 col-form-label"><Span class = "rojo">*</Span>Campos Obligatorios</label>

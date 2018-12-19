@@ -44,11 +44,11 @@ export class LoginService {
           collection.subscribe(docs => {
             this.user = docs[0];
             console.log(this.user);
-            if (this.user.role === 'admin') {
+            if (this.user.role === 'ADMIN') {
               this.router.navigate(['/admin']);
               this.isAdmin = true;
               console.log (this.isAdmin);
-            } else if (this.user.role === 'consult') {
+            } else if (this.user.role === 'CONSULT') {
               this.router.navigate(['/consult']);
               this.isAdmin = false;
             }
