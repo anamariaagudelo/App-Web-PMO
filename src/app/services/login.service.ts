@@ -4,6 +4,7 @@ import { AuthService } from './auth.service';
 import { UserInterface } from '../Models/user-interface';
 import { Router } from '@angular/router';
 import { NgFlashMessageService } from 'ng-flash-messages';
+import { PreloaderService } from './preloader.service';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +27,8 @@ export class LoginService {
   constructor(
     public afAuth: AngularFireAuth,
     public authService: AuthService,
-    private router: Router
+    private router: Router,
+    public preloader: PreloaderService,
 
   ) { }
 

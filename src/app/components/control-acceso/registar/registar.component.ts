@@ -35,21 +35,11 @@ export class RegistarComponent implements OnInit {
   }
 
   onSubmitAddUser(formGuardarUsers: NgForm) {
-    this.authService.addNewUser(formGuardarUsers.value);
-    console.log(formGuardarUsers.value);
-        this.ngFlashMensaje.showFlashMessage({messages: ['Usuario creado Correctamente'],
-        dismissible: true, timeout: 5000, type: 'success'});
-        this.router.navigate(['/listar']);
-
-  // tslint:disable-next-line:max-line-length
-  /*this.authService.registerUser(this.user.nombre, this.user.apellido, this.user.email, this.user.password, this.user.perfil, this.user.estado)
-  .then((res) => {
-    console.log(res);
-    this.ngFlashMensaje.showFlashMessage({messages: ['Usuario creado Correctamente'], dismissible: true, timeout: 5000, type: 'success'});
+    this.authService.addNewUser(formGuardarUsers.value).then((res) => {
+      this.ngFlashMensaje.showFlashMessage({messages: ['Usuario creado Correctamente'], dismissible: true, timeout: 5000, type: 'success'});
     this.router.navigate(['/listar']);
-  }).catch((err) => {
-    this.ngFlashMensaje.showFlashMessage({messages: [err], dismissible: true, timeout: 5000, type: 'danger'});
-  });*/
+    }).catch((err) => {
+      this.ngFlashMensaje.showFlashMessage({messages: [err], dismissible: true, timeout: 5000, type: 'danger'});
+    });
   }
-
 }

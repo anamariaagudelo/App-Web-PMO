@@ -63,12 +63,11 @@ export class ModificarClienteComponent implements OnInit {
     this.authService.getAuth().subscribe (user => {
     value.codigo = this.codCliente;
     this.clienteService.updateCliente(value);
-    this.ngFlashMensaje.showFlashMessage({messages: ['Cliente Modificado Correctamente'],
+    this.ngFlashMensaje.showFlashMessage({messages: ['Cliente Modificado correctamente'],
         dismissible: true, timeout: 5000, type: 'success'});
         this.router.navigate(['/visualizarCliente/' + this.codCliente]);
     });
-    /*return Observable.throw(this.ngFlashMensaje.showFlashMessage({messages: ['Campos Obligatorios Requeridos'],
-    dismissible: true, timeout: 5000, type: 'danger'}));*/
+
 
   }
 }

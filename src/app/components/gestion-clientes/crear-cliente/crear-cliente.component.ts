@@ -67,6 +67,8 @@ export class CrearClienteComponent implements OnInit {
 
   onGuardarCliente(formGuardarCliente: NgForm) {
     this.clienteService.addNewCliente(formGuardarCliente.value);
+    this.ngFlashMensaje.showFlashMessage({messages: ['Cliente Creado correctamente'],
+        dismissible: true, timeout: 5000, type: 'success'});
     this.router.navigate(['/listarCliente']);
   }
 }

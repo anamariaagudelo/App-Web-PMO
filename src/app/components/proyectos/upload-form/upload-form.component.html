@@ -15,25 +15,33 @@
                     <br>
                 </div>
                 <form>
-                    <div class="form-group">
+                    <div class="form-group was-validated">
                         <label for="codigo">Código Proyecto<Span class="rojo">*</Span></label>
-                        <input type="text" class="form-control" id="codigo" name="codigo" [(ngModel)]="proyecto.codigo">
+                        <input class="form-control" type="text" #input [value]="input.value.toUpperCase()" placeholder="Código" id="codigo" name="codigo" [(ngModel)]="proyecto.codigo" minlength="3" required #codigo="ngModel">
+                        <div *ngIf="codigo?.errors?.required && (codigo.touched)" class="invalid-feedback">Este campo es requerido</div>
+                        <div *ngIf="codigo?.errors?.minlength && (codigo.touched)" class="invalid-feedback">Mínimo 3 caracteres
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group was-validated">
                         <label for="nombre">Nombre Proyecto<Span class="rojo">*</Span></label>
-                        <input type="text" class="form-control" placeholder="Nombre" id="nombre" name="nombre" [(ngModel)]="proyecto.nombre">
+                        <input class="form-control" type="text" #input1 [value]="input1.value.toUpperCase()" placeholder="Nombre" id="nombre" name="nombre" [(ngModel)]="proyecto.nombre" minlength="3" required #nombre="ngModel">
+                        <div *ngIf="nombre?.errors?.required && (nombre.touched)" class="invalid-feedback">Este campo es requerido</div>
+                        <div *ngIf="nombre?.errors?.minlength" class="invalid-feedback">Mínimo 3 caracteres</div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group was-validated">
                         <label for="descripcion">Descripción<Span class="rojo">*</Span></label>
-                        <textarea class="form-control" aria-label="With textarea" id="descripcion" name="descripcion" [(ngModel)]="proyecto.descripcion"></textarea>
+                        <textarea class="form-control" #input2 [value]="input2.value.toUpperCase()" placeholder="Descripción" aria-label="With textarea" id="descripcion" name="descripcion" [(ngModel)]="proyecto.descripcion" minlength="2" required required #descripcion="ngModel"></textarea>
+                        <div *ngIf="descripcion?.errors?.required && (descripcion.touched)" class="invalid-feedback">Este campo es requerido</div>
+                        <div *ngIf="descripcion?.errors?.minlength" class="invalid-feedback">Mínimo 2 caracteres</div>
+                    </div>
+                    <div class="form-group was-validated">
+                        <label for="cliente">Cliente<Span class="rojo">*</Span></label>
+                        <select class="form-control is-invalid" id="cliente" name="cliente" [(ngModel)]="proyecto.cliente" #cliente="ngModel" required>
+                            <option selected>{{proyecto.cliente}}</option>
+                        </select>
+                        <div *ngIf="cliente?.errors?.required && (codigo.touched)" class="invalid-feedback">Debe seleccionar un cliente</div>
                     </div>
 
-
-                    <label for="cliente">Cliente<Span class="rojo">*</Span></label>
-                    <select class="custom-select" id="cliente" name="cliente" [(ngModel)]="proyecto.cliente">
-                        <option selected>{{proyecto.cliente}}</option>
-
-                    </select>
                     <br>
                     <br>
                     <form #formGuardarArchivo="ngForm" (ngSubmit)="cargarArchivos(formGuardarArchivo)">

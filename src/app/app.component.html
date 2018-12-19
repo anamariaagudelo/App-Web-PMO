@@ -3,7 +3,10 @@
 </app-navbar>
 
 
-<div class="container main-container">
+<div class="container">
     <router-outlet></router-outlet>
-
+    <div class="loader" *ngIf="preloader.loadings | async"></div>
+</div>
+<div class="container">
+    <ng-flash-message></ng-flash-message>
 </div>

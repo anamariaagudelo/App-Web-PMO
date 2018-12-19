@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PreloaderService } from './services/preloader.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'App-Web-PMO';
+
+
+  constructor( public preloader: PreloaderService ) {
+
+  }
 }

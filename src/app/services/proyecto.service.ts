@@ -7,6 +7,8 @@ import * as faker from 'faker';
 import { FileItem } from '../Models/file-item';
 import { finalize } from 'rxjs/operators';
 import { isNgTemplate } from '@angular/compiler';
+import { PreloaderService } from './preloader.service';
+import { NgFlashMessageService } from 'ng-flash-messages';
 
 
 @Injectable({
@@ -24,7 +26,9 @@ export class ProyectoService {
 
 
   constructor(
-    private afs: AngularFirestore) {
+    private afs: AngularFirestore,
+    public preloader: PreloaderService,
+    public ngFlashMensaje: NgFlashMessageService, ) {
     this.proyectoColletion = this.afs.collection('proyectos', ref => ref);
   }
 
@@ -106,9 +110,13 @@ export class ProyectoService {
       storageRef.child(`${this.basePath}${item.nombreAdjunto}`)
         .put(item.adjunto)
         .then(snapshot => {
+          this.preloader.fireLoader();
           return snapshot.ref.getDownloadURL();   // Will return a promise with the download link
         }).then(downloadURL => {
-          console.log(`Successfully uploaded file and got download link - ${downloadURL} /${ item.nombreAdjunto}`);
+         // console.log(`Successfully uploaded file and got download link - ${downloadURL} /${ item.nombreAdjunto}`);
+         this.ngFlashMensaje.showFlashMessage({messages: ['Proyecto Creado correctamente'],
+         dismissible: true, timeout: 5000, type: 'success'});
+          this.preloader.stopLoader();
           const PDFFileUrl: string = downloadURL;
           const nombre1 = item.nombreAdjunto;
           this.archivo = {nombre: nombre1, url: PDFFileUrl};
@@ -120,8 +128,8 @@ export class ProyectoService {
           // Use to signal error if something goes wrong.
           console.log(`Failed to upload file and get link - ${error}`);
         });
-      console.log(this.adjuntouRL);
     }
+
   }
 
 

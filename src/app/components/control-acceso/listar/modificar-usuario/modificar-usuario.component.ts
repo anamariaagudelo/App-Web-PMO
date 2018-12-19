@@ -25,6 +25,7 @@ export class ModificarUsuarioComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute,
+    public ngFlashMensaje: NgFlashMessageService,
   ) { }
 
   ngOnInit() {
@@ -42,11 +43,10 @@ export class ModificarUsuarioComponent implements OnInit {
     this.authService.getAuth().subscribe (user => {
     value.email = this.emailUser;
     this.authService.updateUser(value);
-    console.log('Modificado Correctamente');
+    // tslint:disable-next-line:max-line-length
+    this.ngFlashMensaje.showFlashMessage({messages: ['Usuario Modificado Correctamente'], dismissible: true, timeout: 5000, type: 'success'});
     this.router.navigate(['/visualizarUsuario/' + this.emailUser]);
     });
-    /*return Observable.throw(this.ngFlashMensaje.showFlashMessage({messages: ['Campos Obligatorios Requeridos'],
-    dismissible: true, timeout: 5000, type: 'danger'}));*/
 
   }
 

@@ -7,6 +7,7 @@ import { ProyectoService } from 'src/app/services/proyecto.service';
 import { NgFlashMessageService } from 'ng-flash-messages';
 import { ClienteService } from 'src/app/services/Cliente.service';
 import { FileItem } from '../../../Models/file-item';
+import { PreloaderService } from '../../../services/preloader.service';
 
 @Component({
   selector: 'app-upload-form',
@@ -32,6 +33,7 @@ export class UploadFormComponent implements OnInit {
     private proyectoService: ProyectoService,
     public ngFlashMensaje: NgFlashMessageService,
     public clienteService: ClienteService,
+    public preloader: PreloaderService,
   ) { }
 
   ngOnInit() {
@@ -62,7 +64,6 @@ export class UploadFormComponent implements OnInit {
     cargarArchivos () {
       this.proyectoService.cargarArchivosFirebase(this.archivos);
       this.router.navigate(['/listarProyectosAdmin']);
-
     }
 
     limpiarArchivos() {
