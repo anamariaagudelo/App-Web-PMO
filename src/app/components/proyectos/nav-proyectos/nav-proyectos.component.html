@@ -1,8 +1,8 @@
 <ul class="nav nav-tabs">
     <li class="nav-item">
-        <a class="nav-link active" href="#nuevoProyecto" *ngIf="isLogin">NUEVO PROYECTO</a>
+        <a class="nav-link active" [routerLink]="['/nuevoProyecto']">NUEVO PROYECTO</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#listarProyecto">LISTA PROYECTOS</a>
+        <a class="nav-link" [routerLink]="['/listarProyectosAdmin']">LISTA PROYECTOS</a>
     </li>
 </ul>

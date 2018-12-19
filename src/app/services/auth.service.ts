@@ -99,8 +99,6 @@ export class AuthService {
     }).subscribe(items => {
       items.forEach(user => {
         this.afs.doc(`users/${user.id}`).update({
-          nombres: usuario.nombres,
-          apellidos: usuario.apellidos,
           email: usuario.email,
           role: usuario.role,
           estado: usuario.estado
