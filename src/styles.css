@@ -154,3 +154,8 @@ body {
         transform: rotate(360deg);
     }
 }
+
+.sinborde {
+    background-color: #eee;
+    border: 0;
+}

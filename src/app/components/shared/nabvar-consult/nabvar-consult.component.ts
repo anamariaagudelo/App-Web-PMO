@@ -42,8 +42,12 @@ this.onComprobarUserLogin();
    }
 
    buscarProyecto(termino: string) {
-    this.router.navigate(['/buscadorConsult', termino]);
+    this.router.navigate(['/buscadorConsult', termino.toUpperCase()]);
 
+  }
+
+  filter(event) {
+    event = this.router.navigate(['/listarProyectosConsult']);
   }
 
 }

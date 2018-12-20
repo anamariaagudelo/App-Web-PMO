@@ -21,7 +21,7 @@
         <ul class="navbar-nav ml-auto "></ul>
         <form class="form-inline my-2 my-lg-0 ">
 
-            <input class="form-control mr-sm-2 " type="text " placeholder="Buscar Proyecto " #buscarTexto (keyup.enter)="buscarProyecto(buscarTexto) ">
+            <input class="form-control mr-sm-2 " type="text " placeholder="Buscar Proyecto " #buscarTexto (keyup.enter)="buscarProyecto(buscarTexto.value) ">
             <button (click)="buscarProyecto(buscarTexto.value) " class="myButton " type="button">
                     <span class="glyphicon glyphicon-search "></span> Buscar
                 </button>

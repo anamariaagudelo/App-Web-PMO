@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProyectoService } from '../../services/proyecto.service';
 import { ProyectoInterface } from 'src/app/Models/proyecto';
+import { NgFlashMessageService } from 'ng-flash-messages';
 
 @Component({
   selector: 'app-buscador',
@@ -10,6 +11,7 @@ import { ProyectoInterface } from 'src/app/Models/proyecto';
 })
 export class BuscadorComponent implements OnInit {
   proy: any;
+  filterValue = 'termino';
 
   proyecto: ProyectoInterface = {
     codigo: '',
@@ -20,7 +22,9 @@ export class BuscadorComponent implements OnInit {
 
   constructor(
     private activateRoute: ActivatedRoute,
-    private proyectoService: ProyectoService
+    private proyectoService: ProyectoService,
+    public ngFlashMensaje: NgFlashMessageService,
+    public router: Router,
   ) { }
 
   ngOnInit() {
@@ -30,7 +34,6 @@ export class BuscadorComponent implements OnInit {
   }
 
 
-  // PENDIENTE OPTIMIZAR BÚSQUEDA
   getBusquedaproyecto() {
     this.activateRoute.params.subscribe(params => {
       this.proy = this.proyectoService.buscarOneproyectos(params['termino']);
@@ -41,3 +44,4 @@ export class BuscadorComponent implements OnInit {
     });
 }
 }
+

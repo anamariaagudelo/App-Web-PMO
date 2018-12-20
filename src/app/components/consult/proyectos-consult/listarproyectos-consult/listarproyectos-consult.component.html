@@ -11,7 +11,11 @@
 <div class="container ">
     <br>
     <h3 style="text-align: center ">Listado de Proyectos</h3>
-    <table class="table ">
+    <hr>
+
+    <input class="form-control mr-sm-2 " type="text " placeholder="Buscar Proyecto " (keydown)="applyFilter($event)">
+    <br>
+    <table class="table">
         <thead class="list-group-item-danger ">
             <tr class="light bg-light">
                 <th scope="col ">Código</th>
@@ -29,6 +33,10 @@
                 <td> <button [routerLink]="['/VisualizarProyectoConsult', proyecto.codigo]" class="myButton">
                             <span class="glyphicon glyphicon-eye-open"></span> Visualizar
                         </button></td>
+            </tr>
+            <tr *ngIf="proyectos?.length === 0">
+                <td>No se encontraron Coincidencias</td>
+
             </tr>
         </tbody>
     </table>

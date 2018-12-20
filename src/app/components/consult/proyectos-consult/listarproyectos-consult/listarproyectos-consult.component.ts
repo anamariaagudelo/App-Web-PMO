@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProyectoInterface } from 'src/app/Models/proyecto';
 import { ProyectoService } from 'src/app/services/proyecto.service';
+import { filter } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listarproyectos-consult',
@@ -12,6 +14,7 @@ export class ListarproyectosConsultComponent implements OnInit {
 
   constructor(
     public proycetoService: ProyectoService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -20,4 +23,11 @@ export class ListarproyectosConsultComponent implements OnInit {
   todosProyectos() {
     this.proycetoService.getAllProyectos().subscribe(proyectos => this.proyectos = proyectos);
   }
+
+  applyFilter($event) {
+    let termino = $event.target.value;
+    termino = termino.toLowerCase();
+    this.proyectos.filter = termino;
+  }
+
 }
