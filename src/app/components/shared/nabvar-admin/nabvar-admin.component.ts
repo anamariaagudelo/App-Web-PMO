@@ -42,7 +42,7 @@ this.onComprobarUserLogin();
    }
 
    buscarProyecto(termino: string) {
-    this.router.navigate(['/buscadorAdmin', termino]);
+    this.router.navigate(['/buscadorAdmin', termino.toUpperCase()]);
 
   }
 }
