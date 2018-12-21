@@ -161,7 +161,6 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 // tslint:disable-next-line:max-line-length
 
 var routes = [
-    { path: 'login', component: _components_shared_navbar_login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"] },
     { path: 'home', component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_2__["HomeComponent"] },
     { path: 'homeConsult', component: _components_consult_home_consult_home_consult_component__WEBPACK_IMPORTED_MODULE_27__["HomeConsultComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_22__["AuthGuard"]] },
     { path: 'homeAdmin', component: _components_admin_home_admin_home_admin_component__WEBPACK_IMPORTED_MODULE_31__["HomeAdminComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_22__["AuthGuard"]] },
@@ -170,6 +169,7 @@ var routes = [
     { path: 'proyectosAdmin', component: _components_admin_proyectos_admin_proyectos_admin_component__WEBPACK_IMPORTED_MODULE_32__["ProyectosAdminComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_22__["AuthGuard"]] },
     { path: 'controlAcceso', component: _components_control_acceso_control_acceso_component__WEBPACK_IMPORTED_MODULE_4__["ControlAccesoComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_22__["AuthGuard"]] },
     { path: 'controlAccesoAdmin', component: _components_admin_control_acceso_admin_control_acceso_admin_component__WEBPACK_IMPORTED_MODULE_35__["ControlAccesoAdminComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_22__["AuthGuard"]] },
+    { path: 'login', component: _components_shared_navbar_login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"] },
     { path: 'registar', component: _components_control_acceso_registar_registar_component__WEBPACK_IMPORTED_MODULE_6__["RegistarComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_22__["AuthGuard"]] },
     { path: 'listar', component: _components_control_acceso_listar_listar_component__WEBPACK_IMPORTED_MODULE_7__["ListarComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_22__["AuthGuard"]] },
     { path: 'visualizarUsuario/:email', component: _components_control_acceso_listar_visualizar_usuario_visualizar_usuario_component__WEBPACK_IMPORTED_MODULE_8__["VisualizarUsuarioComponent"], canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_22__["AuthGuard"]] },
@@ -5208,12 +5208,12 @@ __webpack_require__.r(__webpack_exports__);
 var environment = {
     production: false,
     firebase: {
-        apiKey: 'AIzaSyDEsC0uh5QZgGUAPlP312uySW3OrDXfHIY',
-        authDomain: 'appwebpmo-6d463.firebaseapp.com',
-        databaseURL: 'https://appwebpmo-6d463.firebaseio.com',
-        projectId: 'appwebpmo-6d463',
-        storageBucket: 'appwebpmo-6d463.appspot.com',
-        messagingSenderId: '980531451968'
+        apiKey: 'AIzaSyBE32Cipzqg16gSGy5QdJxtgVmo3Tur6fg',
+        authDomain: 'appwebpmo.firebaseapp.com',
+        databaseURL: 'https://appwebpmo.firebaseio.com',
+        projectId: 'appwebpmo',
+        storageBucket: 'appwebpmo.appspot.com',
+        messagingSenderId: '1057410634859'
     }
 };
 /*
