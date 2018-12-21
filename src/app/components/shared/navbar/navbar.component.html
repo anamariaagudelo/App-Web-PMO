@@ -8,7 +8,7 @@
         <ul class="navbar-nav mr-auto">
             <form class="collapse navbar-collapse">
                 <li class="nav-item " routerLinkActive="router-link-active ">
-                    <a class="nav-link active " href="home" *ngIf="!isLogin"><small><b>INICIO</b></small></a>
+                    <a class="nav-link active " [routerLink]="[ 'home']" *ngIf=" !isLogin "><small><b>INICIO</b></small></a>
                 </li>
 
             </form>
@@ -17,7 +17,7 @@
         <ul class="navbar-nav ml-auto ">
 
             <ul class="navbar-nav ml-auto "></ul>
-            <li class="nav-item " routerLinkActive="Active " *ngIf="!isLogin">
+            <li class="nav-item " routerLinkActive="Active " *ngIf="!isLogin ">
                 <a class="nav-link " [routerLink]="[ 'login'] "><small><b>LOGIN</b></small></a>
             </li>
         </ul>
